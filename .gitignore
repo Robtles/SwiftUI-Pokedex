@@ -1,0 +1,45 @@
+# Mac OS X Finder
+.DS_Store
+
+# CocoaPods
+Pods/
+
+# Private Keys
+*.pem
+
+# Xcode legacy
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+# Xcode
+xcuserdata/
+project.xcworkspace/
+DerivedData/
+*.xcuserstate
+*.xcworkspacedata
+*.xcbkptlist
+*.xccheckout
+*.xcscheme
+*.xcschememanagement.plist
+*.xcuserdata*
+
+# build products
+build/
+*.[oa]
+
+# repositories
+.hg
+.svn
+CVS
+
+# automatic backup files
+*.swp
+*~
+*(Autosaved).rtfd/
+Backup[ ]of[ ]*.pages/
+Backup[ ]of[ ]*.key/
+Backup[ ]of[ ]*.numbers/
