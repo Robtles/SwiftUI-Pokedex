@@ -9,7 +9,7 @@ Some key concepts that I will try to implement:
 - I will try to make it a cross-platform one, handling at least iOS and macOS.
 - The latest iOS and macOS versions (respectively 17.0 and 14.0) will be used, enabling their brand new features (NavigationStack/Path, @Observable, etc...).
 - Four different app targets will be created in order to try several architectures and see how they blend with SwiftUI : MV (the basic use of SwiftUI), MVVM, Clean Architecture and TCA (The Composable Architecture).
-- No matter which architecture will be chosen, the SOLID, KISS and DRY programming concepts will be followed. Especially, the model and the API will be isolated and independent from the architecture. 
+- No matter which architecture will be chosen, the SOLID, KISS and DRY programming concepts will be followed. Especially, the model and the API will be isolated and independent from the rest of the architecture.
 - Tests will be created to check the validity of the model, API calls or JSON-to-model mapping.
 
 ## Dependencies
@@ -18,3 +18,15 @@ Swift Package Manager will be used to handle dependencies. Local libraries/packa
 
 - `Moya`: all the API requests will be simplified with Moya, which itself also embeds `Alamofire`.
 - `Kingfisher`: will be used for image downloading & cache.
+
+## API
+
+- The main list content will be available from my website, at https://www.robbeyroad.com/api/pokemons.json. It contains the 493 first Pokémons, and their names localized in several languages, which is not possible with pokeapi.co API with a simple call.
+- However, https://pokeapi.co will be used for every Pokémon specific query, which includes: basic Pokémon data, species data and evolution data. 
+
+## Tests
+
+Some tests will be added, in order to check:
+- Model validity,
+- API data fetching,
+- JSON API to model mapping...
