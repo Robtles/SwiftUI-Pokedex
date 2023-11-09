@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		D450E8172AEC4F1F00FD1861 /* Model */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Model; path = Packages/Model; sourceTree = "<group>"; };
+		D4A942372AF96F2C00798DA5 /* API */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = API; path = Packages/API; sourceTree = "<group>"; };
 		D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-MV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexApp.swift; sourceTree = "<group>"; };
 		D4D00A6C2AEA612300409A8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		D4D00A5E2AEA612300409A8D = {
 			isa = PBXGroup;
 			children = (
+				D4A942372AF96F2C00798DA5 /* API */,
 				D450E8172AEC4F1F00FD1861 /* Model */,
 				D4D00A972AEA646B00409A8D /* README.md */,
 				D4D00A692AEA612300409A8D /* SwiftUI-Pokedex */,
