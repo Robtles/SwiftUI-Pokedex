@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Pokemon Type
 /// The Pokémon types
-public enum PokemonType: String, CaseIterable {
+public enum PokemonType: String, CaseIterable, Codable, CodingKeyRepresentable, Equatable, Hashable {
     // MARK: Cases
     /// The normal type
     case normal = "normal"

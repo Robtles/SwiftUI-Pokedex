@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Pokemon Stat
 /// Enumerates the existing Pokémon stats
-public enum PokemonStat: String, CaseIterable {
+public enum PokemonStat: String, CaseIterable, Codable, CodingKeyRepresentable, Equatable, Hashable {
     // MARK: Cases
     /// The attack stat
     case attack = "attack"

@@ -11,21 +11,21 @@ import Foundation
 public struct EvolutionChainLink {
     // MARK: Properties
     /// The details for this evolution chain
-    public let details: EvolutionDetails
+    public let details: EvolutionDetails?
     /// The possible recursive evolutions for this chain
     public let evolvingTo: [EvolutionChainLink]
     /// The evolving Pokémon species
-    public let id: ID<IdentifiableType.Pokemon>
+    public let species: ID<IdentifiableType.Pokemon>
     
     // MARK: Init Methods
     /// Initializes a Pokémon evolution chain link, keeping only the Pokémon valid identifiers
     public init(
-        details: EvolutionDetails, 
+        details: EvolutionDetails?,
         evolvingTo: [EvolutionChainLink],
-        id: ID<IdentifiableType.Pokemon>
+        speciesId: ID<IdentifiableType.Pokemon>
     ) {
         self.details = details
-        self.evolvingTo = evolvingTo.filter { Pokemon.includes($0.id) }
-        self.id = id
+        self.evolvingTo = evolvingTo.filter { Pokemon.includes($0.species) }
+        self.species = speciesId
     }
 }

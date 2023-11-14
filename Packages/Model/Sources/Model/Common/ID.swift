@@ -11,9 +11,13 @@ import Foundation
 public struct ID<PhantomType>: ExpressibleByIntegerLiteral, Equatable {
     // MARK: Properties
     /// The underlying integer ID
-    let id: Int
+    public let id: Int
     
     // MARK: Init Methods
+    public init(_ value: Int) {
+        self.init(integerLiteral: value)
+    }
+    
     public init(integerLiteral value: Int) {
         self.id = value
     }

@@ -13,7 +13,7 @@ final class ModelPokemonIdTests: XCTestCase {
         XCTAssertNil(createFakePokemon(withId: 1000))
     }
     
-    // MARK: Test Making
+    // MARK: Internal
     /// Creates a fake Pokémon in order to test its ID
     /// - Parameter id: The fake Pokémon id
     /// - Returns: The created Pokémon, or nil if ID is not expected
@@ -31,12 +31,11 @@ final class ModelPokemonIdTests: XCTestCase {
                 chain: EvolutionChainLink(
                     details: EvolutionDetails(
                         heldItem: nil,
-                        item: nil,
                         timeOfDay: nil,
                         trigger: .shed
                     ),
                     evolvingTo: [],
-                    id: 10
+                    speciesId: 10
                 )
             ),
             textEntries: [:],

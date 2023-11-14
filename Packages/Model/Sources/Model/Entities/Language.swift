@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Language
 /// The languages available with Pokeapi.co API
-public enum Language: String, CaseIterable {
+public enum Language: String, CaseIterable, Codable, CodingKeyRepresentable, Equatable, Hashable {
     // MARK: Cases
     /// The German language
     case deutsch = "de"
@@ -27,7 +27,7 @@ public enum Language: String, CaseIterable {
     /// The Japanese language with romaji representation
     case romajiJapanese = "roomaji"
     /// The Korean language
-    case korean = "이상해풀"
+    case korean = "ko"
     /// The Chinese language with simplified representation
     case simplifiedChinese = "zh-Hans"
     /// The Chinese language with traditional representation
