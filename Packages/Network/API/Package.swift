@@ -18,6 +18,15 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            path: "../Mapper"
+        ),
+        .package(
+            path: "../Model"
+        ),
+        .package(
+            path: "../Provider"
+        ),
+        .package(
             url: "https://github.com/Moya/Moya.git",
             from: "15.0.0"
         )
@@ -25,11 +34,11 @@ let package = Package(
     targets: [
         .target(
             name: "API",
-            dependencies: ["Moya"]
+            dependencies: ["Mapper", "Moya", "Model", "Provider"]
         ),
         .testTarget(
             name: "APITests",
-            dependencies: ["API", "Moya"]
+            dependencies: ["API", "Mapper", "Moya", "Model", "Provider"]
         )
     ]
 )

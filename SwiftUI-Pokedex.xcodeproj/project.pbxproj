@@ -18,6 +18,8 @@
 		D4D00A8B2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A8A2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift */; };
 		D4D00A9C2AEA681800409A8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4D00A9B2AEA681800409A8D /* Kingfisher */; };
 		D4D00A9F2AEA682400409A8D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D4D00A9E2AEA682400409A8D /* Moya */; };
+		D4DBFBFA2AFFAB8000D3C8B2 /* API in Resources */ = {isa = PBXBuildFile; fileRef = D4DBFBF92AFFAB8000D3C8B2 /* API */; };
+		D4DBFBFC2B00C4A800D3C8B2 /* API in Frameworks */ = {isa = PBXBuildFile; productRef = D4DBFBFB2B00C4A800D3C8B2 /* API */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		D450E8172AEC4F1F00FD1861 /* Model */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Model; path = Packages/Model; sourceTree = "<group>"; };
-		D4A942372AF96F2C00798DA5 /* API */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = API; path = Packages/API; sourceTree = "<group>"; };
+		D4C811BF2AFD82F300F0974A /* Mapper */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Mapper; path = Packages/Mapper; sourceTree = "<group>"; };
 		D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-MV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexApp.swift; sourceTree = "<group>"; };
 		D4D00A6C2AEA612300409A8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 		D4D00A882AEA612600409A8D /* SwiftUI_PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexUITests.swift; sourceTree = "<group>"; };
 		D4D00A8A2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D4D00A972AEA646B00409A8D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D4DBFBF82AFFAB5900D3C8B2 /* Provider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Provider; path = Packages/Network/Provider; sourceTree = "<group>"; };
+		D4DBFBF92AFFAB8000D3C8B2 /* API */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = API; path = Packages/Network/API; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D450E8192AEC4F9500FD1861 /* Model in Frameworks */,
+				D4DBFBFC2B00C4A800D3C8B2 /* API in Frameworks */,
 				D4D00A9F2AEA682400409A8D /* Moya in Frameworks */,
 				D4D00A9C2AEA681800409A8D /* Kingfisher in Frameworks */,
 			);
@@ -93,7 +98,9 @@
 		D4D00A5E2AEA612300409A8D = {
 			isa = PBXGroup;
 			children = (
-				D4A942372AF96F2C00798DA5 /* API */,
+				D4DBFBF92AFFAB8000D3C8B2 /* API */,
+				D4DBFBF82AFFAB5900D3C8B2 /* Provider */,
+				D4C811BF2AFD82F300F0974A /* Mapper */,
 				D450E8172AEC4F1F00FD1861 /* Model */,
 				D4D00A972AEA646B00409A8D /* README.md */,
 				D4D00A692AEA612300409A8D /* SwiftUI-Pokedex */,
@@ -172,6 +179,7 @@
 				D4D00A9B2AEA681800409A8D /* Kingfisher */,
 				D4D00A9E2AEA682400409A8D /* Moya */,
 				D450E8182AEC4F9500FD1861 /* Model */,
+				D4DBFBFB2B00C4A800D3C8B2 /* API */,
 			);
 			productName = "SwiftUI-Pokedex";
 			productReference = D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */;
@@ -265,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DBFBFA2AFFAB8000D3C8B2 /* API in Resources */,
 				D4D00A752AEA612500409A8D /* Preview Assets.xcassets in Resources */,
 				D4D00A712AEA612500409A8D /* Assets.xcassets in Resources */,
 			);
@@ -450,6 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/SwiftUI_Pokedex.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Pokedex/Preview Content\"";
@@ -488,6 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/SwiftUI_Pokedex.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Pokedex/Preview Content\"";
@@ -525,6 +536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SRD9PR5GCG;
@@ -534,6 +546,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.SwiftUI-PokedexTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -548,6 +561,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SRD9PR5GCG;
@@ -557,6 +571,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rob.SwiftUI-PokedexTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -684,6 +699,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4D00A992AEA681000409A8D /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		D4DBFBFB2B00C4A800D3C8B2 /* API */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = API;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
