@@ -53,4 +53,22 @@ public struct API {
             evolutionChainData: evolutionChainData
         )
     }
+    
+    public func getAllVersions() async throws -> [Version] {
+        var result: [Version] = []
+        await withTaskGroup(of: Optional<Version>.self) { taskGroup in
+            Version.Constants.validVersions.forEach { id in
+                taskGroup.addTask {
+                    return try? Mapper.shared.mapToVersion(
+                        id: id,
+                        with: try await pokeAPIProvider.getData(for: .version(id))
+                    )
+                }
+            }
+            for await version in taskGroup.compactMap({ $0 }) {
+                result.append(version)
+            }
+        }
+        return result
+    }
 }

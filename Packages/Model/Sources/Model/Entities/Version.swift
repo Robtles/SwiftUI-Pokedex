@@ -9,6 +9,13 @@ import Foundation
 // MARK: - Version
 /// Information about a game version
 public struct Version {
+    // MARK: Static & Constants
+    /// The constants related to the Version model
+    public enum Constants {
+        /// The valid Pokémon game versions (from the 4 first generations)
+        public static let validVersions = (1...15).map { $0 } + [24, 25]
+    }
+    
     // MARK: Properties
     /// The version unique id
     public let id: ID<IdentifiableType.Version>
