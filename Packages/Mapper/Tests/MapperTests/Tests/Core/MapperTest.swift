@@ -67,17 +67,26 @@ extension MapperTest {
         case .evolutionChain: pokemonFamilyTest.evolutionChainId
         case .pokemon, .pokemonSpecies: pokemonFamilyTest.pokemonId
         }
+        return try getData(for: resourceTestFile.rawValue + "_\(id)")
+    }
+}
+
+// MARK: - XCTestCase Extension
+extension XCTestCase {
+    func getData(
+        for filename: String
+    ) throws -> Data {
         guard let resourceURL = Bundle.module.url(
-            forResource: resourceTestFile.rawValue + "_\(id)",
+            forResource: filename,
             withExtension: "json"
         ) else {
             throw MapperTestError.urlNotFound(
-                message: "Could not load " + resourceTestFile.rawValue + " JSON file with id #\(id)"
+                message: "Could not load " + filename + " JSON file"
             )
         }
         guard let data = try? Data(contentsOf: resourceURL) else {
             throw MapperTestError.dataFailed(
-                message: "Could not extract data from " + resourceTestFile.rawValue + " JSON file with id #\(id)"
+                message: "Could not extract data from " + filename + " JSON file"
             )
         }
         return data

@@ -62,6 +62,21 @@ public struct Mapper {
         }
         return pokemon
     }
+    
+    public func mapToVersion(
+        id: Int,
+        with versionData: Data
+    ) throws -> Version {
+        let versionRepresentation = try Mapper.shared.decoder.decode(VersionJSONEntity.self, from: versionData)
+        return Version(
+            id: ID<IdentifiableType.Version>(id),
+            names: versionRepresentation.names.reduce(into: [:]) {
+                if let language = Language(rawValue: $1.language.name) {
+                    $0[language] = $1.name
+                }
+            }
+        )
+    }
         
     public func mapEvolutionChainId(
         from pokemonSpeciesData: Data,

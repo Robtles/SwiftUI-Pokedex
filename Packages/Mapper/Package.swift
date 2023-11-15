@@ -46,7 +46,9 @@ let package = Package(
                 .copy("Resources/pokemon-species_69.json"),
                 .copy("Resources/pokemon-species_92.json"),
                 .copy("Resources/pokemon-species_95.json"),
-                .copy("Resources/pokemon-species_290.json")
+                .copy("Resources/pokemon-species_290.json"),
+                
+                .copy("Resources/version_1.json")
             ]
         )
     ]
