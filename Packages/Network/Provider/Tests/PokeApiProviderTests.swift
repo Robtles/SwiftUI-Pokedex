@@ -26,6 +26,11 @@ final class PokeApiProviderTests: CommonProviderTests<PokeApi> {
         XCTAssert(result, "HTTP request failed")
     }
     
+    func testVersionReachable() async throws {
+        let result = try await provider.testServerReachable(for: .version(1))
+        XCTAssert(result, "HTTP request failed")
+    }
+    
     func testEvolutionChainFetchData() async throws {
         let result = try await provider.getData(for: .evolutionChain(1))
         XCTAssertNoThrow(try JSONSerialization.jsonObject(with: result), "Result data is not a valid JSON")
@@ -38,6 +43,11 @@ final class PokeApiProviderTests: CommonProviderTests<PokeApi> {
     
     func testPokemonSpeciesFetchData() async throws {
         let result = try await provider.getData(for: .pokemonSpecies(1))
+        XCTAssertNoThrow(try JSONSerialization.jsonObject(with: result), "Result data is not a valid JSON")
+    }
+    
+    func testVersionFetchData() async throws {
+        let result = try await provider.getData(for: .version(1))
         XCTAssertNoThrow(try JSONSerialization.jsonObject(with: result), "Result data is not a valid JSON")
     }
 }

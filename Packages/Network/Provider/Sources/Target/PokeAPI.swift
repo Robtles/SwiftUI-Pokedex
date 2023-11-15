@@ -14,6 +14,7 @@ public enum PokeApi {
     case evolutionChain(Int)
     case pokemon(Int)
     case pokemonSpecies(Int)
+    case version(Int)
 }
 
 // MARK: Moya Conformance
@@ -30,6 +31,8 @@ extension PokeApi: TargetType {
             "pokemon/\(id)"
         case .pokemonSpecies(let id):
             "pokemon-species/\(id)"
+        case .version(let id):
+            "version/\(id)"
         }
     }
     
