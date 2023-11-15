@@ -23,6 +23,15 @@ public struct Mapper {
     private init() {}
     
     // MARK: Exposed Map Methods
+    /// Decodes some Data into a localized list of items
+    /// - Parameter data: The data which should be a valid JSON
+    /// - Returns: The item list content, a dictionary keyed by item ids and with their localized names as values
+    public func mapToItemList(
+        _ data: Data
+    ) throws -> [Int: LocalizedContentDictionary] {
+        return try Mapper.shared.decoder.decode([Int: LocalizedContentDictionary].self, from: data)
+    }
+    
     /// Decodes some Data into a localized list of Pokémon
     /// - Parameter data: The data which should be a valid JSON
     /// - Returns: The Pokémon list content, a dictionary keyed by Pokémon ids and with their localized names as values

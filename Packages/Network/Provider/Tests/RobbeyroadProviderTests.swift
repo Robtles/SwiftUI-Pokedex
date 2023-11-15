@@ -16,8 +16,18 @@ final class RobbeyroadProviderTests: CommonProviderTests<RobbeyRoad> {
         XCTAssert(result, "HTTP request failed")
     }
 
+    func testItemListReachable() async throws {
+        let result = try await provider.testServerReachable(for: .items)
+        XCTAssert(result, "HTTP request failed")
+    }
+    
     func testPokemonListFetchData() async throws {
         let result = try await provider.getData(for: .pokemons)
+        XCTAssertNoThrow(try JSONSerialization.jsonObject(with: result), "Result data is not a valid JSON")
+    }
+    
+    func testItemListFetchData() async throws {
+        let result = try await provider.getData(for: .items)
         XCTAssertNoThrow(try JSONSerialization.jsonObject(with: result), "Result data is not a valid JSON")
     }
 }

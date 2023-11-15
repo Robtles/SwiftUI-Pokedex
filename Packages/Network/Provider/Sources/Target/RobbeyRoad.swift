@@ -8,9 +8,10 @@ import Foundation
 import Moya
 
 // MARK: - RobbeyRoad Provider
-/// The API provides the base list of localized Pokémon names, since Pokeapi.co API is not able to do it
+/// The API provides the base list of localized Pokémon and items names, since Pokeapi.co API is not able to do it easily
 public enum RobbeyRoad {
     // MARK: Cases
+    case items
     case pokemons
 }
 
@@ -21,7 +22,10 @@ extension RobbeyRoad: TargetType {
     }
     
     public var path: String {
-        return "pokemons.json"
+        return switch self {
+        case .items: "items.json"
+        case .pokemons: "pokemons.json"
+        }
     }
     
     public var method: Moya.Method {
