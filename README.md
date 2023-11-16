@@ -16,17 +16,30 @@ Some key concepts that I will try to implement:
 
 Swift Package Manager will be used to handle dependencies. Local libraries/packages may also be used, i.e. for the app model.
 
+### Local dependencies
+
+The app embeds some local packages, reusable througout the different targets:
+
+- *Model*: containing static structs and enums, representing the app elements to display.
+- *Provider*: defines the app APIs, each endpoint returning some Data.
+- *Mapper*: a package which allows transforming the Data coming from Provider to the app Model representations.
+- *API*: a package unifying the previous three packages, easing the data fetching as follows: *let list = try await API.getPokemonList()*.  
+
+### Remote dependencies
+
 - `Moya`: all the API requests will be simplified with Moya, which itself also embeds `Alamofire`.
 - `Kingfisher`: will be used for image downloading & cache.
 
 ## API
 
-- The main list content will be available from my website, at https://www.robbeyroad.com/api/pokemons.json. It contains the 493 first Pokémons, and their names localized in several languages, which is not possible with pokeapi.co API with a simple call.
+- The main list content will be available from my website, at https://www.robbeyroad.com/api/pokemons.json. It contains the 493 first Pokémons, and their names localized in several languages, which is not possible with pokeapi.co API with a simple call. In the same vein, the evolution item list will be available at https://www.robbeyroad.com/api/items.json.
 - However, https://pokeapi.co will be used for every Pokémon specific query, which includes: basic Pokémon data, species data and evolution data. 
 
 ## Tests
 
-Some tests will be added, in order to check:
-- Model validity,
-- API data fetching,
-- JSON API to model mapping...
+The app is currently embedding the following tests, by packages:
+
+- *Model*: since this package embeds static and basic data, not a lot is to be tested here. However, some tests still exist to ensure that only Pokémons from the 4 first generations (ids spanning from 1 to 493) can be implemented.
+- *Provider*: these tests check that all the endpoints are reachable and return actual Data objects.
+- *Mapper*: a lot of tests have been added in this package, in order to try all the possible cases - especially the evolution chains, where a lot of different cases may occur.
+- *API*: just like this package aims at unifying the previous local packages, its embedded tests check that the APIs work well. 
