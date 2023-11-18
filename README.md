@@ -6,11 +6,12 @@ A simple, playground project where I will try to build a Pokédex app. The user 
 Some key concepts that I will try to implement:
 
 - The UI framework in use will be [SwiftUI](https://developer.apple.com/xcode/swiftui/). 
-- I will try to make it a cross-platform one, handling at least iOS and macOS.
+- I will try to make it a cross-platform one, targeting iOS, macOS, tvOS and watchOS.
 - The latest iOS and macOS versions (respectively 17.0 and 14.0) will be used, enabling their brand new features (NavigationStack/Path, @Observable, etc...).
 - Four different app targets will be created in order to try several architectures and see how they blend with SwiftUI : MV (the basic use of SwiftUI), MVVM, Clean Architecture and TCA (The Composable Architecture).
 - No matter which architecture will be chosen, the SOLID, KISS and DRY programming concepts will be followed. Especially, the model and the API will be isolated and independent from the rest of the architecture.
 - Tests will be created to check the validity of the model, API calls or JSON-to-model mapping.
+- UserDefaults will be used to save some local preferences: favorite language, sorting order and display mode.
 
 ## Dependencies
 
@@ -43,3 +44,11 @@ The app is currently embedding the following tests, by packages:
 - *Provider*: these tests check that all the endpoints are reachable and return actual Data objects.
 - *Mapper*: a lot of tests have been added in this package, in order to try all the possible cases - especially the evolution chains, where a lot of different cases may occur.
 - *API*: just like this package aims at unifying the previous local packages, its embedded tests check that the APIs work well. 
+
+## UserDefaults
+
+User Defaults will be used to store locally some simple preferences: 
+
+- Favorite language,
+- Pokémon sorting order (by Pokédex index, name, or type),
+- Display mode (light, dark, or system).
