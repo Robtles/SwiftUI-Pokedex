@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D450E8192AEC4F9500FD1861 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = D450E8182AEC4F9500FD1861 /* Model */; };
+		D48AEBE22B0A993300DA6FCD /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = D48AEBE12B0A993300DA6FCD /* Defaults */; };
 		D4D00A6B2AEA612300409A8D /* SwiftUI_PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */; };
 		D4D00A6D2AEA612300409A8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6C2AEA612300409A8D /* ContentView.swift */; };
 		D4D00A6F2AEA612300409A8D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6E2AEA612300409A8D /* Item.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		D450E8172AEC4F1F00FD1861 /* Model */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Model; path = Packages/Model; sourceTree = "<group>"; };
+		D48AEBD62B0A732C00DA6FCD /* Defaults */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Defaults; path = Packages/Defaults; sourceTree = "<group>"; };
 		D4C811BF2AFD82F300F0974A /* Mapper */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Mapper; path = Packages/Mapper; sourceTree = "<group>"; };
 		D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-MV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexApp.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D4DBFBFC2B00C4A800D3C8B2 /* API in Frameworks */,
 				D4D00A9F2AEA682400409A8D /* Moya in Frameworks */,
 				D4D00A9C2AEA681800409A8D /* Kingfisher in Frameworks */,
+				D48AEBE22B0A993300DA6FCD /* Defaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 		D4D00A5E2AEA612300409A8D = {
 			isa = PBXGroup;
 			children = (
+				D48AEBD62B0A732C00DA6FCD /* Defaults */,
 				D4DBFBF92AFFAB8000D3C8B2 /* API */,
 				D4DBFBF82AFFAB5900D3C8B2 /* Provider */,
 				D4C811BF2AFD82F300F0974A /* Mapper */,
@@ -180,6 +184,7 @@
 				D4D00A9E2AEA682400409A8D /* Moya */,
 				D450E8182AEC4F9500FD1861 /* Model */,
 				D4DBFBFB2B00C4A800D3C8B2 /* API */,
+				D48AEBE12B0A993300DA6FCD /* Defaults */,
 			);
 			productName = "SwiftUI-Pokedex";
 			productReference = D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */;
@@ -691,6 +696,10 @@
 		D450E8182AEC4F9500FD1861 /* Model */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Model;
+		};
+		D48AEBE12B0A993300DA6FCD /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Defaults;
 		};
 		D4D00A9B2AEA681800409A8D /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
