@@ -22,6 +22,9 @@ let package = Package(
             path: "../Mapper"
         ),
         .package(
+            path: "../Mock"
+        ),
+        .package(
             path: "../Model"
         ),
         .package(
@@ -39,7 +42,7 @@ let package = Package(
         ),
         .testTarget(
             name: "APITests",
-            dependencies: ["API", "Mapper", "Moya", "Model", "Provider"]
+            dependencies: ["API", "Mapper", "Mock", "Moya", "Model", "Provider"]
         )
     ]
 )

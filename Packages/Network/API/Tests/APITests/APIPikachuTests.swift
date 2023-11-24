@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import API
@@ -23,7 +24,7 @@ final class APIPikachuTests: XCTestCase {
     func testLoadedPokemon() {
         XCTAssertNotNil(pokemon)
         let pokemon = pokemon!
-        XCTAssertEqual(pokemon.id, 25)
-        XCTAssertEqual(Set(pokemon.types), Set([.electric]))
+        XCTAssertEqual(pokemon.id, pikachuPokemon.id)
+        XCTAssertEqual(Set(pokemon.types), Set(pikachuPokemon.types))
     }
 }
