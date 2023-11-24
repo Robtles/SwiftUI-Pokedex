@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
@@ -12,14 +13,6 @@ import XCTest
 // MARK: - Mapper Tests: Gastly Evolutions
 final class MapperEvolvingGastlyFamilyTests: XCTestCase, MapperTest {
     // MARK: Constants
-    private enum Constants {
-        fileprivate static let firstEvolutionChainPokemonId = 92
-        fileprivate static let firstEvolutionTrigger = EvolutionTrigger.levelUp(.minLevel(25))
-        fileprivate static let secondEvolutionChainPokemonId = 93
-        fileprivate static let secondEvolutionTrigger = EvolutionTrigger.trade
-        fileprivate static let thirdEvolutionChainPokemonId = 94
-    }
-    
     let pokemonFamilyTest = PokemonFamily.gastly
     
     // MARK: Properties
@@ -35,11 +28,11 @@ final class MapperEvolvingGastlyFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.species.id,
-            Constants.firstEvolutionChainPokemonId
+            gastlyEvolutionChain.chain.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.trigger,
-            Constants.firstEvolutionTrigger
+            gastlyEvolutionChain.chain.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -47,11 +40,11 @@ final class MapperEvolvingGastlyFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.species.id,
-            Constants.secondEvolutionChainPokemonId
+            gastlyEvolutionChain.chain.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger,
-            Constants.secondEvolutionTrigger
+            gastlyEvolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -59,7 +52,7 @@ final class MapperEvolvingGastlyFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id,
-            Constants.thirdEvolutionChainPokemonId
+            gastlyEvolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id
         )
     }
     

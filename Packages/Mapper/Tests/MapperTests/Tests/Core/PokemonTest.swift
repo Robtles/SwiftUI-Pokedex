@@ -10,6 +10,7 @@ import Foundation
 enum PokemonFamily {
     // MARK: Cases
     case bellsprout
+    case eevee
     case gastly
     case nincada
     case onix
@@ -19,6 +20,7 @@ enum PokemonFamily {
     var evolutionChainId: Int {
         return switch self {
         case .bellsprout: 29
+        case .eevee: 67
         case .gastly: 40
         case .nincada: 144
         case .onix: 41
@@ -29,6 +31,7 @@ enum PokemonFamily {
     var pokemonId: Int {
         return switch self {
         case .bellsprout: 69
+        case .eevee: 133
         case .gastly: 92
         case .nincada: 290
         case .onix: 95

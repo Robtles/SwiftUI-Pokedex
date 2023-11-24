@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
@@ -12,27 +13,6 @@ import XCTest
 // MARK: - Mapper Tests: All Base Information (Bellsprout tested)
 final class MapperBasePokemonInformationTests: XCTestCase, MapperTest {
     // MARK: Constants
-    private enum Constants {
-        fileprivate static let id = 69
-        fileprivate static let pokemonTypes = [PokemonType.grass, .poison]
-        fileprivate static let weight = 40
-        fileprivate static let height = 7
-        fileprivate static let stats = [
-            PokemonStat.hp: 50,
-            .attack: 75,
-            .defense: 35,
-            .specialAttack: 70,
-            .specialDefense: 30,
-            .speed: 40
-        ]
-        fileprivate static let baseHappiness = 70
-        fileprivate static let captureRate = 255
-        fileprivate static let isBaby = false
-        fileprivate static let isMythical = false
-        fileprivate static let isLegendary = false
-        fileprivate static let textEntry = "A carnivorous\nPOKéMON that traps\nand eats bugs.\u{0C}It uses its root\nfeet to soak up\nneeded moisture."
-    }
-    
     let pokemonFamilyTest = PokemonFamily.bellsprout
     
     // MARK: Properties
@@ -49,46 +29,53 @@ final class MapperBasePokemonInformationTests: XCTestCase, MapperTest {
     }
     
     func testPokemonId() {
-        XCTAssertEqual(pokemon?.id.id, Constants.id)
+        XCTAssertEqual(pokemon?.id.id, bellsproutPokemon.id.id)
     }
     
     func testPokemonTypes() {
-        XCTAssertEqual(Set(pokemon?.types ?? []), Set(Constants.pokemonTypes))
+        XCTAssertEqual(Set(pokemon?.types ?? []), Set(bellsproutPokemon.types))
     }
     
     func testPokemonWeight() {
-        XCTAssertEqual(pokemon?.weight, Constants.weight)
+        XCTAssertEqual(pokemon?.weight, bellsproutPokemon.weight)
     }
     
     func testPokemonHeight() {
-        XCTAssertEqual(pokemon?.height, Constants.height)
+        XCTAssertEqual(pokemon?.height, bellsproutPokemon.height)
     }
     
     func testPokemonStats() {
-        XCTAssertEqual(pokemon?.stats ?? [:], Constants.stats)
+        XCTAssertEqual(pokemon?.stats ?? [:], bellsproutPokemon.stats)
     }
     
     func testPokemonBaseHappiness() {
-        XCTAssertEqual(pokemon?.baseHappiness, Constants.baseHappiness)
+        XCTAssertEqual(pokemon?.baseHappiness, bellsproutPokemon.baseHappiness)
     }
     
     func testPokemonCaptureRate() {
-        XCTAssertEqual(pokemon?.captureRate, Constants.captureRate)
+        XCTAssertEqual(pokemon?.captureRate, bellsproutPokemon.captureRate)
     }
     
     func testPokemonIsBaby() {
-        XCTAssertEqual(pokemon?.isBaby, Constants.isBaby)
+        XCTAssertEqual(pokemon?.isBaby, bellsproutPokemon.isBaby)
     }
     
     func testPokemonIsMythical() {
-        XCTAssertEqual(pokemon?.isMythical, Constants.isMythical)
+        XCTAssertEqual(pokemon?.isMythical, bellsproutPokemon.isMythical)
     }
     
     func testPokemonIsLegendary() {
-        XCTAssertEqual(pokemon?.isLegendary, Constants.isLegendary)
+        XCTAssertEqual(pokemon?.isLegendary, bellsproutPokemon.isLegendary)
     }
     
     func testPokemonTextEntry() {
-        XCTAssertEqual(pokemon?.textEntries[1]?[.english], Constants.textEntry)
+        XCTAssertEqual(
+            pokemon?.textEntries[Version.red]?[.english], 
+            bellsproutPokemon.textEntries[Version.red]?[.english]
+        )
+        XCTAssertEqual(
+            pokemon?.textEntries[Version.yellow]?[.english],
+            bellsproutPokemon.textEntries[Version.yellow]?[.english]
+        )
     }
 }

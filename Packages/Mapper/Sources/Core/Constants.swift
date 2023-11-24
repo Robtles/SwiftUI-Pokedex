@@ -11,4 +11,5 @@ enum TriggerConstants {
     static let levelUp = "level-up"
     static let shed = "shed"
     static let trade = "trade"
+    static let useItem = "use-item"
 }

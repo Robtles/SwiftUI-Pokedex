@@ -5,21 +5,13 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
 
 final class MapperEvolvingNincadaFamilyTests: XCTestCase, MapperTest {
     // MARK: Constants
-    private enum Constants {
-        fileprivate static let initialPokemonId = 290
-        fileprivate static let ninjaskPokemonId = 291
-        fileprivate static let shedinjaPokemonId = 292
-        fileprivate static let evolutionCount = 2
-        fileprivate static let ninjaskEvolutionTrigger = EvolutionTrigger.levelUp(.minLevel(20))
-        fileprivate static let shedinjaEvolutionTrigger = EvolutionTrigger.shed
-    }
-    
     let pokemonFamilyTest = PokemonFamily.nincada
     
     // MARK: Properties
@@ -35,11 +27,11 @@ final class MapperEvolvingNincadaFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.species.id,
-            Constants.initialPokemonId
+            nincadaEvolutionChain.chain.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.count,
-            Constants.evolutionCount
+            nincadaEvolutionChain.chain.evolvingTo.count
         )
     }
     
@@ -47,11 +39,11 @@ final class MapperEvolvingNincadaFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.species.id,
-            Constants.ninjaskPokemonId
+            nincadaEvolutionChain.chain.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.trigger,
-            Constants.ninjaskEvolutionTrigger
+            nincadaEvolutionChain.chain.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -59,11 +51,11 @@ final class MapperEvolvingNincadaFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.last?.species.id,
-            Constants.shedinjaPokemonId
+            nincadaEvolutionChain.chain.evolvingTo.last?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.last?.details?.trigger,
-            Constants.shedinjaEvolutionTrigger
+            nincadaEvolutionChain.chain.evolvingTo.last?.details?.trigger
         )
     }
 }

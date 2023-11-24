@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
@@ -12,14 +13,6 @@ import XCTest
 // MARK: - Mapper Tests: Bellsprout Evolutions
 final class MapperEvolvingBellsproutFamilyTests: XCTestCase, MapperTest {
     // MARK: Constants
-    private enum Constants {
-        fileprivate static let firstEvolutionChainPokemonId = 69
-        fileprivate static let firstEvolutionTrigger = EvolutionTrigger.levelUp(.minLevel(21))
-        fileprivate static let secondEvolutionChainPokemonId = 70
-        fileprivate static let secondEvolutionTrigger = EvolutionTrigger.item(85)
-        fileprivate static let thirdEvolutionChainPokemonId = 71
-    }
-    
     let pokemonFamilyTest = PokemonFamily.bellsprout
     
     // MARK: Properties
@@ -35,11 +28,11 @@ final class MapperEvolvingBellsproutFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.species.id,
-            Constants.firstEvolutionChainPokemonId
+            bellsproutPokemon.evolutionChain.chain.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.trigger,
-            Constants.firstEvolutionTrigger
+            bellsproutPokemon.evolutionChain.chain.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -47,11 +40,11 @@ final class MapperEvolvingBellsproutFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.species.id,
-            Constants.secondEvolutionChainPokemonId
+            bellsproutPokemon.evolutionChain.chain.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger,
-            Constants.secondEvolutionTrigger
+            bellsproutPokemon.evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -59,7 +52,7 @@ final class MapperEvolvingBellsproutFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id,
-            Constants.thirdEvolutionChainPokemonId
+            bellsproutPokemon.evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id
         )
     }
     

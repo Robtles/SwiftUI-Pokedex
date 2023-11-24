@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
@@ -34,19 +35,19 @@ final class MapperEvolvingOnixFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.species.id,
-            Constants.initialPokemonId
+            onixEvolutionChain.chain.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.species.id,
-            Constants.evolvedPokemonId
+            onixEvolutionChain.chain.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.heldItem?.id,
-            Constants.evolutionHeldItemId
+            onixEvolutionChain.chain.evolvingTo.first?.details?.heldItem?.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.trigger,
-            Constants.evolutionTrigger
+            onixEvolutionChain.chain.evolvingTo.first?.details?.trigger
         )
     }
 }

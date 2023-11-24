@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import Mock
 import Model
 import XCTest
 @testable import Mapper
@@ -12,14 +13,6 @@ import XCTest
 // MARK: - Mapper Tests: Pikachu Evolutions
 final class MapperEvolvingPikachuFamilyTests: XCTestCase, MapperTest {
     // MARK: Constants
-    private enum Constants {
-        fileprivate static let initialPokemonId = 172
-        fileprivate static let secondPokemonId = 25
-        fileprivate static let thirdPokemonId = 26
-        fileprivate static let firstEvolutionTrigger = EvolutionTrigger.levelUp(.minHappiness(220))
-        fileprivate static let secondEvolutionTrigger = EvolutionTrigger.item(83)
-    }
-    
     let pokemonFamilyTest = PokemonFamily.pikachu
     
     // MARK: Properties
@@ -35,15 +28,15 @@ final class MapperEvolvingPikachuFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.species.id,
-            Constants.initialPokemonId
+            pikachuEvolutionChain.chain.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.species.id,
-            Constants.secondPokemonId
+            pikachuEvolutionChain.chain.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.details?.trigger,
-            Constants.firstEvolutionTrigger
+            pikachuEvolutionChain.chain.evolvingTo.first?.details?.trigger
         )
     }
     
@@ -51,11 +44,11 @@ final class MapperEvolvingPikachuFamilyTests: XCTestCase, MapperTest {
         let evolutionChain = pokemon?.evolutionChain ?? emptyEvolutionChain
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id,
-            Constants.thirdPokemonId
+            pikachuEvolutionChain.chain.evolvingTo.first?.evolvingTo.first?.species.id
         )
         XCTAssertEqual(
             evolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger,
-            Constants.secondEvolutionTrigger
+            pikachuEvolutionChain.chain.evolvingTo.first?.evolvingTo.first?.details?.trigger
         )
     }
 }

@@ -29,7 +29,7 @@ struct EvolutionChainMapper {
             return nil
         }
         var evolutionDetails: EvolutionDetails?
-        if let details = evolutionChainLinkEntity.evolutionDetails.first,
+        if let details = evolutionChainLinkEntity.evolutionDetails.firstValid,
            let trigger = getEvolutionChainLinkTrigger(from: details) {
             var heldItem: ID<IdentifiableType.Item>?
             if let heldItemId = evolutionChainLinkEntity.evolutionDetails.first?.heldItem?.id {
@@ -55,7 +55,8 @@ struct EvolutionChainMapper {
             return .item(ID<IdentifiableType.Item>(itemId))
         }        
         return switch evolutionDetailsEntity.trigger.name {
-        case TriggerConstants.levelUp:  getLevelUpTrigger(from: evolutionDetailsEntity)
+        case TriggerConstants.levelUp, 
+            TriggerConstants.useItem: getLevelUpTrigger(from: evolutionDetailsEntity)
         case TriggerConstants.shed: .shed
         case TriggerConstants.trade: .trade
         default: nil
