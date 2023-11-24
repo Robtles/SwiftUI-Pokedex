@@ -15,8 +15,6 @@
 		D4D00A7F2AEA612600409A8D /* SwiftUI_PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A7E2AEA612600409A8D /* SwiftUI_PokedexTests.swift */; };
 		D4D00A892AEA612600409A8D /* SwiftUI_PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A882AEA612600409A8D /* SwiftUI_PokedexUITests.swift */; };
 		D4D00A8B2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A8A2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift */; };
-		D4D00A9C2AEA681800409A8D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4D00A9B2AEA681800409A8D /* Kingfisher */; };
-		D4D00A9F2AEA682400409A8D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D4D00A9E2AEA682400409A8D /* Moya */; };
 		D4F1E4C12B0F9F4500A7FA53 /* Provider in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BB2B0F9F4500A7FA53 /* Provider */; };
 		D4F1E4C22B0F9F4500A7FA53 /* API in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BC2B0F9F4500A7FA53 /* API */; };
 		D4F1E4C32B0F9F4500A7FA53 /* Mapper in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BD2B0F9F4500A7FA53 /* Mapper */; };
@@ -47,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D453A8E92B100A2300614CEE /* UI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UI; sourceTree = "<group>"; };
+		D453A8EA2B101A0B00614CEE /* Mock */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mock; sourceTree = "<group>"; };
 		D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-MV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_PokedexApp.swift; sourceTree = "<group>"; };
 		D4D00A6C2AEA612300409A8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,8 +77,6 @@
 				D4F1E4CC2B0FA89800A7FA53 /* Model in Frameworks */,
 				D4F1E4CA2B0FA89800A7FA53 /* Defaults in Frameworks */,
 				D4F1E4C82B0FA89800A7FA53 /* API in Frameworks */,
-				D4D00A9F2AEA682400409A8D /* Moya in Frameworks */,
-				D4D00A9C2AEA681800409A8D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,11 +168,13 @@
 		D4F1E4B92B0F9F4500A7FA53 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				D4F1E4BA2B0F9F4500A7FA53 /* Network */,
 				D4F1E4BF2B0F9F4500A7FA53 /* Defaults */,
 				D4F1E4BD2B0F9F4500A7FA53 /* Mapper */,
+				D453A8EA2B101A0B00614CEE /* Mock */,
 				D4F1E4C02B0F9F4500A7FA53 /* Model */,
 				D4F1E4BE2B0F9F4500A7FA53 /* Navigation */,
-				D4F1E4BA2B0F9F4500A7FA53 /* Network */,
+				D453A8E92B100A2300614CEE /* UI */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -205,8 +205,6 @@
 			);
 			name = "SwiftUI-Pokedex-MV";
 			packageProductDependencies = (
-				D4D00A9B2AEA681800409A8D /* Kingfisher */,
-				D4D00A9E2AEA682400409A8D /* Moya */,
 				D4F1E4C72B0FA89800A7FA53 /* API */,
 				D4F1E4C92B0FA89800A7FA53 /* Defaults */,
 				D4F1E4CB2B0FA89800A7FA53 /* Model */,
@@ -724,16 +722,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4D00A9B2AEA681800409A8D /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4D00A9A2AEA681800409A8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		D4D00A9E2AEA682400409A8D /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4D00A992AEA681000409A8D /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
 		D4F1E4C72B0FA89800A7FA53 /* API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = API;
