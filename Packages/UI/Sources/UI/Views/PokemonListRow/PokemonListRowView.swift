@@ -9,6 +9,7 @@ import Mock
 import Model
 import SwiftUI
 
+// MARK: - Pokemon List Row View
 /// The row view of the Pokémon list
 public struct PokemonListRowView: View {
     // MARK: Constants

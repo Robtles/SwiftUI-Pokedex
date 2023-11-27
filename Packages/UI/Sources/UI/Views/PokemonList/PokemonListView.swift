@@ -9,6 +9,7 @@ import Mock
 import Model
 import SwiftUI
 
+// MARK: - Pokemon List View
 /// The initial Pokémon list view
 public struct PokemonListView: View {
     // MARK: Environment Properties
