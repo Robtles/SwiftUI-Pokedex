@@ -19,6 +19,13 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            path: "../Defaults"
+        ),
+        .package(
+            url: "https://github.com/onevcat/Kingfisher.git",
+            from: "7.0.0"
+        ),
+        .package(
             path: "../Model"
         ),
         .package(
@@ -28,7 +35,7 @@ let package = Package(
     targets: [
         .target(
             name: "UI",
-            dependencies: ["Model", "Mock"]
+            dependencies: ["Defaults", "Kingfisher", "Model", "Mock"]
         )
     ]
 )

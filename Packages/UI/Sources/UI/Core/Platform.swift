@@ -4,11 +4,13 @@
 //  Created by Rob on 25/11/2023.
 //
 
+import Defaults
+import Model
 import SwiftUI
 
 // MARK: - Platform
 /// Lists the possible platforms on which the app can run
-public enum Platform {
+public enum Platform: CaseIterable {
     // MARK: Cases
     case iOS
     case iPadOS
@@ -40,13 +42,62 @@ public enum Platform {
         case .tvOS: "Apple TV 4K (3rd generation) (at 1080p)"
         }
     }
+    
+    fileprivate var previewDeviceDisplayName: String {
+        return switch self {
+        case .iOS: "iOS"
+        case .iPadOS: "iPad OS"
+        case .macOS: "macOS"
+        case .tvOS: "tvOS"
+        }
+    }
 }
 
 // MARK: - View Extension / Device Preview
 extension View {
-    func preview(in platform: Platform) -> some View {
-        return previewDevice(
-            PreviewDevice(rawValue: platform.previewDevice.rawValue)
-        )
+    /// Generates a preview with the expected platform, display mode and language
+    /// - Parameters:
+    ///   - platform: The platform in which to watch the content
+    ///   - displayMode: The display mode (light/dark)
+    ///   - language: The language in which to watch the preview
+    /// - Returns: The preview
+    @ViewBuilder
+    func preview(
+        in platform: Platform,
+        displayMode: DisplayMode? = nil,
+        language: Language = .english
+    ) -> some View {
+        switch displayMode {
+        case .light, .dark:
+            self.previewDevice(
+                PreviewDevice(
+                    rawValue: platform.previewDevice.rawValue
+                )
+            )
+            .previewDisplayName(platform.previewDeviceDisplayName + " - " + (displayMode?.displayText ?? "Unknown platform"))
+            .environment(
+                displayMode == .dark ? 
+                    darkUserDefaults(with: language) :
+                    lightUserDefaults(with: language)
+            )
+        default:
+            self.previewDevice(
+                PreviewDevice(
+                    rawValue: platform.previewDevice.rawValue
+                )
+            )
+            .previewDisplayName(platform.previewDeviceDisplayName)
+        }
+    }
+}
+
+// MARK: - Internal DisplayMode Extension
+fileprivate extension DisplayMode {
+    var displayText: String? {
+        return switch self {
+        case .light: "Light mode"
+        case .dark: "Dark mode"
+        default: nil
+        }
     }
 }

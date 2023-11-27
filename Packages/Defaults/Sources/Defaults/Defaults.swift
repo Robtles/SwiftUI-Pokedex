@@ -35,7 +35,7 @@ import SwiftUI
     private let storage = Storage()
     
     // MARK: Init Methods
-    private init() {
+    init() {
         displayMode = storage.displayMode
         language = storage.language
         sortingOrder = storage.sortingOrder

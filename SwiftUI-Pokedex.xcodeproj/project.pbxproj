@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D49A6FD82B1517BB0071A716 /* UI in Frameworks */ = {isa = PBXBuildFile; productRef = D49A6FD72B1517BB0071A716 /* UI */; };
+		D49A6FDA2B1518200071A716 /* Mock in Frameworks */ = {isa = PBXBuildFile; productRef = D49A6FD92B1518200071A716 /* Mock */; };
 		D4D00A6B2AEA612300409A8D /* SwiftUI_PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */; };
 		D4D00A6D2AEA612300409A8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6C2AEA612300409A8D /* ContentView.swift */; };
 		D4D00A6F2AEA612300409A8D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6E2AEA612300409A8D /* Item.swift */; };
@@ -73,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49A6FDA2B1518200071A716 /* Mock in Frameworks */,
+				D49A6FD82B1517BB0071A716 /* UI in Frameworks */,
 				D4F1E4CE2B0FA89800A7FA53 /* Navigation in Frameworks */,
 				D4F1E4CC2B0FA89800A7FA53 /* Model in Frameworks */,
 				D4F1E4CA2B0FA89800A7FA53 /* Defaults in Frameworks */,
@@ -209,6 +213,8 @@
 				D4F1E4C92B0FA89800A7FA53 /* Defaults */,
 				D4F1E4CB2B0FA89800A7FA53 /* Model */,
 				D4F1E4CD2B0FA89800A7FA53 /* Navigation */,
+				D49A6FD72B1517BB0071A716 /* UI */,
+				D49A6FD92B1518200071A716 /* Mock */,
 			);
 			productName = "SwiftUI-Pokedex";
 			productReference = D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */;
@@ -722,6 +728,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D49A6FD72B1517BB0071A716 /* UI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UI;
+		};
+		D49A6FD92B1518200071A716 /* Mock */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Mock;
+		};
 		D4F1E4C72B0FA89800A7FA53 /* API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = API;
