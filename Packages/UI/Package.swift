@@ -35,7 +35,10 @@ let package = Package(
     targets: [
         .target(
             name: "UI",
-            dependencies: ["Defaults", "Kingfisher", "Model", "Mock"]
+            dependencies: ["Defaults", "Kingfisher", "Model", "Mock"],
+            resources: [
+                .process("Resources/animated_pokeball.gif")
+            ]
         )
     ]
 )
