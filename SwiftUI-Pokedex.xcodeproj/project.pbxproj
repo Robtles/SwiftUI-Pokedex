@@ -134,12 +134,11 @@
 		D4D00A692AEA612300409A8D /* SwiftUI-Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */,
-				D4D00A6C2AEA612300409A8D /* ContentView.swift */,
-				D4D00A6E2AEA612300409A8D /* Item.swift */,
-				D4D00A702AEA612500409A8D /* Assets.xcassets */,
-				D4D00A722AEA612500409A8D /* SwiftUI_Pokedex.entitlements */,
+				D4E232FA2B171FDF00077490 /* Core */,
+				D4E232FD2B171FFD00077490 /* Other */,
 				D4D00A732AEA612500409A8D /* Preview Content */,
+				D4E232FC2B171FF200077490 /* Resources */,
+				D4E232FB2B171FE600077490 /* View */,
 			);
 			path = "SwiftUI-Pokedex";
 			sourceTree = "<group>";
@@ -167,6 +166,39 @@
 				D4D00A8A2AEA612600409A8D /* SwiftUI_PokedexUITestsLaunchTests.swift */,
 			);
 			path = "SwiftUI-PokedexUITests";
+			sourceTree = "<group>";
+		};
+		D4E232FA2B171FDF00077490 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D4D00A722AEA612500409A8D /* SwiftUI_Pokedex.entitlements */,
+				D4D00A6A2AEA612300409A8D /* SwiftUI_PokedexApp.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D4E232FB2B171FE600077490 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D4E232FC2B171FF200077490 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4D00A702AEA612500409A8D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4E232FD2B171FFD00077490 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D4D00A6C2AEA612300409A8D /* ContentView.swift */,
+				D4D00A6E2AEA612300409A8D /* Item.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		D4F1E4B92B0F9F4500A7FA53 /* Packages */ = {
@@ -498,7 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/SwiftUI_Pokedex.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/Core/SwiftUI_Pokedex.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -538,7 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/SwiftUI_Pokedex.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Pokedex/Core/SwiftUI_Pokedex.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

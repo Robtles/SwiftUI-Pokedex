@@ -5,8 +5,13 @@
 //  Created by Rob on 26/10/2023.
 //
 
+import API
+import Defaults
+import Mock
+import Navigation
 import SwiftUI
 import SwiftData
+import UI
 
 @main
 struct SwiftUI_PokedexApp: App {
@@ -25,8 +30,8 @@ struct SwiftUI_PokedexApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoadingView()
         }
-        .modelContainer(sharedModelContainer)
+//        .modelContainer(sharedModelContainer)
     }
 }
