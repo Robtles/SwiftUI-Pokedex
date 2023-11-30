@@ -4,6 +4,7 @@
 //  Created by Rob on 27/11/2023.
 //
 
+import Defaults
 import SwiftUI
 
 // MARK: - Loading View
@@ -18,10 +19,14 @@ public struct LoadingView: View {
         }
     }
     
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
+    
     // MARK: View Properties
     public var body: some View {
         ZStack {
-            Color.black
+            Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
             #if os(macOS)
             GIFImage(
                 name: Constants.animatedPokeballName,
