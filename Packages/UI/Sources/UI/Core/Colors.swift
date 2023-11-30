@@ -15,23 +15,26 @@ enum Colors {
     case primaryText
     case secondaryBackground
     case secondaryText
+    case test
     
     // MARK: Internal Properties
-    fileprivate var hexDarkColor: UInt {
+    fileprivate var darkColorHexString: String {
         return switch self {
-        case .primaryBackground: 0x000000
-        case .primaryText: 0xEDEDED
-        case .secondaryBackground: 0xDBDBDB
-        case .secondaryText: 0xD1D1D1
+        case .primaryBackground: "000000"
+        case .primaryText: "EDEDED"
+        case .secondaryBackground: "DBDBDB"
+        case .secondaryText: "D1D1D1"
+        case .test: "FFFFFF"
         }
     }
     
-    fileprivate var hexLightColor: UInt {
+    fileprivate var lightColorHexString: String {
         return switch self {
-        case .primaryBackground: 0xFFFFFF
-        case .primaryText: 0x1C1C1C
-        case .secondaryBackground: 0xC2C2C2
-        case .secondaryText: 0x4A4A4A
+        case .primaryBackground: "FFFFFF"
+        case .primaryText: "1C1C1C"
+        case .secondaryBackground: "C2C2C2"
+        case .secondaryText: "4A4A4A"
+        case .test: "000000"
         }
     }
 
@@ -40,8 +43,8 @@ enum Colors {
         _ defaults: Defaults,
         colorScheme: ColorScheme
     ) -> Color {
-        let lightColor = Color(hex: hexLightColor)
-        let darkColor = Color(hex: hexDarkColor)
+        let lightColor = Color(hex: lightColorHexString)
+        let darkColor = Color(hex: darkColorHexString)
         return switch defaults.displayMode {
         case .light: lightColor
         case .dark: darkColor
