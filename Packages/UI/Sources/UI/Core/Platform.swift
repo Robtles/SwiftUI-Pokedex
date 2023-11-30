@@ -62,7 +62,7 @@ extension View {
     ///   - language: The language in which to watch the preview
     /// - Returns: The preview
     @ViewBuilder
-    func preview(
+    public func preview(
         in platform: Platform,
         displayMode: DisplayMode? = nil,
         language: Language = .english
@@ -87,6 +87,7 @@ extension View {
                 )
             )
             .previewDisplayName(platform.previewDeviceDisplayName)
+            .environment(lightUserDefaults(with: language))
         }
     }
 }
