@@ -1,5 +1,5 @@
 //
-//  SwiftUI_PokedexApp.swift
+//  PokedexApp.swift
 //  SwiftUI-Pokedex
 //
 //  Created by Rob on 26/10/2023.
@@ -8,13 +8,27 @@
 import API
 import Defaults
 import Mock
+import Model
 import Navigation
 import SwiftUI
 import SwiftData
 import UI
 
+// MARK: - App Model
+/// The app model
+@Observable final class PokedexAppModel {
+    // MARK: Properties
+    /// The Pokémon games versions
+    var versions: [Version] = []
+}
+
+// MARK: - App
 @main
-struct SwiftUI_PokedexApp: App {
+struct PokedexApp: App {
+    // MARK: State Properties
+    @State private var appModel = PokedexAppModel()
+    
+    // MARK: TEMP
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -28,10 +42,19 @@ struct SwiftUI_PokedexApp: App {
         }
     }()
 
+    // MARK: View Properties
     var body: some Scene {
         WindowGroup {
-            LoadingView()
+            MainView()
+                .environment(Defaults.shared)
+                .environment(Navigation.shared)
+                .environment(appModel)
         }
 //        .modelContainer(sharedModelContainer)
+    }
+
+    // MARK: Init Methods
+    init() {
+        Style.apply()
     }
 }
