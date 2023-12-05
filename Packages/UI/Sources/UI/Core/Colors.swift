@@ -9,8 +9,9 @@ import SwiftUI
 
 // MARK: - Colors
 /// The app colors
-enum Colors {
+public enum Colors {
     // MARK: Cases
+    case highlightedText
     case primaryBackground
     case primaryText
     case secondaryBackground
@@ -20,6 +21,7 @@ enum Colors {
     // MARK: Internal Properties
     fileprivate var darkColorHexString: String {
         return switch self {
+        case .highlightedText: "007AFF"
         case .primaryBackground: "000000"
         case .primaryText: "EDEDED"
         case .secondaryBackground: "DBDBDB"
@@ -30,6 +32,7 @@ enum Colors {
     
     fileprivate var lightColorHexString: String {
         return switch self {
+        case .highlightedText: "007AFF"
         case .primaryBackground: "FFFFFF"
         case .primaryText: "1C1C1C"
         case .secondaryBackground: "C2C2C2"
@@ -39,7 +42,7 @@ enum Colors {
     }
 
     // MARK: Exposed Methods
-    func from(
+    public func from(
         _ defaults: Defaults,
         colorScheme: ColorScheme
     ) -> Color {
