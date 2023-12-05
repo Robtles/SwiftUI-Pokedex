@@ -14,6 +14,4 @@ public enum SortingOrder: String, CaseIterable {
     case byIndex = "by_index"
     /// Sorts the list by Pokémon names
     case byName = "by_name"
-    /// Sorts the list by Pokémon types, themselves alphabetically sorted
-    case byType = "by_type"
 }
