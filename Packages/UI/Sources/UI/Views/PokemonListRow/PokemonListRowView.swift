@@ -41,6 +41,18 @@ public struct PokemonListRowView: View {
     
     // MARK: View Properties
     public var body: some View {
+        #if os(tvOS)
+            Button {
+                
+            } label: {
+                internalBody
+            }
+        #else
+            internalBody
+        #endif
+    }
+    
+    private var internalBody: some View {
         HStack(spacing: 16.0) {
             VStack(alignment: .leading, spacing: Constants.vStackSpacing) {
                 Text(PokemonListRowView.Constants.numberPrefix + id.formatted(withDigits: 3))
