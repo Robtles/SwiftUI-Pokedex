@@ -12,19 +12,33 @@ import SwiftUI
 // MARK: - Pokemon List View
 /// The initial Pokémon list view
 public struct PokemonListView: View {
+    // MARK: Type Properties
+    private typealias PokemonListViewContent = (key: Int, value: LocalizedContentDictionary)
+    
     // MARK: Environment Properties
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
+    
+    // MARK: Computed Properties
+    private var sortedPokemons: [PokemonListViewContent] {
+        return pokemons
+            .map { (key: $0.key, value: $0.value) }
+            .sorted {
+                let lName = $0.value[defaults.language] ?? ""
+                let rName = $1.value[defaults.language] ?? ""
+                return switch defaults.sortingOrder {
+                case .byIndex: $0.key < $1.key
+                case .byName: lName < rName
+                }
+            }
+    }
     
     // MARK: Properties
     public let pokemons: [Int: LocalizedContentDictionary]
     
     // MARK: View Properties
     public var body: some View {
-        List(
-            pokemons.map { (key: $0.key, value: $0.value) }.sorted { $0.key < $1.key },
-            id: \.key
-        ) {
+        List(sortedPokemons, id: \.key) {
             PokemonListRowView(
                 id: $0.key,
                 localizedNames: $0.value
