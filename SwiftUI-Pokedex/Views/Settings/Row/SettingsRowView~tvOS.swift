@@ -5,12 +5,13 @@
 //  Created by Rob on 05/12/2023.
 //
 
-import SwiftUI
-
+#if os(tvOS)
 import Defaults
 import Model
+import Navigation
 import SwiftUI
 import UI
+
 
 // MARK: - Settings (tvOS only) Row View
 /// Represents the view for one of the settings rows on tvOS
@@ -47,7 +48,9 @@ struct SettingsRowView_tvOS<T>: View where T: DefaultsEnum {
             }
             Spacer()
             Button {
-                print("yo")
+                Navigation.shared.go(
+                    to: .settingsSelection(type(of: selectedValue))
+                )
             } label: {
                 Text(selectedValue.rowName)
             }
@@ -74,3 +77,4 @@ struct SettingsRowView_tvOSPreview: PreviewProvider {
         }
     }
 }
+#endif

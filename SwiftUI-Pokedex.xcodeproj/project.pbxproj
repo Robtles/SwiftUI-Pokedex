@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D412EF3B2B205AAC003CCB49 /* SettingsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D412EF3A2B205AAC003CCB49 /* SettingsSelectionView.swift */; };
 		D47E77AE2B1F897D00D00AB0 /* SettingsRowView~default.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E77AD2B1F897D00D00AB0 /* SettingsRowView~default.swift */; };
 		D47E77B02B1F898400D00AB0 /* SettingsRowView~tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E77AF2B1F898400D00AB0 /* SettingsRowView~tvOS.swift */; };
 		D48D29312B1A2EB30066A5FD /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D29302B1A2EB30066A5FD /* SettingsRowView.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D412EF3A2B205AAC003CCB49 /* SettingsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectionView.swift; sourceTree = "<group>"; };
 		D453A8E92B100A2300614CEE /* UI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UI; sourceTree = "<group>"; };
 		D453A8EA2B101A0B00614CEE /* Mock */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mock; sourceTree = "<group>"; };
 		D47E77AD2B1F897D00D00AB0 /* SettingsRowView~default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsRowView~default.swift"; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D412EF3C2B205AB0003CCB49 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				D412EF3A2B205AAC003CCB49 /* SettingsSelectionView.swift */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		D450E8142AEC49A100FD1861 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D47E77A72B1F7FC000D00AB0 /* Row */,
+				D412EF3C2B205AB0003CCB49 /* Selection */,
 				D47E77A62B1F7FBB00D00AB0 /* View */,
 			);
 			path = Settings;
@@ -448,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B3D4AA2B18E3FE00C53E11 /* SettingsView.swift in Sources */,
+				D412EF3B2B205AAC003CCB49 /* SettingsSelectionView.swift in Sources */,
 				D48D29342B1A30760066A5FD /* Language+DefaultsEnum.swift in Sources */,
 				D4D00A6D2AEA612300409A8D /* ContentView.swift in Sources */,
 				D48D29312B1A2EB30066A5FD /* SettingsRowView.swift in Sources */,

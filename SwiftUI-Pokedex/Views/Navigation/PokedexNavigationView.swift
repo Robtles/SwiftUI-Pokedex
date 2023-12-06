@@ -25,7 +25,12 @@ struct PokedexNavigationView: View {
             PokemonListView(pokemons: pokemons)
                 .navigationDestination(for: Destination.self) { destination in
                     switch destination {
-                    case .settings: SettingsView()
+                    case .settings: 
+                        SettingsView()
+                    #if os(tvOS)
+                    case .settingsSelection(let selectedDefaults):
+                        SettingsSelectionView(defaultsType: selectedDefaults)
+                    #endif
                     }
                 }
                 // TODO: Localize texts & add Language setting

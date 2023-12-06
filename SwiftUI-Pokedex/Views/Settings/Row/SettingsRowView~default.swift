@@ -5,6 +5,7 @@
 //  Created by Rob on 05/12/2023.
 //
 
+#if !os(tvOS)
 import Defaults
 import Model
 import SwiftUI
@@ -72,3 +73,4 @@ struct SettingsRowView_DefaultPreview: PreviewProvider {
         }
     }
 }
+#endif
