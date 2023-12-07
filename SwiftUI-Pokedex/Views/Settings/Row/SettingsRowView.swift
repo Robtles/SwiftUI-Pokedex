@@ -20,6 +20,7 @@ struct SettingsRowView<T>: View where T: DefaultsEnum {
     @Environment(Defaults.self) private var defaults
     
     // MARK: State Properties
+    /// The currently selected value
     @Binding var selectedValue: T
     
     // MARK: View Properties
