@@ -14,13 +14,13 @@ import UI
 extension Language: DefaultsEnum {
     // MARK: Static Properties
     public static let description: String = "Selects in which language the Pokémon information will be displayed. Doesn't change the current app language."
-    public static let sortedAll: [Language] = Language.allCases.sorted { $0.rowName < $1.rowName }
+    public static let sortedAll: [Language] = Language.allCases.sorted { $0.rawValue < $1.rawValue }
     public static let title: String = "Language"
     
     // MARK: Properties
     public var rowName: String {
         return switch Platform.current {
-        case .tvOS: flag + " " + "(" + name + ")"
+        case .tvOS: flag + " " + name
         default: name
         }
     }
