@@ -23,6 +23,9 @@ struct SettingsRowView_tvOS<T>: View where T: DefaultsEnum {
     @Environment(Defaults.self) private var defaults
     
     // MARK: State Properties
+    /// The currently focused value from the parent list
+    @FocusState private var focused: T?
+    /// The selected row value
     @Binding var selectedValue: T
     
     // MARK: View Properties
@@ -47,12 +50,13 @@ struct SettingsRowView_tvOS<T>: View where T: DefaultsEnum {
                 }
             }
             Spacer()
-            Button {
+            DefaultsEnumPickerRowView(
+                value: selectedValue,
+                focused: $focused
+            ) {
                 Navigation.shared.go(
-                    to: .settingsSelection(type(of: selectedValue))
+                    to: .settingsSelection(selectedValue)
                 )
-            } label: {
-                Text(selectedValue.rowName)
             }
         }
         .background(
@@ -67,13 +71,10 @@ struct SettingsRowView_tvOS<T>: View where T: DefaultsEnum {
 struct SettingsRowView_tvOSPreview: PreviewProvider {
     static var previews: some View {
         Group {
-            ForEach(Platform.allCases, id: \.self) { platform in
-                SettingsRowView(selectedValue: .constant(Language.english))
-                    .preview(in: .iOS, displayMode: .light)
-                SettingsRowView(selectedValue: .constant(Language.english))
-                    .preview(in: .iOS, displayMode: .dark)
-            }
-            .padding()
+            SettingsRowView(selectedValue: .constant(Language.english))
+                .preview(in: .tvOS, displayMode: .light)
+            SettingsRowView(selectedValue: .constant(Language.english))
+                .preview(in: .tvOS, displayMode: .dark)
         }
     }
 }

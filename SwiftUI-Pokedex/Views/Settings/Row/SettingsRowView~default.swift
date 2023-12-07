@@ -32,9 +32,12 @@ struct SettingsRowView_Default<T>: View where T: DefaultsEnum {
                         Colors.primaryText.from(defaults, colorScheme: colorScheme)
                     )
                 Spacer()
-                Picker(T.title, selection: $selectedValue) {
+                Picker(selection: $selectedValue, label: EmptyView()) {
                     ForEach(T.sortedAll, id: \.self) {
                         Text($0.rowName)
+                            .foregroundStyle(
+                                Colors.primaryText.from(defaults, colorScheme: colorScheme)
+                            )
                     }
                 }
                 .tint(
@@ -63,7 +66,7 @@ struct SettingsRowView_Default<T>: View where T: DefaultsEnum {
 struct SettingsRowView_DefaultPreview: PreviewProvider {
     static var previews: some View {
         Group {
-            ForEach(Platform.allCases, id: \.self) { platform in
+            ForEach([Platform.iOS, .iPadOS, .macOS], id: \.self) { platform in
                 SettingsRowView(selectedValue: .constant(Language.english))
                     .preview(in: .iOS, displayMode: .light)
                 SettingsRowView(selectedValue: .constant(Language.english))
