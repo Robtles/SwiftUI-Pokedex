@@ -12,32 +12,32 @@ import SwiftUI
 public enum Colors {
     // MARK: Cases
     case highlightedText
+    case pickerFocusedText
     case primaryBackground
     case primaryText
     case secondaryBackground
     case secondaryText
-    case test
     
     // MARK: Internal Properties
     fileprivate var darkColorHexString: String {
         return switch self {
         case .highlightedText: "007AFF"
+        case .pickerFocusedText: "000000"
         case .primaryBackground: "000000"
         case .primaryText: "EDEDED"
         case .secondaryBackground: "DBDBDB"
         case .secondaryText: "D1D1D1"
-        case .test: "FFFFFF"
         }
     }
     
     fileprivate var lightColorHexString: String {
         return switch self {
         case .highlightedText: "007AFF"
+        case .pickerFocusedText: "1C1C1C"
         case .primaryBackground: "FFFFFF"
         case .primaryText: "1C1C1C"
         case .secondaryBackground: "C2C2C2"
         case .secondaryText: "4A4A4A"
-        case .test: "000000"
         }
     }
 
