@@ -49,6 +49,10 @@ public struct PokemonListView: View {
                 Colors.secondaryBackground.from(defaults, colorScheme: colorScheme)
             )
             #endif
+            #if os(macOS)
+            // ugly workaround for macOS to remove unnecessary horizontal padding around the list rows
+            .padding(.horizontal, -8.0)
+            #endif
         }
         .background(
             Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
