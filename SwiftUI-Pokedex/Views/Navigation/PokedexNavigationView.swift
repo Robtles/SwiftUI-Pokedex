@@ -5,6 +5,7 @@
 //  Created by Rob on 01/12/2023.
 //
 
+import Defaults
 import Mock
 import Model
 import Navigation
@@ -14,6 +15,10 @@ import UI
 // MARK: - Pokédex Navigation View
 /// The main app navigation view
 struct PokedexNavigationView: View {
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
+    
     // MARK: Instance Properties
     /// The Pokémon list
     private let pokemons: [Int: LocalizedContentDictionary]
@@ -29,7 +34,16 @@ struct PokedexNavigationView: View {
                         SettingsView()
                     #if os(tvOS)
                     case .settingsSelection(let selectedDefaults):
-                        SettingsSelectionView(defaultsType: selectedDefaults)
+                        switch selectedDefaults {
+                        case let language as Language:
+                            SettingsSelectionView(initialValue: language)
+                        case let sortingOrder as SortingOrder:
+                            SettingsSelectionView(initialValue: sortingOrder)
+                        case let displayMode as DisplayMode:
+                            SettingsSelectionView(initialValue: displayMode)
+                        default:
+                            fatalError("Oops: DefaultsEnum type not handled yet")
+                        }
                     #endif
                     }
                 }
@@ -39,6 +53,11 @@ struct PokedexNavigationView: View {
                     Button("Settings", systemImage: "gearshape") {
                         goToSettings()
                     }
+                    #if os(tvOS)
+                    .tint(
+                        Colors.primaryText.from(defaults, colorScheme: colorScheme)
+                    )
+                    #endif
                 }
                 .tint(.white)
         }
