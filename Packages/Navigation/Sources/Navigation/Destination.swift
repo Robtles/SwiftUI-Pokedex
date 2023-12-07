@@ -14,7 +14,7 @@ public enum Destination {
     case settings
     #if os(tvOS)
     /// The settings selection view (this one is specific to tvOS)
-    case settingsSelection(any DefaultsEnum.Type)
+    case settingsSelection(any DefaultsEnum)
     #endif
 }
 
