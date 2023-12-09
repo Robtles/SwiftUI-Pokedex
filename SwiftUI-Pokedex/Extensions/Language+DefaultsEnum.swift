@@ -15,7 +15,19 @@ import UI
 extension Language: DefaultsEnum {
     // MARK: Static Properties
     public static let description: String = Strings.Language.description.localized
-    public static let sortedAll: [Language] = Language.allCases.sorted { $0.rawValue < $1.rawValue }
+    public static let sortedAll: [Language] = [
+        .english, 
+        .french,
+        .deutsch,
+        .spanish,
+        .italian,
+        .baseJapanese,
+        .kanaJapanese,
+        .romajiJapanese,
+        .korean,
+        .simplifiedChinese,
+        .traditionalChinese
+    ]
     public static let title: String = Strings.Language.title.localized
     
     // MARK: Properties
