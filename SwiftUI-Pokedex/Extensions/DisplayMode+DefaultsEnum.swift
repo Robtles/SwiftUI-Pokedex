@@ -8,20 +8,22 @@
 import Defaults
 import Foundation
 import Model
+import SwiftUI
+import UI
 
 // MARK: - DisplayMode DefaultsEnum Conformance
 extension DisplayMode: DefaultsEnum {
     // MARK: Static Properties
-    public static let description: String = "Either forces the light or dark mode, or follows the current system mode."
+    public static let description: String = Strings.DisplayMode.description.localized
     public static let sortedAll: [DisplayMode] = [.light, .dark, .system]
-    public static let title: String = "Display mode"
+    public static let title: String = Strings.DisplayMode.title.localized
     
     // MARK: Properties
     public var rowName: String {
         return switch self {
-        case .dark: "Dark mode"
-        case .light: "Light mode"
-        case .system: "Follows system"
+        case .dark: Strings.DisplayMode.Mode.dark.localized
+        case .light: Strings.DisplayMode.Mode.light.localized
+        case .system: Strings.DisplayMode.Mode.system.localized
         }
     }
 }

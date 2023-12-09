@@ -8,14 +8,15 @@
 import Defaults
 import Foundation
 import Model
+import SwiftUI
 import UI
 
 // MARK: - Language DefaultsEnum Conformance
 extension Language: DefaultsEnum {
     // MARK: Static Properties
-    public static let description: String = "Selects in which language the Pokémon information will be displayed. Doesn't change the current app language."
+    public static let description: String = Strings.Language.description.localized
     public static let sortedAll: [Language] = Language.allCases.sorted { $0.rawValue < $1.rawValue }
-    public static let title: String = "Language"
+    public static let title: String = Strings.Language.title.localized
     
     // MARK: Properties
     public var rowName: String {
@@ -43,17 +44,17 @@ fileprivate extension Language {
     
     var name: String {
         return switch self {
-        case .deutsch: "Deutsch"
-        case .english: "English"
-        case .spanish: "Spanish"
-        case .french: "French"
-        case .italian: "Italian"
-        case .baseJapanese: "Japanese"
-        case .kanaJapanese: "Kana Japanese"
-        case .romajiJapanese: "Romaji Japanese"
-        case .korean: "Korean"
-        case .simplifiedChinese: "Simplified Chinese"
-        case .traditionalChinese: "Traditional Chinese"
+        case .deutsch: Strings.Language.Case.deutsch.localized
+        case .english: Strings.Language.Case.english.localized
+        case .spanish: Strings.Language.Case.spanish.localized
+        case .french: Strings.Language.Case.french.localized
+        case .italian: Strings.Language.Case.italian.localized
+        case .baseJapanese: Strings.Language.Case.baseJapanese.localized
+        case .kanaJapanese: Strings.Language.Case.kanaJapanese.localized
+        case .romajiJapanese: Strings.Language.Case.romajiJapanese.localized
+        case .korean: Strings.Language.Case.korean.localized
+        case .simplifiedChinese: Strings.Language.Case.simplifiedChinese.localized
+        case .traditionalChinese: Strings.Language.Case.traditionalChinese.localized
         }
     }
 }

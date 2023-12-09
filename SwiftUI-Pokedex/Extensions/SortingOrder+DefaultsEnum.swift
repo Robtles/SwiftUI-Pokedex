@@ -8,19 +8,20 @@
 import Defaults
 import Foundation
 import Model
+import UI
 
 // MARK: - SortingOrder DefaultsEnum Conformance
 extension SortingOrder: DefaultsEnum {
     // MARK: Static Properties
-    public static let description: String = "Defines the Pokédex sorting order: by index or name"
+    public static let description: String = Strings.SortingOrder.description.localized
     public static let sortedAll: [SortingOrder] = [.byIndex, .byName]
-    public static let title: String = "SortingOrder"
+    public static let title: String = Strings.SortingOrder.title.localized
     
     // MARK: Properties
     public var rowName: String {
         return switch self {
-        case .byIndex: "By index"
-        case .byName: "By name"
+        case .byIndex: Strings.SortingOrder.Case.byIndex.localized
+        case .byName: Strings.SortingOrder.Case.byName.localized
         }
     }
 }

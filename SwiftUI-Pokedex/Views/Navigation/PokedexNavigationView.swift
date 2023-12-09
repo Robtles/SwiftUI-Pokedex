@@ -47,10 +47,12 @@ struct PokedexNavigationView: View {
                     #endif
                     }
                 }
-                // TODO: Localize texts & add Language setting
-                .navigationTitle("Pokédex")
+                .navigationTitle(Strings.PokedexNavigationView.title.localized)
                 .toolbar {
-                    Button("Settings", systemImage: "gearshape") {
+                    Button(
+                        Strings.PokedexNavigationView.toolbarButton.localized,
+                        systemImage: SystemImage.gearshape
+                    ) {
                         goToSettings()
                     }
                     #if os(tvOS)

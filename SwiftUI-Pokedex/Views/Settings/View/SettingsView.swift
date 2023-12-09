@@ -39,7 +39,7 @@ struct SettingsView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Settings")
+            .navigationTitle(Strings.Settings.title.localized)
         }
         .background(
             Colors.primaryBackground.from(
