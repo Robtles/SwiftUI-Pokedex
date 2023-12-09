@@ -61,20 +61,20 @@ public struct DefaultsEnumPickerRowView<T>: View where T: DefaultsEnum {
 }
 
 struct DefaultsEnumPickerRowViewPreview: PreviewProvider {
-        private enum TestDefaults: DefaultsEnum {
-            case on
-            case off
-            
-            static var description: String { return "" }
-            static var title: String { return "" }
-            var rowName: String {
-                return switch self {
-                case .on: "On"
-                case .off: "Off"
-                }
+    private enum TestDefaults: DefaultsEnum {
+        case on
+        case off
+        
+        static var description: String { return "" }
+        static var title: String { return "" }
+        var rowName: String {
+            return switch self {
+            case .on: "On"
+            case .off: "Off"
             }
-            static var sortedAll: [TestDefaults] { return allCases }
         }
+        static var sortedAll: [TestDefaults] { return allCases }
+    }
     
     static var previews: some View {
         Group {
@@ -82,12 +82,12 @@ struct DefaultsEnumPickerRowViewPreview: PreviewProvider {
                 value: TestDefaults.on,
                 focused: FocusState<TestDefaults?>().projectedValue
             ) {}
-            .preview(in: .tvOS, displayMode: .light)
+                .preview(in: .tvOS, displayMode: .light)
             DefaultsEnumPickerRowView(
                 value: TestDefaults.on,
                 focused: FocusState<TestDefaults?>().projectedValue
             ) {}
-            .preview(in: .tvOS, displayMode: .dark)
+                .preview(in: .tvOS, displayMode: .dark)
         }
     }
 }
