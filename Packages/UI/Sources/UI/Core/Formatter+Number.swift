@@ -7,11 +7,10 @@
 import Foundation
 
 extension Int {
-    /// <#Description#>
+    /// Formats an integer with the specified parameters
     /// - Parameters:
-    ///   - digitCount: <#digitCount description#>
-    ///   - placeholder: <#placeholder description#>
-    /// - Returns: <#description#>
+    ///   - digitCount: The integer digit count
+    ///   - placeholder: The placeholder if integer could not be formatted to a string
     func formatted(
         withDigits digitCount: Int,
         placeholder: String = ""
