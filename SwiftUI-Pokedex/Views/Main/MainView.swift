@@ -49,7 +49,7 @@ struct MainView: View {
                         do {
                             try await loadData()
                         } catch {
-                            // TODO: handle error
+                            errorManager.display(error.localizedDescription)
                         }
                     }
             } else {
