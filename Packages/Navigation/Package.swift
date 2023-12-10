@@ -17,9 +17,15 @@ let package = Package(
             targets: ["Navigation"]
         ),
     ],
+    dependencies: [
+        .package(
+            path: "../Defaults"
+        )
+    ],
     targets: [
         .target(
-            name: "Navigation"
+            name: "Navigation",
+            dependencies: ["Defaults"]
         )
     ]
 )

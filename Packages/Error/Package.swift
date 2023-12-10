@@ -17,9 +17,15 @@ let package = Package(
             targets: ["Error"]
         )
     ],
+    dependencies: [
+        .package(
+            path: "../Model"
+        )
+    ],
     targets: [
         .target(
-            name: "Error"
+            name: "Error",
+            dependencies: ["Model"]
         )
     ]
 )
