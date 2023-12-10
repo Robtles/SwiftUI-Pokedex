@@ -9,9 +9,9 @@ import SwiftUI
 
 // MARK: - Defaults
 /// Contains the user app defaults
-@Observable public class Defaults {
+@Observable public final class Defaults {
     // MARK: Storage
-    private class Storage {
+    private final class Storage {
         // MARK: Keys
         private enum Key: String {
             case displayMode

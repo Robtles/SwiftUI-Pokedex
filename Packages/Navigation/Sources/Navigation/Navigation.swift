@@ -7,7 +7,7 @@
 import SwiftUI
 
 /// This object handles the app navigation (both classic and sheet navigation)
-@Observable public class Navigation {
+@Observable public final class Navigation {
     // MARK: Exposed Properties
     /// The sheet view currently displayed in the application
     public var currentSheetDestination: SheetDestination?
