@@ -7,6 +7,7 @@
 
 import API
 import Defaults
+import Error
 import Model
 import Navigation
 import SwiftUI
@@ -29,6 +30,8 @@ struct MainView: View {
     @Environment(\.colorScheme) private var colorScheme
     /// The user defaults
     @Environment(Defaults.self) private var defaults
+    /// The error manager
+    @Environment(ErrorManager.self) private var errorManager
     
     // MARK: State Properties
     /// If the view is in a loading state
@@ -38,19 +41,26 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        if loading {
-            LoadingView()
-                .ignoresSafeArea()
-                .task {
-                    do {
-                        try await loadData()
-                    } catch {
-                        // TODO: handle error
+        ZStack {
+            if loading {
+                LoadingView()
+                    .ignoresSafeArea()
+                    .task {
+                        do {
+                            try await loadData()
+                        } catch {
+                            // TODO: handle error
+                        }
                     }
-                }
-        } else {
-            PokedexNavigationView(with: pokemons)
+            } else {
+                PokedexNavigationView(with: pokemons)
+            }
         }
+        .modifier(
+            ErrorPopupModifier(
+                errorMessage: errorManager.currentErrorMessage
+            )
+        )
     }
     
     // MARK: Methods

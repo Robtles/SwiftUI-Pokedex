@@ -7,6 +7,7 @@
 
 import API
 import Defaults
+import Error
 import Mock
 import Model
 import Navigation
@@ -46,6 +47,7 @@ struct PokedexApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environment(ErrorManager.shared)
                 .environment(Defaults.shared)
                 .environment(Navigation.shared)
                 .environment(appModel)

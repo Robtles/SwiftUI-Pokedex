@@ -6,6 +6,7 @@
 //
 
 import Defaults
+import Error
 import Mock
 import Model
 import Navigation
@@ -18,6 +19,7 @@ struct PokedexNavigationView: View {
     // MARK: Environment Properties
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
+    @Environment(ErrorManager.self) fileprivate var errorManager
     
     // MARK: Instance Properties
     /// The Pokémon list
@@ -30,9 +32,9 @@ struct PokedexNavigationView: View {
             PokemonListView(pokemons: pokemons)
                 .navigationDestination(for: Destination.self) { destination in
                     switch destination {
-                    case .settings: 
+                    case .settings:
                         SettingsView()
-                    #if os(tvOS)
+#if os(tvOS)
                     case .settingsSelection(let selectedDefaults):
                         switch selectedDefaults {
                         case let language as Language:
@@ -44,7 +46,7 @@ struct PokedexNavigationView: View {
                         default:
                             fatalError("Oops: DefaultsEnum type not handled yet")
                         }
-                    #endif
+#endif
                     }
                 }
                 .navigationTitle(Strings.PokedexNavigationView.title.localized)
@@ -55,11 +57,11 @@ struct PokedexNavigationView: View {
                     ) {
                         goToSettings()
                     }
-                    #if os(tvOS)
+#if os(tvOS)
                     .tint(
                         Colors.primaryText.from(defaults, colorScheme: colorScheme)
                     )
-                    #endif
+#endif
                 }
                 .tint(.white)
         }
