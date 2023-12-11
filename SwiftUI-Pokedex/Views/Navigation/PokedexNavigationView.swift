@@ -17,6 +17,7 @@ import UI
 /// The main app navigation view
 struct PokedexNavigationView: View {
     // MARK: Environment Properties
+    @Environment(PokedexAppModel.self) private var appModel
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
     @Environment(ErrorManager.self) fileprivate var errorManager
@@ -29,41 +30,56 @@ struct PokedexNavigationView: View {
     var body: some View {
         @Bindable var navigation = Navigation.shared
         NavigationStack(path: $navigation.path) {
-            PokemonListView(pokemons: pokemons)
-                .navigationDestination(for: Destination.self) { destination in
-                    switch destination {
-                    case .settings:
-                        SettingsView()
-#if os(tvOS)
-                    case .settingsSelection(let selectedDefaults):
-                        switch selectedDefaults {
-                        case let language as Language:
-                            SettingsSelectionView(initialValue: language)
-                        case let sortingOrder as SortingOrder:
-                            SettingsSelectionView(initialValue: sortingOrder)
-                        case let displayMode as DisplayMode:
-                            SettingsSelectionView(initialValue: displayMode)
-                        default:
-                            fatalError("Oops: DefaultsEnum type not handled yet")
-                        }
-#endif
-                    }
+            PokemonListView(
+                pokemons: pokemons
+            ) { downloadedPokemon in
+                appModel.pokemons[downloadedPokemon.id.id] = downloadedPokemon
+            }
+            .sheet(
+                item: $navigation.currentSheetDestination,
+                onDismiss: {
+                    navigation.currentSheetDestination = nil
                 }
-                .navigationTitle(Strings.PokedexNavigationView.title.localized)
-                .toolbar {
-                    Button(
-                        Strings.PokedexNavigationView.toolbarButton.localized,
-                        systemImage: SystemImage.gearshape
-                    ) {
-                        goToSettings()
-                    }
-#if os(tvOS)
-                    .tint(
-                        Colors.primaryText.from(defaults, colorScheme: colorScheme)
-                    )
-#endif
+            ) { destination in
+                switch destination {
+                case .pokemonView(let id):
+                    PokemonView(pokemon: appModel.pokemons[id])
                 }
-                .tint(.white)
+            }
+            .navigationDestination(for: Destination.self) { destination in
+                switch destination {
+                case .settings:
+                    SettingsView()
+                #if os(tvOS)
+                case .settingsSelection(let selectedDefaults):
+                    switch selectedDefaults {
+                    case let language as Language:
+                        SettingsSelectionView(initialValue: language)
+                    case let sortingOrder as SortingOrder:
+                        SettingsSelectionView(initialValue: sortingOrder)
+                    case let displayMode as DisplayMode:
+                        SettingsSelectionView(initialValue: displayMode)
+                    default:
+                        fatalError("Oops: DefaultsEnum type not handled yet")
+                    }
+                #endif
+                }
+            }
+            .navigationTitle(Strings.PokedexNavigationView.title.localized)
+            .toolbar {
+                Button(
+                    Strings.PokedexNavigationView.toolbarButton.localized,
+                    systemImage: SystemImage.gearshape
+                ) {
+                    goToSettings()
+                }
+                #if os(tvOS)
+                .tint(
+                    Colors.primaryText.from(defaults, colorScheme: colorScheme)
+                )
+                #endif
+            }
+            .tint(.white)
         }
         .tint(.white)
     }

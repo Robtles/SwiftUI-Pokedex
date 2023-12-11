@@ -11,3 +11,11 @@ public enum SheetDestination {
     /// The pokemon view, with the related Pokémon id
     case pokemonView(id: Int)
 }
+
+extension SheetDestination: Identifiable {
+    public var id: String {
+        return switch self {
+        case .pokemonView: "pokemon_view"
+        }
+    }
+}

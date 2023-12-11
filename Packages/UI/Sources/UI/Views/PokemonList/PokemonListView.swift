@@ -4,9 +4,12 @@
 //  Created by Rob on 27/11/2023.
 //
 
+import API
 import Defaults
+import Error
 import Mock
 import Model
+import Navigation
 import SwiftUI
 
 // MARK: - Pokemon List View
@@ -26,6 +29,7 @@ public struct PokemonListView: View {
     // MARK: Environment Properties
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
+    @Environment(ErrorManager.self) private var errorManager
     
     // MARK: Computed Properties
     private var sortedPokemons: [PokemonListViewContent] {
@@ -42,17 +46,21 @@ public struct PokemonListView: View {
     }
     
     // MARK: Properties
+    public let onPokemonDownload: (Pokemon) -> Void
     public let pokemons: [Int: LocalizedContentDictionary]
     
     // MARK: View Properties
     public var body: some View {
         ScrollViewReader { proxy in
-            List(sortedPokemons, id: \.key) {
+            List(sortedPokemons, id: \.key) { pokemon in
                 PokemonListRowView(
-                    id: $0.key,
-                    localizedNames: $0.value
+                    id: pokemon.key,
+                    localizedNames: pokemon.value
                 )
-                .focused($focused, equals: $0.key)
+                .onTapGesture {
+                    displayPokemon(id: pokemon.key)
+                }
+                .focused($focused, equals: pokemon.key)
                 .listRowInsets(EdgeInsets())
                 #if !os(tvOS)
                 .listRowSeparatorTint(
@@ -75,11 +83,27 @@ public struct PokemonListView: View {
     }
     
     // MARK: Init Methods
-    public init(pokemons: [Int: LocalizedContentDictionary]) {
+    public init(
+        pokemons: [Int: LocalizedContentDictionary],
+        onPokemonDownload: @escaping (Pokemon) -> Void
+    ) {
+        self.onPokemonDownload = onPokemonDownload
         self.pokemons = pokemons
     }
     
     // MARK: View Methods
+    private func displayPokemon(id: Int) {
+        Task {
+            do {
+                let pokemon = try await API.shared.getPokemonInformation(id: id)
+                onPokemonDownload(pokemon)
+                Navigation.shared.showPokemon(id: id)
+            } catch {
+                errorManager.display(error.localizedDescription)
+            }
+        }
+    }
+    
     #if os(tvOS)
     private enum ListAdvanceDirection {
         case up, down
@@ -118,9 +142,9 @@ struct PokemonListViewPreview: PreviewProvider {
     static var previews: some View {
         Group {
             ForEach(Platform.allCases, id: \.self) {
-                PokemonListView(pokemons: firstLocalizedPokemons)
+                PokemonListView(pokemons: firstLocalizedPokemons) { _ in }
                     .preview(in: $0, displayMode: .light)
-                PokemonListView(pokemons: firstLocalizedPokemons)
+                PokemonListView(pokemons: firstLocalizedPokemons) { _ in }
                     .preview(in: $0, displayMode: .dark)
             }
         }
