@@ -15,14 +15,6 @@ import SwiftUI
 import SwiftData
 import UI
 
-// MARK: - App Model
-/// The app model
-@Observable final class PokedexAppModel {
-    // MARK: Properties
-    /// The Pokémon games versions
-    var versions: [Version] = []
-}
-
 // MARK: - App
 @main
 struct PokedexApp: App {
