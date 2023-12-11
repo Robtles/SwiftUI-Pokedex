@@ -20,6 +20,7 @@
 		D49B16192B2504C1008198ED /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B16182B2504C1008198ED /* Strings.swift */; };
 		D49B165D2B25120C008198ED /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B165C2B25120C008198ED /* SystemImage.swift */; };
 		D49B16662B2521F0008198ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49B16682B2521F0008198ED /* Localizable.strings */; };
+		D4AEB2AB2B26F978002C4C34 /* PokedexAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AEB2AA2B26F978002C4C34 /* PokedexAppModel.swift */; };
 		D4B3D4AA2B18E3FE00C53E11 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B3D4A92B18E3FE00C53E11 /* SettingsView.swift */; };
 		D4BD15C52B26634D00A11750 /* Error in Frameworks */ = {isa = PBXBuildFile; productRef = D4BD15C42B26634D00A11750 /* Error */; };
 		D4D00A6B2AEA612300409A8D /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D00A6A2AEA612300409A8D /* PokedexApp.swift */; };
@@ -75,6 +76,7 @@
 		D49B165C2B25120C008198ED /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 		D49B16672B2521F0008198ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D49B16692B2521F7008198ED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4AEB2AA2B26F978002C4C34 /* PokedexAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexAppModel.swift; sourceTree = "<group>"; };
 		D4B3D4A92B18E3FE00C53E11 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D4BD15C32B2661C000A11750 /* Error */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Error; sourceTree = "<group>"; };
 		D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-MV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,7 @@
 				D4D00A6A2AEA612300409A8D /* PokedexApp.swift */,
 				D49B16182B2504C1008198ED /* Strings.swift */,
 				D49B165C2B25120C008198ED /* SystemImage.swift */,
+				D4AEB2AA2B26F978002C4C34 /* PokedexAppModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				D48D29342B1A30760066A5FD /* Language+DefaultsEnum.swift in Sources */,
 				D4D00A6D2AEA612300409A8D /* ContentView.swift in Sources */,
 				D48D29312B1A2EB30066A5FD /* SettingsRowView.swift in Sources */,
+				D4AEB2AB2B26F978002C4C34 /* PokedexAppModel.swift in Sources */,
 				D48D29362B1A30850066A5FD /* SortingOrder+DefaultsEnum.swift in Sources */,
 				D49B16192B2504C1008198ED /* Strings.swift in Sources */,
 				D4E232FF2B17248F00077490 /* MainView.swift in Sources */,
