@@ -19,7 +19,7 @@ struct MainView: View {
     // MARK: Internal Types
     /// Represents the data expected to get from the base API call
     private struct DataContent {
-        let pokemons: [Int: LocalizedContentDictionary]
+        let pokemons: LocalizedIndexedContentDictionary
         let versions: [Version]
     }
     
@@ -37,7 +37,7 @@ struct MainView: View {
     /// If the view is in a loading state
     @State private var loading: Bool = true
     /// The loaded Pokémon list
-    @State private var pokemons: [Int: LocalizedContentDictionary] = [:]
+    @State private var pokemons: LocalizedIndexedContentDictionary = [:]
     
     // MARK: View Properties
     var body: some View {

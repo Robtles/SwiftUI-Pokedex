@@ -14,3 +14,6 @@ public typealias LocalizedContentDictionary = [Language: String]
 
 /// A dictionary containing localized texts for given versions
 public typealias LocalizedVersionedContentDictionary = [VersionID: LocalizedContentDictionary]
+
+/// A dictionary containing localized texts for given indexes
+public typealias LocalizedIndexedContentDictionary = [Int: LocalizedContentDictionary]

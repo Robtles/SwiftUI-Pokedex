@@ -24,7 +24,7 @@ struct PokedexNavigationView: View {
     
     // MARK: Instance Properties
     /// The Pokémon list
-    private let pokemons: [Int: LocalizedContentDictionary]
+    private let pokemons: LocalizedIndexedContentDictionary
     
     // MARK: View Properties
     var body: some View {
@@ -83,7 +83,7 @@ struct PokedexNavigationView: View {
     }
     
     // MARK: Init Methods
-    init(with pokemons: [Int : LocalizedContentDictionary]) {
+    init(with pokemons: LocalizedIndexedContentDictionary) {
         self.pokemons = pokemons
     }
     

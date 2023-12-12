@@ -29,7 +29,7 @@ public struct API {
     // MARK: Data Fetching
     /// Gets all the items with their localizations
     /// - Returns: A dictionary with the items ids as keys, and their localized names as values
-    public func getAllItems() async throws -> [Int: LocalizedContentDictionary] {
+    public func getAllItems() async throws -> LocalizedIndexedContentDictionary {
         return try Mapper.shared.mapToItemList(
             try await robbeyroadProvider.getData(for: .items)
         )
@@ -37,7 +37,7 @@ public struct API {
     
     /// Gets all the Pokemons with their localizations
     /// - Returns: A dictionary with the Pokémon ids as keys, and their localized names as values
-    public func getAllPokemons() async throws -> [Int: LocalizedContentDictionary] {
+    public func getAllPokemons() async throws -> LocalizedIndexedContentDictionary {
         return try Mapper.shared.mapToPokemonList(
             try await robbeyroadProvider.getData(for: .pokemons)
         )

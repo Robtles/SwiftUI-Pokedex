@@ -17,7 +17,7 @@ final class APIAllPokemonsTests: XCTestCase {
     }
     
     // MARK: Properties
-    private var allPokemons: [Int: LocalizedContentDictionary]?
+    private var allPokemons: LocalizedIndexedContentDictionary?
     
     // MARK: Test Methods
     override func setUp() async throws {

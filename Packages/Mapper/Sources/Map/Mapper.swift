@@ -28,8 +28,8 @@ public struct Mapper {
     /// - Returns: The item list content, a dictionary keyed by item ids and with their localized names as values
     public func mapToItemList(
         _ data: Data
-    ) throws -> [Int: LocalizedContentDictionary] {
-        return try Mapper.shared.decoder.decode([Int: LocalizedContentDictionary].self, from: data)
+    ) throws -> LocalizedIndexedContentDictionary {
+        return try Mapper.shared.decoder.decode(LocalizedIndexedContentDictionary.self, from: data)
     }
     
     /// Decodes some Data into a localized list of Pokémon
@@ -37,8 +37,8 @@ public struct Mapper {
     /// - Returns: The Pokémon list content, a dictionary keyed by Pokémon ids and with their localized names as values
     public func mapToPokemonList(
         _ data: Data
-    ) throws -> [Int: LocalizedContentDictionary] {
-        return try Mapper.shared.decoder.decode([Int: LocalizedContentDictionary].self, from: data)
+    ) throws -> LocalizedIndexedContentDictionary {
+        return try Mapper.shared.decoder.decode(LocalizedIndexedContentDictionary.self, from: data)
     }
     
     public func mapToPokemon(

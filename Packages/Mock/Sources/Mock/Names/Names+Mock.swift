@@ -8,7 +8,7 @@ import Foundation
 import Model
 
 // MARK: - Pokemon Names Mockup
-public let firstLocalizedPokemons: [Int: LocalizedContentDictionary] = [
+public let firstLocalizedPokemons: LocalizedIndexedContentDictionary = [
     1: [.english: "Bulbasaur"],
     2: [.english: "Ivysaur"],
     3: [.english: "Venusaur"],

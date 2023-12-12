@@ -18,7 +18,7 @@ final class APIAllItemsTests: XCTestCase {
     }
     
     // MARK: Properties
-    private var allItems: [Int: LocalizedContentDictionary]?
+    private var allItems: LocalizedIndexedContentDictionary?
     
     // MARK: Test Methods
     override func setUp() async throws {
