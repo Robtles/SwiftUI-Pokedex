@@ -12,7 +12,6 @@ import SwiftUI
 public struct LoadingView: View {
     // MARK: Constants
     private enum Constants {
-        fileprivate static let animatedPokeballName = "animated_pokeball"
         fileprivate static var animatedPokeballWidth: CGFloat = switch Platform.current {
         case .iOS: 100.0
         case .iPadOS, .macOS, .tvOS: 180.0
@@ -29,7 +28,7 @@ public struct LoadingView: View {
             Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
             #if os(macOS)
             GIFImage(
-                name: Constants.animatedPokeballName,
+                name: Resources.Images.animatedPokeball,
                 macOSSize: CGSize(
                     width: Constants.animatedPokeballWidth,
                     height: Constants.animatedPokeballWidth
@@ -41,7 +40,7 @@ public struct LoadingView: View {
             )
             #else
             GIFImage(
-                name: Constants.animatedPokeballName
+                name: Resources.Images.animatedPokeball
             )
             .frame(
                 width: Constants.animatedPokeballWidth,

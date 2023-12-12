@@ -27,7 +27,21 @@ public struct PokemonView: View {
         if let pokemon {
             Text("Capture rate: \(pokemon.captureRate)")
         } else {
-            Color.red
+            PokemonMissingView()
+                .ignoresSafeArea()
+        }
+    }
+}
+
+struct PokemonViewPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ForEach(Platform.allCases, id: \.self) {
+                PokemonView(pokemon: nil)
+                    .preview(in: $0, displayMode: .light)
+                PokemonView(pokemon: nil)
+                    .preview(in: $0, displayMode: .dark)
+            }
         }
     }
 }
