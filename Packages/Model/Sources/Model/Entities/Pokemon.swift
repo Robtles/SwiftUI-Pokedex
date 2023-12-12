@@ -56,7 +56,7 @@ public struct Pokemon {
         types: [PokemonType],
         weight: Int,
         height: Int,
-        stats: [PokemonStat : Int],
+        stats: [PokemonStat: Int],
         baseHappiness: Int,
         captureRate: Int,
         evolutionChain: EvolutionChain,

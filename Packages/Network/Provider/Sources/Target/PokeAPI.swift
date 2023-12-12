@@ -44,7 +44,7 @@ extension PokeApi: TargetType {
         return .requestPlain
     }
     
-    public var headers: [String : String]? {
+    public var headers: [String: String]? {
         return nil
     }
 }
