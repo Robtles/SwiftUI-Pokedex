@@ -19,7 +19,13 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            path: "../API"
+        ),
+        .package(
             path: "../Defaults"
+        ),
+        .package(
+            path: "../Error"
         ),
         .package(
             url: "https://github.com/onevcat/Kingfisher.git",
@@ -30,14 +36,18 @@ let package = Package(
         ),
         .package(
             path: "../Mock"
+        ),
+        .package(
+            path: "../Navigation"
         )
     ],
     targets: [
         .target(
             name: "UI",
-            dependencies: ["Defaults", "Kingfisher", "Model", "Mock"],
+            dependencies: ["API", "Defaults", "Error", "Kingfisher", "Model", "Mock", "Navigation"],
             resources: [
-                .process("Resources/animated_pokeball.gif")
+                .process("Resources/animated_pokeball.gif"),
+                .process("Resources/Assets.xcassets")
             ]
         )
     ]
