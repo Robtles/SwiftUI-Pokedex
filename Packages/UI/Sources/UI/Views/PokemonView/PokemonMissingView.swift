@@ -29,9 +29,12 @@ struct PokemonMissingView: View {
                 .resizable()
                 .frame(width: 64.0, height: 64.0)
                 .scaledToFit()
-                Text("Pokémon information not found")
-                    .foregroundStyle(.white)
-                    .font(.title3)
+                Text(
+                    Strings.PokemonMissingView.information,
+                    bundle: .module
+                )
+                .foregroundStyle(.white)
+                .font(.title3)
             }
             .padding()
         }
