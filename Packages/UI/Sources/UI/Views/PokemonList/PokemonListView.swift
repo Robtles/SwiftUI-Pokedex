@@ -27,6 +27,7 @@ public struct PokemonListView: View {
     @FocusState private var focused: Int?
     
     // MARK: Environment Properties
+    @Environment(AppModel.self) fileprivate var appModel
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
     @Environment(ErrorManager.self) private var errorManager
@@ -46,31 +47,15 @@ public struct PokemonListView: View {
     }
     
     // MARK: Properties
-    public let onPokemonDownload: (Pokemon) -> Void
     public let pokemons: [Int: LocalizedContentDictionary]
     
     // MARK: View Properties
     public var body: some View {
         ScrollViewReader { proxy in
             List(sortedPokemons, id: \.key) { pokemon in
-                PokemonListRowView(
-                    id: pokemon.key,
-                    localizedNames: pokemon.value
-                )
-                .onTapGesture {
-                    displayPokemon(id: pokemon.key)
-                }
-                .focused($focused, equals: pokemon.key)
-                .listRowInsets(EdgeInsets())
-                #if !os(tvOS)
-                .listRowSeparatorTint(
-                    Colors.secondaryBackground.from(defaults, colorScheme: colorScheme)
-                )
-                #endif
-                #if os(macOS)
-                // ugly workaround for macOS to remove unnecessary horizontal padding around the list rows
-                .padding(.horizontal, -8.0)
-                #endif
+                internalRow(pokemon)
+                    .focused($focused, equals: pokemon.key)
+                    .listRowInsets(EdgeInsets())
             }
             .background(
                 Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
@@ -83,20 +68,46 @@ public struct PokemonListView: View {
     }
     
     // MARK: Init Methods
-    public init(
-        pokemons: [Int: LocalizedContentDictionary],
-        onPokemonDownload: @escaping (Pokemon) -> Void
-    ) {
-        self.onPokemonDownload = onPokemonDownload
+    public init(pokemons: [Int: LocalizedContentDictionary]) {
         self.pokemons = pokemons
     }
     
     // MARK: View Methods
+    @ViewBuilder private func internalRow(
+        _ pokemon: PokemonListViewContent
+    ) -> some View {
+        #if os(tvOS)
+        Button {
+            displayPokemon(id: pokemon.key)
+        } label: {
+            PokemonListRowView(
+                id: pokemon.key,
+                localizedNames: pokemon.value
+            )
+        }
+        #else
+        PokemonListRowView(
+            id: pokemon.key,
+            localizedNames: pokemon.value
+        )
+        .onTapGesture {
+            displayPokemon(id: pokemon.key)
+        }
+        .listRowSeparatorTint(
+            Colors.secondaryBackground.from(defaults, colorScheme: colorScheme)
+        )
+        #if os(macOS)
+        // ugly workaround for macOS to remove unnecessary horizontal padding around the list rows
+        .padding(.horizontal, -8.0)
+        #endif
+        #endif
+    }
+    
     private func displayPokemon(id: Int) {
         Task {
             do {
                 let pokemon = try await API.shared.getPokemonInformation(id: id)
-                onPokemonDownload(pokemon)
+                appModel.pokemons[id] = pokemon
                 Navigation.shared.showPokemon(id: id)
             } catch {
                 errorManager.display(error.localizedDescription)
@@ -142,9 +153,9 @@ struct PokemonListViewPreview: PreviewProvider {
     static var previews: some View {
         Group {
             ForEach(Platform.allCases, id: \.self) {
-                PokemonListView(pokemons: firstLocalizedPokemons) { _ in }
+                PokemonListView(pokemons: firstLocalizedPokemons)
                     .preview(in: $0, displayMode: .light)
-                PokemonListView(pokemons: firstLocalizedPokemons) { _ in }
+                PokemonListView(pokemons: firstLocalizedPokemons)
                     .preview(in: $0, displayMode: .dark)
             }
         }

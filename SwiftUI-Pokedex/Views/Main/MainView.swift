@@ -25,7 +25,7 @@ struct MainView: View {
     
     // MARK: Environment Properties
     /// The app model, containing shared data
-    @Environment(PokedexAppModel.self) private var appModel
+    @Environment(AppModel.self) private var appModel
     /// The color scheme
     @Environment(\.colorScheme) private var colorScheme
     /// The user defaults
@@ -81,7 +81,7 @@ struct MainView: View {
 }
 
 struct PokemonListRowViewPreview: PreviewProvider {
-    @State private static var appModel = PokedexAppModel()
+    @State private static var appModel = AppModel()
     
     static var previews: some View {
         Group {

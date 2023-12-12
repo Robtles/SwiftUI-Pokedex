@@ -17,7 +17,7 @@ import UI
 /// The main app navigation view
 struct PokedexNavigationView: View {
     // MARK: Environment Properties
-    @Environment(PokedexAppModel.self) private var appModel
+    @Environment(AppModel.self) private var appModel
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
     @Environment(ErrorManager.self) fileprivate var errorManager
@@ -32,9 +32,7 @@ struct PokedexNavigationView: View {
         NavigationStack(path: $navigation.path) {
             PokemonListView(
                 pokemons: pokemons
-            ) { downloadedPokemon in
-                appModel.pokemons[downloadedPokemon.id.id] = downloadedPokemon
-            }
+            )
             .sheet(
                 item: $navigation.currentSheetDestination,
                 onDismiss: {
@@ -96,7 +94,7 @@ struct PokedexNavigationView: View {
 }
 
 struct PokedexNavigationViewPreview: PreviewProvider {
-    @State private static var appModel = PokedexAppModel()
+    @State private static var appModel = AppModel()
     
     static var previews: some View {
         Group {

@@ -19,7 +19,7 @@ import UI
 @main
 struct PokedexApp: App {
     // MARK: State Properties
-    @State private var appModel = PokedexAppModel()
+    @State private var appModel = AppModel()
     
     // MARK: TEMP
     var sharedModelContainer: ModelContainer = {
