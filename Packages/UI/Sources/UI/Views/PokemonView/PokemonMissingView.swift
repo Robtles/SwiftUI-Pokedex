@@ -33,6 +33,7 @@ struct PokemonMissingView: View {
                     Strings.PokemonMissingView.information,
                     bundle: .module
                 )
+                .multilineTextAlignment(.center)
                 .foregroundStyle(.white)
                 .font(.title3)
             }
