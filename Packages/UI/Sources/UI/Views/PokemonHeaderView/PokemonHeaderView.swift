@@ -22,8 +22,8 @@ struct PokemonHeaderView: View {
     // MARK: View Methods
     @ViewBuilder private func buildPokemonHeaderView() -> some View {
         switch Platform.current {
-        case .iOS:
-            PokemonHeaderView_iPhone(
+        case .iOS, .iPadOS:
+            PokemonHeaderView_iOS(
                 names: names,
                 pokemon: pokemon
             )

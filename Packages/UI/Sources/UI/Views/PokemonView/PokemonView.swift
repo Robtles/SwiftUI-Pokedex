@@ -32,13 +32,13 @@ public struct PokemonView: View {
     @ViewBuilder private func buildPokemonView() -> some View {
         if let pokemon {
             switch Platform.current {
-            case .iOS:
-                PokemonView_iPhone(
+            case .iOS, .iPadOS:
+                PokemonView_iOS(
                     names: names,
                     pokemon: pokemon
                 )
             default:
-                Color.red
+                EmptyView()
             }
         } else {
             PokemonMissingView()

@@ -1,5 +1,5 @@
 //
-//  PokemonHeaderView~iPhone.swift
+//  PokemonHeaderView~iOS.swift
 //
 //  Created by Rob on 16/12/2023.
 //
@@ -9,8 +9,8 @@ import Mock
 import Model
 import SwiftUI
 
-// MARK: - Pokemon Header View (iPhone)
-struct PokemonHeaderView_iPhone: View {
+// MARK: - Pokemon Header View (iPhone & iPad)
+struct PokemonHeaderView_iOS: View {
     // MARK: Constants
     fileprivate enum Constants {
         fileprivate static let contentStackSpacing = 8.0
@@ -71,16 +71,18 @@ struct PokemonHeaderView_iPhone: View {
 struct PokemonHeaderView_iPhonePreview: PreviewProvider {
     static var previews: some View {
         Group {
-            PokemonHeaderView_iPhone(
-                names: pikachuLocalizedNames,
-                pokemon: pikachuPokemon
-            )
-            .preview(in: .iOS, displayMode: .light)
-            PokemonHeaderView_iPhone(
-                names: pikachuLocalizedNames,
-                pokemon: pikachuPokemon
-            )
-            .preview(in: .iOS, displayMode: .dark)
+            ForEach([Platform.iOS, .iPadOS], id: \.self) {
+                PokemonHeaderView_iOS(
+                    names: pikachuLocalizedNames,
+                    pokemon: pikachuPokemon
+                )
+                .preview(in: $0, displayMode: .light)
+                PokemonHeaderView_iOS(
+                    names: pikachuLocalizedNames,
+                    pokemon: pikachuPokemon
+                )
+                .preview(in: $0, displayMode: .dark)
+            }
         }
     }
 }
