@@ -108,7 +108,10 @@ public struct PokemonListView: View {
             do {
                 let pokemon = try await API.shared.getPokemonInformation(id: id)
                 appModel.pokemons[id] = pokemon
-                Navigation.shared.showPokemon(id: id)
+                Navigation.shared.showPokemon(
+                    id: id,
+                    nameInformation: pokemons[id] ?? [:]
+                )
             } catch {
                 errorManager.display(error.localizedDescription)
             }

@@ -5,11 +5,12 @@
 //
 
 import Foundation
+import Model
 
 /// The views which will be shown as sheets inside the app
 public enum SheetDestination {
-    /// The pokemon view, with the related Pokémon id
-    case pokemonView(id: Int)
+    /// The pokemon view, with the related Pokémon id and its localized names
+    case pokemonView(id: Int, nameInformation: LocalizedContentDictionary)
 }
 
 extension SheetDestination: Identifiable {

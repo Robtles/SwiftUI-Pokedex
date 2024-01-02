@@ -40,8 +40,11 @@ struct PokedexNavigationView: View {
                 }
             ) { destination in
                 switch destination {
-                case .pokemonView(let id):
-                    PokemonView(pokemon: appModel.pokemons[id])
+                case .pokemonView(let id, let nameInformation):
+                    PokemonView(
+                        names: nameInformation,
+                        pokemon: appModel.pokemons[id]
+                    )
                 }
             }
             .navigationDestination(for: Destination.self) { destination in

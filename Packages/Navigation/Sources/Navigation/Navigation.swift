@@ -4,6 +4,7 @@
 //  Created by Rob on 23/11/2023.
 //
 
+import Model
 import SwiftUI
 
 /// This object handles the app navigation (both classic and sheet navigation)
@@ -32,8 +33,14 @@ import SwiftUI
     }
     
     // MARK: Sheet Methods
-    public func showPokemon(id: Int) {
-        currentSheetDestination = .pokemonView(id: id)
+    public func showPokemon(
+        id: Int,
+        nameInformation: LocalizedContentDictionary
+    ) {
+        currentSheetDestination = .pokemonView(
+            id: id,
+            nameInformation: nameInformation
+        )
     }
     
     public func hideCurrentPokemonSheetView() {
