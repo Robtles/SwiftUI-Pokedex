@@ -25,6 +25,7 @@ public struct PokemonListView: View {
     
     // MARK: State Properties
     @FocusState private var focused: Int?
+    @State private var loading: Bool = false
     
     // MARK: Environment Properties
     @Environment(AppModel.self) fileprivate var appModel
@@ -51,19 +52,24 @@ public struct PokemonListView: View {
     
     // MARK: View Properties
     public var body: some View {
-        ScrollViewReader { proxy in
-            List(sortedPokemons, id: \.key) { pokemon in
-                internalRow(pokemon)
-                    .focused($focused, equals: pokemon.key)
-                    .listRowInsets(EdgeInsets())
+        ZStack {
+            ScrollViewReader { proxy in
+                List(sortedPokemons, id: \.key) { pokemon in
+                    internalRow(pokemon)
+                        .focused($focused, equals: pokemon.key)
+                        .listRowInsets(EdgeInsets())
+                }
+                .background(
+                    Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
+                )
+                .listStyle(PlainListStyle())
+                #if os(tvOS)
+                .onMoveCommand(perform: handleMoveCommand(proxy: proxy))
+                #endif
             }
-            .background(
-                Colors.primaryBackground.from(defaults, colorScheme: colorScheme)
-            )
-            .listStyle(PlainListStyle())
-            #if os(tvOS)
-            .onMoveCommand(perform: handleMoveCommand(proxy: proxy))
-            #endif
+            if loading {
+                PokemonListLoadingView()
+            }
         }
     }
     
@@ -106,7 +112,9 @@ public struct PokemonListView: View {
     private func displayPokemon(id: Int) {
         Task {
             do {
+                loading = true
                 let pokemon = try await API.shared.getPokemonInformation(id: id)
+                loading = false
                 appModel.pokemons[id] = pokemon
                 Navigation.shared.showPokemon(
                     id: id,
@@ -157,8 +165,12 @@ struct PokemonListViewPreview: PreviewProvider {
         Group {
             ForEach(Platform.allCases, id: \.self) {
                 PokemonListView(pokemons: firstLocalizedPokemons)
+                    .environment(AppModel())
+                    .environment(ErrorManager.shared)
                     .preview(in: $0, displayMode: .light)
                 PokemonListView(pokemons: firstLocalizedPokemons)
+                    .environment(AppModel())
+                    .environment(ErrorManager.shared)
                     .preview(in: $0, displayMode: .dark)
             }
         }
