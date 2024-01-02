@@ -1,5 +1,5 @@
 //
-//  ClippedImageView.swift
+//  ImageView.swift
 //
 //  Created by Rob on 27/11/2023.
 //
@@ -7,22 +7,23 @@
 import Kingfisher
 import SwiftUI
 
-// MARK: - Clipped Image View
-/// Clips an image view
-struct ClippedImageView: View {
+// MARK: - Image View
+/// Image view with content loaded from internet
+struct ImageView: View {
     // MARK: Image Properties
     /// The URL to download and display the image from
     let url: URL
     
     // MARK: View Properties
     var body: some View {
-        ImageView(url: url)
-        .clipped()
+        KFImage(url)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
     }
 }
 
 #Preview {
-    ClippedImageView(
+    ImageView(
         url: URLBuilder.shared.url(
             for: .pokedexListImage,
             pokemonId: 25
