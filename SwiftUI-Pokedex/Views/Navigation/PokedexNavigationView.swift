@@ -41,7 +41,7 @@ struct PokedexNavigationView: View {
             ) { destination in
                 switch destination {
                 case .pokemonView(let id, let nameInformation):
-                    PokemonView(
+                    PokemonSheetView(
                         names: nameInformation,
                         pokemon: appModel.pokemons[id]
                     )
@@ -69,7 +69,7 @@ struct PokedexNavigationView: View {
             .navigationTitle(Strings.PokedexNavigationView.title.localized)
             .toolbar {
                 Button(
-                    Strings.PokedexNavigationView.toolbarButton.localized,
+                    "",
                     systemImage: SystemImage.gearshape
                 ) {
                     goToSettings()

@@ -43,7 +43,9 @@ struct PokemonFooterLineView: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(lineType.emoji)
+                .font(.body)
             Text(lineType.name, bundle: .module)
+                .font(.body)
             Text(
                 isValid ? Strings.Common.yes : Strings.Common.no,
                 bundle: .module

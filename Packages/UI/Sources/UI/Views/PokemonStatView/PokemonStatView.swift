@@ -10,6 +10,20 @@ import SwiftUI
 
 // MARK: - Pokémon Stat View
 struct PokemonStatView: View {
+    // MARK: Type Properties
+    private enum Constants {
+        #if os(iOS) || os(macOS)
+        fileprivate static let leftTextWidth: CGFloat = 70.0
+        #else
+        fileprivate static let leftTextWidth: CGFloat = 200.0
+        #endif
+        #if os(iOS) || os(macOS)
+        fileprivate static let rightTextWidth: CGFloat = 40.0
+        #else
+        fileprivate static let rightTextWidth: CGFloat = 120.0
+        #endif
+    }
+    
     // MARK: Instance Properties
     private let pokemon: Pokemon
     private let stat: PokemonStat
@@ -18,7 +32,7 @@ struct PokemonStatView: View {
     var body: some View {
         HStack(spacing: 16.0) {
             Text(stat.localizedKey, bundle: .module)
-                .frame(width: 70.0)
+                .frame(width: Constants.leftTextWidth)
             ZStack {
                 GeometryReader { reader in
                     RoundedRectangle(cornerRadius: 6.0)
@@ -33,7 +47,7 @@ struct PokemonStatView: View {
             }
             .frame(height: 6.0)
             Text("\(pokemon.stats[stat] ?? 0)")
-                .frame(width: 40.0)
+                .frame(width: Constants.rightTextWidth)
         }
     }
     

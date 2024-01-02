@@ -40,6 +40,8 @@ struct PokemonTextEntriesView: View {
                         }
                         HStack {
                             Text(textEntry.value.carriageReturnFixed)
+                                .font(.body)
+                                .multilineTextAlignment(.leading)
                             Spacer()
                         }
                     }

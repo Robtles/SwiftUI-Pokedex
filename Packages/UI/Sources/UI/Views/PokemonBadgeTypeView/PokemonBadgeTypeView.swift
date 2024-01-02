@@ -9,6 +9,15 @@ import SwiftUI
 
 // MARK: - Pokémon Badge Type View
 struct PokemonBadgeTypeView: View {
+    // MARK: Type Properties
+    private enum Constants {
+        #if os(iOS) || os(macOS)
+        fileprivate static let badgeWidth: CGFloat = 100.0
+        #else
+        fileprivate static let badgeWidth: CGFloat = 200.0
+        #endif
+    }
+    
     // MARK: Instance Properties
     let pokemonType: PokemonType
     
@@ -22,7 +31,7 @@ struct PokemonBadgeTypeView: View {
         .textCase(.uppercase)
         .font(.subheadline)
         .fontWeight(.bold)
-        .frame(width: 100, height: 30)
+        .frame(width: Constants.badgeWidth, height: 30)
         .background(
             RoundedRectangle(cornerRadius: 16.0)
                 .fill(pokemonType.backgroundColor)
