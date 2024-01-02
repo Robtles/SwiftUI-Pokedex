@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D00A972AEA646B00409A8D /* README.md */,
-				D4D00A692AEA612300409A8D /* SwiftUI-Pokedex */,
+				D4D00A692AEA612300409A8D /* SwiftUI-Pokedex-MV */,
 				D4D00A7D2AEA612600409A8D /* SwiftUI-PokedexTests */,
 				D4D00A872AEA612600409A8D /* SwiftUI-PokedexUITests */,
 				D4F1E4B92B0F9F4500A7FA53 /* Packages */,
@@ -223,7 +223,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4D00A692AEA612300409A8D /* SwiftUI-Pokedex */ = {
+		D4D00A692AEA612300409A8D /* SwiftUI-Pokedex-MV */ = {
 			isa = PBXGroup;
 			children = (
 				D4E232FA2B171FDF00077490 /* Core */,
@@ -233,7 +233,7 @@
 				D4E232FC2B171FF200077490 /* Resources */,
 				D4E232FB2B171FE600077490 /* Views */,
 			);
-			path = "SwiftUI-Pokedex";
+			path = "SwiftUI-Pokedex-MV";
 			sourceTree = "<group>";
 		};
 		D4D00A732AEA612500409A8D /* Preview Content */ = {
