@@ -18,6 +18,7 @@ struct PokemonEvolutionChainView: View {
         PokemonRecursiveEvolutionChainView(
             evolutionChainLink: evolutionChain.chain
         )
+        .padding(.horizontal)
     }
 
     // MARK: Init Methods
