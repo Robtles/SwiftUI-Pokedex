@@ -45,6 +45,7 @@ struct PokemonHeaderView_iPhone: View {
                         "\(pokemon.id.id.formatted(withDigits: 3))" +
                         ")"
                     )
+                    .offset(y: 2.0)
                     .font(.subheadline)
                     .fontWeight(.light)
                     Spacer()
