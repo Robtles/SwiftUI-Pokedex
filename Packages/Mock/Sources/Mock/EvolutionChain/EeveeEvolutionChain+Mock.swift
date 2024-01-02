@@ -77,6 +77,6 @@ public let eeveeEvolutionChain = EvolutionChain(
                 speciesId: 471
             )
         ],
-        speciesId: 92
+        speciesId: 133
     )
 )
