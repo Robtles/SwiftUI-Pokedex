@@ -4,6 +4,7 @@
 //  Created by Rob on 14/12/2023.
 //
 
+import Defaults
 import Mock
 import Model
 import SwiftUI
@@ -14,6 +15,10 @@ struct PokemonView_iPhone: View {
     private enum Constants {
         fileprivate static let sheetHeight = UIScreen.main.bounds.height * 0.75
     }
+    
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
     
     // MARK: Instance Properties
     let names: LocalizedContentDictionary
@@ -49,6 +54,9 @@ struct PokemonView_iPhone: View {
                 )                
             }
         }
+        .background(
+            Colors.popupBackground.from(defaults, colorScheme: colorScheme)
+        )
         .presentationDetents(
             [.height(Constants.sheetHeight)]
         )

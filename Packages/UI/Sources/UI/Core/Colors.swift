@@ -14,6 +14,7 @@ public enum Colors {
     case errorBackground
     case highlightedText
     case pickerFocusedText
+    case popupBackground
     case primaryBackground
     case primaryText
     case secondaryBackground
@@ -25,6 +26,7 @@ public enum Colors {
         case .errorBackground: "1C1C1C"
         case .highlightedText: "007AFF"
         case .pickerFocusedText: "000000"
+        case .popupBackground: "333333"
         case .primaryBackground: "000000"
         case .primaryText: "EDEDED"
         case .secondaryBackground: "DBDBDB"
@@ -37,6 +39,7 @@ public enum Colors {
         case .errorBackground: "BD0D00"
         case .highlightedText: "007AFF"
         case .pickerFocusedText: "1C1C1C"
+        case .popupBackground: "FFFFFF"
         case .primaryBackground: "FFFFFF"
         case .primaryText: "1C1C1C"
         case .secondaryBackground: "C2C2C2"

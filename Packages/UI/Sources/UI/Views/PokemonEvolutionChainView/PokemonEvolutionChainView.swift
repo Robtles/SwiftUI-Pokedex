@@ -4,12 +4,17 @@
 //  Created by Rob on 22/12/2023.
 //
 
+import Defaults
 import Mock
 import Model
 import SwiftUI
 
 // MARK: - Pokémon Evolution Chain View
 struct PokemonEvolutionChainView: View {
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
+    
     // MARK: Instance Properties
     private let evolutionChain: EvolutionChain
     
@@ -19,6 +24,9 @@ struct PokemonEvolutionChainView: View {
             evolutionChainLink: evolutionChain.chain
         )
         .padding(.horizontal)
+        .foregroundStyle(
+            Colors.primaryText.from(defaults, colorScheme: colorScheme)
+        )
     }
 
     // MARK: Init Methods

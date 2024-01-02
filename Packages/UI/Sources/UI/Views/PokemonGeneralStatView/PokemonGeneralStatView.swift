@@ -4,6 +4,7 @@
 //  Created by Rob on 20/12/2023.
 //
 
+import Defaults
 import Mock
 import Model
 import SwiftUI
@@ -42,6 +43,10 @@ struct PokemonGeneralStatView: View {
         }
     }
     
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
+    
     // MARK: Instance Properties
     private let pokemon: Pokemon
     private let stat: Stat
@@ -62,6 +67,9 @@ struct PokemonGeneralStatView: View {
                         .font(.callout)
                 }
             }
+            .foregroundStyle(
+                Colors.primaryText.from(defaults, colorScheme: colorScheme)
+            )
             Spacer()
         }
     }

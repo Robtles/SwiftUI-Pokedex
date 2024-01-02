@@ -4,12 +4,17 @@
 //  Created by Rob on 22/12/2023.
 //
 
+import Defaults
 import Mock
 import Model
 import SwiftUI
 
 // MARK: - Pokémon Stat Container View
 struct PokemonStatContainerView: View {
+    // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
+    @Environment(Defaults.self) private var defaults
+    
     // MARK: Instance Properties
     private let pokemon: Pokemon
     
@@ -20,6 +25,9 @@ struct PokemonStatContainerView: View {
                 PokemonStatView(pokemon: pokemon, stat: $0)
             }
         }
+        .foregroundStyle(
+            Colors.primaryText.from(defaults, colorScheme: colorScheme)
+        )
         .padding()
     }
 

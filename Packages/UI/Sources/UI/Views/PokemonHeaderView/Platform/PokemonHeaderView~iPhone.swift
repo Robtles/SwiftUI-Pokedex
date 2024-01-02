@@ -20,6 +20,7 @@ struct PokemonHeaderView_iPhone: View {
     }
     
     // MARK: Environment Properties
+    @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
     
     // MARK: Instance Properties
@@ -40,6 +41,9 @@ struct PokemonHeaderView_iPhone: View {
                     Text(names[defaults.language] ?? Constants.emptyPokemonName)
                         .font(.title)
                         .fontWeight(.bold)
+                        .foregroundStyle(
+                            Colors.primaryText.from(defaults, colorScheme: colorScheme)
+                        )
                     Text(
                         "(" +
                         "\(pokemon.id.id.formatted(withDigits: 3))" +
@@ -48,6 +52,9 @@ struct PokemonHeaderView_iPhone: View {
                     .offset(y: 2.0)
                     .font(.subheadline)
                     .fontWeight(.light)
+                    .foregroundStyle(
+                        Colors.secondaryText.from(defaults, colorScheme: colorScheme)
+                    )
                     Spacer()
                 }
                 PokemonBadgeTypeContainerView(

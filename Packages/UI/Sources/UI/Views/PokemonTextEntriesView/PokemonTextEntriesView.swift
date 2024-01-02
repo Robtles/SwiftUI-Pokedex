@@ -34,6 +34,7 @@ struct PokemonTextEntriesView: View {
                                 Text(localizedStringKey, bundle: .module)
                                     .font(.headline)
                                     .fontWeight(.bold)
+                                    .underline()
                                 Spacer()
                             }
                         }
@@ -45,6 +46,9 @@ struct PokemonTextEntriesView: View {
                 }
             }
         }
+        .foregroundStyle(
+            Colors.primaryText.from(defaults, colorScheme: colorScheme)
+        )
         .padding()
     }
     
