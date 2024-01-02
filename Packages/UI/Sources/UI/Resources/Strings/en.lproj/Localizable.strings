@@ -170,6 +170,56 @@
 
 "version.soulsilver" = "Soul Silver";
 
+"version.black" = "Black";
+
+"version.white" = "White";
+
+"version.colosseum" = "Colosseum";
+
+"version.xd" = "XD";
+
+"version.black2" = "Black 2";
+
+"version.white2" = "White 2";
+
+"version.x" = "X";
+
+"version.y" = "Y";
+
 "version.omegaruby" = "Omega Ruby";
 
 "version.alphasapphire" = "Alpha Sapphire";
+
+"version.sun" = "Sun";
+
+"version.moon" = "Moon";
+
+"version.ultraSun" = "Ultra Sun";
+
+"version.ultraMoon" = "Ultra Moon";
+
+"version.letsGoPikachu" = "Let's Go Pikachu!";
+
+"version.letsGoEevee" = "Let's Go Eevee!";
+
+"version.sword" = "Sword";
+
+"version.shield" = "Shield";
+
+"version.theIsleOfArmor" = "The Isle of Armor";
+
+"version.theCrownTundra" = "The Crown Tundra";
+
+"version.brilliantDiamond" = "Brilliant Diamond";
+
+"version.shiningPearl" = "Shining Pearl";
+
+"version.legendsArceus" = "Legends Arceus";
+
+"version.scarlet" = "Scarlet";
+
+"version.violet" = "Violet";
+
+"version.theTealMask" = "The Teal Mask";
+
+"version.theIndigoDisk" = "The Indigo Disk";
