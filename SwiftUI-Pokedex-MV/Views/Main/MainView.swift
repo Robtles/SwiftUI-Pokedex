@@ -15,14 +15,7 @@ import UI
 
 // MARK: - App Main View
 /// The main view on which the user lands when launching the app
-struct MainView: View {
-    // MARK: Internal Types
-    /// Represents the data expected to get from the base API call
-    private struct DataContent {
-        let pokemons: LocalizedIndexedContentDictionary
-        let versions: [Version]
-    }
-    
+struct MainView: View {    
     // MARK: Environment Properties
     /// The app model, containing shared data
     @Environment(AppModel.self) private var appModel
