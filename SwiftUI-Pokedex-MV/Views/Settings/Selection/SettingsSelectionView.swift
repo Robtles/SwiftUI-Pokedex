@@ -62,11 +62,11 @@ struct SettingsSelectionView<T>: View where T: DefaultsEnum {
     private func select(_ value: T) {
         switch value {
         case let language as Language:
-            Defaults.shared.language = language
+            defaults.language = language
         case let sortingOrder as SortingOrder:
-            Defaults.shared.sortingOrder = sortingOrder
+            defaults.sortingOrder = sortingOrder
         case let displayMode as DisplayMode:
-            Defaults.shared.displayMode = displayMode
+            defaults.displayMode = displayMode
         default:
             return
         }
