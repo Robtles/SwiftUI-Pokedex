@@ -16,8 +16,6 @@ struct MainView: View {
     // MARK: Environment Properties
     /// The app model, containing shared data
     @Environment(AppModel.self) private var appModel
-    /// The error manager
-    @Environment(ErrorManager.self) private var errorManager
     
     // MARK: State Properties
     /// If the view is in a loading state

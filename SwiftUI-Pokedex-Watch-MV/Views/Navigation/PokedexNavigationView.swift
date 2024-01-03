@@ -10,6 +10,11 @@ import Mock
 import Model
 import SwiftUI
 
+enum Tab {
+    case pokedexList
+    case settings
+}
+
 // MARK: - Navigation View
 struct PokedexNavigationView: View {
     // MARK: Instance Properties
@@ -22,7 +27,7 @@ struct PokedexNavigationView: View {
     // MARK: View Properties
     var body: some View {
         TabView(selection: $currentTab) {
-            SettingsView()
+            SettingsNavigationView()
                 .tag(Tab.settings)
             PokedexListView(pokemons: pokemons)
                 .tag(Tab.pokedexList)

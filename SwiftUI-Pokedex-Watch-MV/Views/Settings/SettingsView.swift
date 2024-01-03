@@ -9,12 +9,32 @@ import SwiftUI
 
 // MARK: - Settings View
 struct SettingsView: View {
+    // MARK: State Properties
+    @Binding var path: [SettingsNavigationPath]
+    
     // MARK: View Properties
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(Strings.SettingsView.title)
+                .font(.title3)
+            Spacer()
+            Button {
+                path.append(.language)
+            } label: {
+                Text(Strings.SettingsView.language)
+            }
+            Button {
+                path.append(.sortingOrder)
+            } label: {
+                Text(Strings.SettingsView.sortingOrder)
+            }
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(
+        path: .constant([])
+    )
 }

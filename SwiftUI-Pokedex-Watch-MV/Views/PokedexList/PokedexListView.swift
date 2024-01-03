@@ -39,7 +39,7 @@ struct PokedexListView: View {
     // MARK: View Properties
     var body: some View {
         List(sortedPokemons, id: \.key) { pokemon in
-            Text(pokemon.value[.english] ?? "")
+            Text(pokemon.value[defaults.language] ?? "")
         }
     }
     
