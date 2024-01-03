@@ -10,11 +10,11 @@ import Mock
 import Model
 import SwiftUI
 
+// MARK: Type Properties
+typealias PokemonListViewContent = (key: Int, value: LocalizedContentDictionary)
+
 // MARK: - Pokédex List View
 struct PokedexListView: View {
-    // MARK: Type Properties
-    private typealias PokemonListViewContent = (key: Int, value: LocalizedContentDictionary)
-    
     // MARK: Environment Properties
     @Environment(Defaults.self) private var defaults
     
@@ -38,8 +38,8 @@ struct PokedexListView: View {
     
     // MARK: View Properties
     var body: some View {
-        List(sortedPokemons, id: \.key) { pokemon in
-            Text(pokemon.value[defaults.language] ?? "")
+        List(sortedPokemons, id: \.key) {
+            PokedexListRowView(rowContent: $0)
         }
     }
     

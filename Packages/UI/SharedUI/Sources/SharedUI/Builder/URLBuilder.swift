@@ -7,7 +7,7 @@
 import Foundation
 
 /// Builds URLs, mainly for image downloading purposes
-struct URLBuilder {
+public struct URLBuilder {
     // MARK: Static Properties
     private enum Constants {
         fileprivate static let gifExtension = ".gif"
@@ -17,7 +17,7 @@ struct URLBuilder {
     }
     
     // MARK: Internal Type
-    enum URLType {
+    public enum URLType {
         case pokedexListImage
         case pokemonImage
     }
@@ -34,7 +34,7 @@ struct URLBuilder {
     ///   - urlType: The URL type expected (Pokédex list or Pokémon view)
     ///   - pokemonId: The Pokémon id
     /// - Returns: The corresponding URL
-    func url(
+    public func url(
         for urlType: URLType,
         pokemonId: Int
     ) -> URL {

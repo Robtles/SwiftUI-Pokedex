@@ -9,16 +9,21 @@ import SwiftUI
 
 // MARK: - Image View
 /// Image view with content loaded from internet
-struct ImageView: View {
+public struct ImageView: View {
     // MARK: Image Properties
     /// The URL to download and display the image from
     let url: URL
     
     // MARK: View Properties
-    var body: some View {
+    public var body: some View {
         KFImage(url)
         .resizable()
         .aspectRatio(contentMode: .fit)
+    }
+    
+    // MARK: Init Methods
+    public init(url: URL) {
+        self.url = url
     }
 }
 

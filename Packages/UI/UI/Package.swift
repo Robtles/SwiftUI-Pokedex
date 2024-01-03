@@ -39,12 +39,15 @@ let package = Package(
         ),
         .package(
             path: "../Navigation"
+        ),
+        .package(
+            path: "../SharedUI"
         )
     ],
     targets: [
         .target(
             name: "UI",
-            dependencies: ["API", "Defaults", "Error", "Kingfisher", "Model", "Mock", "Navigation"],
+            dependencies: ["API", "Defaults", "Error", "Kingfisher", "Model", "Mock", "Navigation", "SharedUI"],
             resources: [
                 .process("Resources/animated_pokeball.gif"),
                 .process("Resources/Assets.xcassets")

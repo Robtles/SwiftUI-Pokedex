@@ -50,6 +50,9 @@
 		D4EBBD1F2B45BA510045BD54 /* Language+DefaultsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBBD1C2B45B9790045BD54 /* Language+DefaultsEnum.swift */; };
 		D4EBBD202B45BA540045BD54 /* SortingOrder+DefaultsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBBD1E2B45B9790045BD54 /* SortingOrder+DefaultsEnum.swift */; };
 		D4EBBD222B45BB8C0045BD54 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBBD212B45BB8C0045BD54 /* String+Extension.swift */; };
+		D4EBBD242B45C2940045BD54 /* PokedexListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EBBD232B45C2940045BD54 /* PokedexListRowView.swift */; };
+		D4EBBD262B45C4D00045BD54 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4EBBD252B45C4D00045BD54 /* Kingfisher */; };
+		D4EBF2F82B45C8E800A70D07 /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = D4EBF2F72B45C8E800A70D07 /* SharedUI */; };
 		D4F1E4C12B0F9F4500A7FA53 /* Provider in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BB2B0F9F4500A7FA53 /* Provider */; };
 		D4F1E4C22B0F9F4500A7FA53 /* API in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BC2B0F9F4500A7FA53 /* API */; };
 		D4F1E4C32B0F9F4500A7FA53 /* Mapper in Resources */ = {isa = PBXBuildFile; fileRef = D4F1E4BD2B0F9F4500A7FA53 /* Mapper */; };
@@ -135,6 +138,8 @@
 		D4EBBD1C2B45B9790045BD54 /* Language+DefaultsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Language+DefaultsEnum.swift"; sourceTree = "<group>"; };
 		D4EBBD1E2B45B9790045BD54 /* SortingOrder+DefaultsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SortingOrder+DefaultsEnum.swift"; sourceTree = "<group>"; };
 		D4EBBD212B45BB8C0045BD54 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D4EBBD232B45C2940045BD54 /* PokedexListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexListRowView.swift; sourceTree = "<group>"; };
+		D4EBBD2A2B45C6690045BD54 /* SharedUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SharedUI; sourceTree = "<group>"; };
 		D4F1E4BB2B0F9F4500A7FA53 /* Provider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Provider; sourceTree = "<group>"; };
 		D4F1E4BC2B0F9F4500A7FA53 /* API */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = API; sourceTree = "<group>"; };
 		D4F1E4BD2B0F9F4500A7FA53 /* Mapper */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mapper; sourceTree = "<group>"; };
@@ -148,8 +153,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EBBD262B45C4D00045BD54 /* Kingfisher in Frameworks */,
 				D4C7B1F22B4545CA0034121A /* Model in Frameworks */,
 				D4C7B1EE2B4545CA0034121A /* Error in Frameworks */,
+				D4EBF2F82B45C8E800A70D07 /* SharedUI in Frameworks */,
 				D4C7B1EC2B4545CA0034121A /* Defaults in Frameworks */,
 				D4C7B1F02B4545CA0034121A /* Mock in Frameworks */,
 				D4EBBC732B459D540045BD54 /* WatchAPI in Frameworks */,
@@ -312,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C7B2272B45592D0034121A /* PokedexListView.swift */,
+				D4EBBD232B45C2940045BD54 /* PokedexListRowView.swift */,
 			);
 			path = PokedexList;
 			sourceTree = "<group>";
@@ -454,17 +462,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D4EBBD292B45C6440045BD54 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBBD2A2B45C6690045BD54 /* SharedUI */,
+				D453A8E92B100A2300614CEE /* UI */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D4F1E4B92B0F9F4500A7FA53 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
 				D4F1E4BA2B0F9F4500A7FA53 /* Network */,
+				D4EBBD292B45C6440045BD54 /* UI */,
 				D4F1E4BF2B0F9F4500A7FA53 /* Defaults */,
 				D4BD15C32B2661C000A11750 /* Error */,
 				D4F1E4BD2B0F9F4500A7FA53 /* Mapper */,
 				D453A8EA2B101A0B00614CEE /* Mock */,
 				D4F1E4C02B0F9F4500A7FA53 /* Model */,
 				D4F1E4BE2B0F9F4500A7FA53 /* Navigation */,
-				D453A8E92B100A2300614CEE /* UI */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -518,6 +535,8 @@
 				D4C7B1EF2B4545CA0034121A /* Mock */,
 				D4C7B1F12B4545CA0034121A /* Model */,
 				D4EBBC722B459D540045BD54 /* WatchAPI */,
+				D4EBBD252B45C4D00045BD54 /* Kingfisher */,
+				D4EBF2F72B45C8E800A70D07 /* SharedUI */,
 			);
 			productName = "SwiftUI-Pokedex-Watch-MV Watch App";
 			productReference = D460F80F2B44BBD20073F9E4 /* Pokédex.app */;
@@ -643,6 +662,7 @@
 				D4C7B2282B45592D0034121A /* PokedexListView.swift in Sources */,
 				D4EBBD162B45B3C20045BD54 /* Strings.swift in Sources */,
 				D4EBBD222B45BB8C0045BD54 /* String+Extension.swift in Sources */,
+				D4EBBD242B45C2940045BD54 /* PokedexListRowView.swift in Sources */,
 				D4EBBD202B45BA540045BD54 /* SortingOrder+DefaultsEnum.swift in Sources */,
 				D4EBBD182B45B50D0045BD54 /* SettingsNavigationView.swift in Sources */,
 				D4C7B2232B4557FE0034121A /* PokedexNavigationView.swift in Sources */,
@@ -1094,6 +1114,15 @@
 		D4EBBC722B459D540045BD54 /* WatchAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WatchAPI;
+		};
+		D4EBBD252B45C4D00045BD54 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4D00A9A2AEA681800409A8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		D4EBF2F72B45C8E800A70D07 /* SharedUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedUI;
 		};
 		D4F1E4C72B0FA89800A7FA53 /* API */ = {
 			isa = XCSwiftPackageProductDependency;

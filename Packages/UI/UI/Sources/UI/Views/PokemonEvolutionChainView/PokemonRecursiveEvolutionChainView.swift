@@ -6,6 +6,7 @@
 
 import Mock
 import Model
+import SharedUI
 import SwiftUI
 
 // MARK: - Pokémon Recursive Evolution Chain View

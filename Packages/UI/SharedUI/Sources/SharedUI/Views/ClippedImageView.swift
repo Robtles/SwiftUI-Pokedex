@@ -9,15 +9,20 @@ import SwiftUI
 
 // MARK: - Clipped Image View
 /// Clips an image view
-struct ClippedImageView: View {
+public struct ClippedImageView: View {
     // MARK: Image Properties
     /// The URL to download and display the image from
     let url: URL
     
     // MARK: View Properties
-    var body: some View {
+    public var body: some View {
         ImageView(url: url)
         .clipped()
+    }
+    
+    // MARK: Init Methods
+    public init(url: URL) {
+        self.url = url
     }
 }
 
