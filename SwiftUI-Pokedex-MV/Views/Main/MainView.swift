@@ -72,20 +72,3 @@ struct MainView: View {
         loading = false
     }
 }
-
-struct PokemonListRowViewPreview: PreviewProvider {
-    @State private static var appModel = AppModel()
-    
-    static var previews: some View {
-        Group {
-            ForEach(Platform.allCases, id: \.self) { platform in
-                MainView()
-                    .preview(in: platform, displayMode: .light)
-                MainView()
-                    .preview(in: platform, displayMode: .dark)
-            }
-        }
-        .environment(appModel)
-        .environment(Navigation.shared)
-    }
-}

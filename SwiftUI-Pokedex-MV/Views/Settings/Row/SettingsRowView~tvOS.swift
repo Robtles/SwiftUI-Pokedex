@@ -72,9 +72,9 @@ struct SettingsRowView_tvOSPreview: PreviewProvider {
     static var previews: some View {
         Group {
             SettingsRowView(selectedValue: .constant(Language.english))
-                .preview(in: .tvOS, displayMode: .light)
+                .preview(in: Platform.tvOS, displayMode: .light)
             SettingsRowView(selectedValue: .constant(Language.english))
-                .preview(in: .tvOS, displayMode: .dark)
+                .preview(in: Platform.tvOS, displayMode: .dark)
         }
     }
 }

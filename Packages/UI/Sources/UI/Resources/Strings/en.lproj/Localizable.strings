@@ -1,0 +1,305 @@
+/* 
+  Localizable.strings
+
+  Created by Rob on 04/01/2024.
+  
+*/
+
+/* Common */
+
+"common.no" = "No";
+
+"common.yes" = "Yes";
+
+/* Display Mode */
+
+"displaymode.description" = "Either forces the light or dark mode, or follows the current system mode.";
+
+"displaymode.title" = "Display mode";
+
+/* Display Mode - Modes */
+
+"displaymode.mode.dark" = "Dark mode";
+
+"displaymode.mode.light" = "Light mode";
+
+"displaymode.mode.system" = "Follows system";
+
+/* Evolution Details */
+
+"evolutiondetails.affectionlevelup" = "On level-up with _VALUE_ affection";
+
+"evolutiondetails.beautylevelup" = "On level-up with _VALUE_ beauty";
+
+"evolutiondetails.happinesslevelup" = "On level-up with _VALUE_ happiness";
+
+"evolutiondetails.leveluplevelup" = "On level-up at level _VALUE_";
+
+"evolutiondetails.shed" = "On shed";
+
+"evolutiondetails.trade" = "On trade";
+
+"evolutiondetails.withitem" = "With item: ";
+
+"evolutiondetails.whenholding" = "When holding: ";
+
+/* Item */
+
+"item.80" = "Sun Stone";
+
+"item.81" = "Moon Stone";
+
+"item.82" = "Fire Stone";
+
+"item.83" = "Thunder Stone";
+
+"item.84" = "Water Stone";
+
+"item.85" = "Leaf Stone";
+
+"item.107" = "Shiny Stone";
+
+"item.108" = "Dusk Stone";
+
+"item.109" = "Dawn Stone";
+
+"item.198" = "King's Rock";
+
+"item.203" = "Deep Sea Tooth";
+
+"item.204" = "Deep Sea Scale";
+
+"item.210" = "Metal Coat";
+
+"item.212" = "Dragon Scale";
+
+"item.229" = "Upgrade";
+
+"item.298" = "Protector";
+
+"item.299" = "Electirizer";
+
+"item.300" = "Magmarizer";
+
+"item.301" = "Dubious Disc";
+
+"item.302" = "Reaper Cloth";
+
+/* Language */
+
+"language.description" = "Selects in which language the Pokémon information will be displayed. Doesn't change the current app language.";
+
+"language.title" = "Language";
+
+/* Language - Cases */
+
+"language.case.deutsch" = "Deutsch";
+
+"language.case.english" = "English";
+
+"language.case.french" = "French";
+
+"language.case.italian" = "Italian";
+
+"language.case.baseJapanese" = "Japanese";
+
+"language.case.kanaJapanese" = "Japanese (Kana)";
+
+"language.case.korean" = "Korean";
+
+"language.case.romajiJapanese" = "Japanese (Romaji)";
+
+"language.case.simplifiedChinese" = "Chinese (Simplified)";
+
+"language.case.spanish" = "Spanish";
+
+"language.case.traditionalChinese" = "Chinese (Traditional)";
+
+/* Pokémon Footer Line View */
+
+"pokemonfooterlineview.baby" = "Baby:";
+
+"pokemonfooterlineview.legendary" = "Legendary:";
+
+"pokemonfooterlineview.mythical" = "Mythical:";
+
+/* Pokémon General Stat View */
+
+"pokemongeneralstatview.base.happiness" = "Base happiness";
+
+"pokemongeneralstatview.capture.rate" = "Capture rate";
+
+"pokemongeneralstatview.height" = "Height";
+
+"pokemongeneralstatview.height.unit" = "m";
+
+"pokemongeneralstatview.weight" = "Weight";
+
+"pokemongeneralstatview.weight.unit" = "kg";
+
+/* Pokémon Missing View */
+
+"pokemonmissingview.information" = "Pokémon information not found";
+
+/* Pokémon Stat */
+
+"pokemonstat.attack" = "Atk";
+
+"pokemonstat.defense" = "Def";
+
+"pokemonstat.special-attack" = "Sp. Atk";
+
+"pokemonstat.special-defense" = "Sp. Def";
+
+"pokemonstat.speed" = "Speed";
+
+"pokemonstat.hp" = "HP";
+
+/* Pokémon Text Entries View */
+
+"pokemontextentriesview.notextentry" = "No text entry found for this Pokémon.";
+
+/* Pokémon Type */
+
+"pokemontype.normal" = "Normal";
+
+"pokemontype.fighting" = "Fighting";
+
+"pokemontype.flying" = "Flying";
+
+"pokemontype.poison" = "Poison";
+
+"pokemontype.ground" = "Ground";
+
+"pokemontype.rock" = "Rock";
+
+"pokemontype.bug" = "Bug";
+
+"pokemontype.ghost" = "Ghost";
+
+"pokemontype.steel" = "Steel";
+
+"pokemontype.fire" = "Fire";
+
+"pokemontype.water" = "Water";
+
+"pokemontype.grass" = "Grass";
+
+"pokemontype.electric" = "Electric";
+
+"pokemontype.psychic" = "Psychic";
+
+"pokemontype.ice" = "Ice";
+
+"pokemontype.dragon" = "Dragon";
+
+"pokemontype.dark" = "Dark";
+
+"pokemontype.fairy" = "Fairy";
+
+/* Sorting Order */
+
+"sortingorder.description" = "Defines the Pokédex sorting order: by index or name.";
+
+"sortingorder.title" = "Sorting order";
+
+/* Sorting Order - Cases */
+
+"sortingorder.case.byIndex" = "By index";
+
+"sortingorder.case.byName" = "By name";
+
+/* Time of Day */
+
+"timeofday.day" = "During day";
+
+"timeofday.night" = "During night";
+
+/* Version */
+
+"version.red" = "Red";
+
+"version.blue" = "Blue";
+
+"version.yellow" = "Yellow";
+
+"version.gold" = "Gold";
+
+"version.silver" = "Silver";
+
+"version.crystal" = "Crystal";
+
+"version.ruby" = "Ruby";
+
+"version.sapphire" = "Sapphire";
+
+"version.emerald" = "Emerald";
+
+"version.firered" = "Fire Red";
+
+"version.leafgreen" = "Leaf Green";
+
+"version.diamond" = "Diamond";
+
+"version.pearl" = "Pearl";
+
+"version.platinum" = "Platinum";
+
+"version.heartgold" = "Heart Gold";
+
+"version.soulsilver" = "Soul Silver";
+
+"version.black" = "Black";
+
+"version.white" = "White";
+
+"version.colosseum" = "Colosseum";
+
+"version.xd" = "XD";
+
+"version.black2" = "Black 2";
+
+"version.white2" = "White 2";
+
+"version.x" = "X";
+
+"version.y" = "Y";
+
+"version.omegaruby" = "Omega Ruby";
+
+"version.alphasapphire" = "Alpha Sapphire";
+
+"version.sun" = "Sun";
+
+"version.moon" = "Moon";
+
+"version.ultraSun" = "Ultra Sun";
+
+"version.ultraMoon" = "Ultra Moon";
+
+"version.letsGoPikachu" = "Let's Go Pikachu!";
+
+"version.letsGoEevee" = "Let's Go Eevee!";
+
+"version.sword" = "Sword";
+
+"version.shield" = "Shield";
+
+"version.theIsleOfArmor" = "The Isle of Armor";
+
+"version.theCrownTundra" = "The Crown Tundra";
+
+"version.brilliantDiamond" = "Brilliant Diamond";
+
+"version.shiningPearl" = "Shining Pearl";
+
+"version.legendsArceus" = "Legends Arceus";
+
+"version.scarlet" = "Scarlet";
+
+"version.violet" = "Violet";
+
+"version.theTealMask" = "The Teal Mask";
+
+"version.theIndigoDisk" = "The Indigo Disk";
+

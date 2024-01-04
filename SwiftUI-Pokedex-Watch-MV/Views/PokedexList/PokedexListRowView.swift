@@ -5,10 +5,12 @@
 //  Created by Rob on 03/01/2024.
 //
 
+import API
 import Defaults
 import Kingfisher
 import Mock
-import SharedUI
+import Model
+import UI
 import SwiftUI
 
 // MARK: - Pokemon List Row View
@@ -16,7 +18,8 @@ struct PokedexListRowView: View {
     // MARK: Environment Properties
     @Environment(Defaults.self) private var defaults
     
-    @State private var isSheetVisible: Bool = false
+    // MARK: State Properties
+    @State private var currentSheetDestination: SheetDestination?
     
     // MARK: Type Properties
     enum Constants {
@@ -31,9 +34,12 @@ struct PokedexListRowView: View {
     // MARK: View Properties
     var body: some View {
         Button {
-            isSheetVisible = true
+            showPokemon(
+                id: rowContent.key,
+                nameInformation: rowContent.value
+            )
         } label: {
-            HStack(spacing: Constants.spacing) {
+            HStack(spacing: 0.0) {
                 ClippedImageView(
                     url: URLBuilder.shared.url(
                         for: .pokedexListImage,
@@ -42,13 +48,39 @@ struct PokedexListRowView: View {
                 )
                 .frame(height: 40.0)
                 Text(rowContent.value[defaults.language] ?? Constants.emptyPokemonName)
-                    .font(.headline)
+                    .font(.body)
+                    .fontWeight(.light)
                 Spacer()
             }
         }
         .frame(height: 50.0)
-        .sheet(isPresented: $isSheetVisible) {
-            Color.red
+        .sheet(
+            item: $currentSheetDestination,
+            onDismiss: { currentSheetDestination = nil }
+        ) { sheetDestination in
+            switch sheetDestination {
+            case .pokemonView(let nameInformation, let pokemon):
+                PokemonView(
+                    names: nameInformation,
+                    pokemon: pokemon
+                )
+            }
+        }
+    }
+    
+    // MARK: Sheet Methods
+    public func showPokemon(
+        id: Int,
+        nameInformation: LocalizedContentDictionary
+    ) {
+        Task {
+            do {
+                let pokemon = try await API.shared.getPokemonInformation(id: id)
+                currentSheetDestination = .pokemonView(
+                    nameInformation: nameInformation,
+                    pokemon: pokemon
+                )
+            } catch {}
         }
     }
 }

@@ -6,50 +6,6 @@
   
 */
 
-/* Display Mode */
-
-"displaymode.description" = "Permet de forcer le mode clair ou sombre, ou bien de suivre les préférences système.";
-
-"displaymode.title" = "Mode d'affichage";
-
-/* Display Mode - Modes */
-
-"displaymode.mode.dark" = "Mode sombre";
-
-"displaymode.mode.light" = "Mode clair";
-
-"displaymode.mode.system" = "Comme le système";
-
-/* Language */
-
-"language.description" = "Permet de choisir dans quelle langue le nom et la description du Pokémon seront affichés. Ceci ne change pas la langue de l'application.";
-
-"language.title" = "Langue";
-
-/* Language - Cases */
-
-"language.case.deutsch" = "Allemand";
-
-"language.case.english" = "Anglais";
-
-"language.case.french" = "Français";
-
-"language.case.italian" = "Italien";
-
-"language.case.baseJapanese" = "Japonais";
-
-"language.case.kanaJapanese" = "Japonais (Kana)";
-
-"language.case.korean" = "Coréen";
-
-"language.case.romajiJapanese" = "Japonais (Romaji)";
-
-"language.case.simplifiedChinese" = "Chinois (Simplified)";
-
-"language.case.spanish" = "Espagnol";
-
-"language.case.traditionalChinese" = "Chinois (Traditional)";
-
 /* Pokédex Navigation View */
 
 "pokedexnavigationview.title" = "Pokédex";
@@ -59,15 +15,3 @@
 /* Settings View */
 
 "settingsview.title" = "Paramètres";
-
-/* Sorting Order */
-
-"sortingorder.description" = "Permet de choisir dans quel ordre les Pokémon sont triés : par index ou par nom.";
-
-"sortingorder.title" = "Ordre de tri";
-
-/* Sorting Order - Cases */
-
-"sortingorder.case.byIndex" = "Par index";
-
-"sortingorder.case.byName" = "Par nom";

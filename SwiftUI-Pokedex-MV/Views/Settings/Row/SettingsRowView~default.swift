@@ -68,9 +68,9 @@ struct SettingsRowView_DefaultPreview: PreviewProvider {
         Group {
             ForEach([Platform.iOS, .iPadOS, .macOS], id: \.self) { platform in
                 SettingsRowView(selectedValue: .constant(Language.english))
-                    .preview(in: .iOS, displayMode: .light)
+                    .preview(in: Platform.iOS, displayMode: .light)
                 SettingsRowView(selectedValue: .constant(Language.english))
-                    .preview(in: .iOS, displayMode: .dark)
+                    .preview(in: Platform.iOS, displayMode: .dark)
             }
             .padding()
         }

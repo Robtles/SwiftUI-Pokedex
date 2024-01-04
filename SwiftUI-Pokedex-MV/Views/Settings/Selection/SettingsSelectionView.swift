@@ -78,11 +78,11 @@ struct SettingsSelectionViewPreview: PreviewProvider {
         Group {
             NavigationStack {
                 SettingsSelectionView(initialValue: DisplayMode.light)
-                    .preview(in: .tvOS, displayMode: .light)
+                    .preview(in: Platform.tvOS, displayMode: .light)
             }
             NavigationStack {
                 SettingsSelectionView(initialValue: DisplayMode.dark)
-                    .preview(in: .tvOS, displayMode: .dark)
+                    .preview(in: Platform.tvOS, displayMode: .dark)
             }
         }
     }

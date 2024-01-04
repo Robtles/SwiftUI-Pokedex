@@ -66,7 +66,7 @@ struct PokedexNavigationView: View {
                 #endif
                 }
             }
-            .navigationTitle(Strings.PokedexNavigationView.title.localized)
+            .navigationTitle(Strings.PokedexNavigationView.title)
             .toolbar {
                 Button(
                     "",

@@ -9,6 +9,7 @@ import API
 import Error
 import Model
 import SwiftUI
+import UI
 import WatchAPI
 
 // MARK: - Main View

@@ -6,50 +6,6 @@
   
 */
 
-/* Display Mode */
-
-"displaymode.description" = "Either forces the light or dark mode, or follows the current system mode.";
-
-"displaymode.title" = "Display mode";
-
-/* Display Mode - Modes */
-
-"displaymode.mode.dark" = "Dark mode";
-
-"displaymode.mode.light" = "Light mode";
-
-"displaymode.mode.system" = "Follows system";
-
-/* Language */
-
-"language.description" = "Selects in which language the Pokémon information will be displayed. Doesn't change the current app language.";
-
-"language.title" = "Language";
-
-/* Language - Cases */
-
-"language.case.deutsch" = "Deutsch";
-
-"language.case.english" = "English";
-
-"language.case.french" = "French";
-
-"language.case.italian" = "Italian";
-
-"language.case.baseJapanese" = "Japanese";
-
-"language.case.kanaJapanese" = "Japanese (Kana)";
-
-"language.case.korean" = "Korean";
-
-"language.case.romajiJapanese" = "Japanese (Romaji)";
-
-"language.case.simplifiedChinese" = "Chinese (Simplified)";
-
-"language.case.spanish" = "Spanish";
-
-"language.case.traditionalChinese" = "Chinese (Traditional)";
-
 /* Pokédex Navigation View */
 
 "pokedexnavigationview.title" = "Pokédex";
@@ -59,15 +15,3 @@
 /* Settings View */
 
 "settingsview.title" = "Settings";
-
-/* Sorting Order */
-
-"sortingorder.description" = "Defines the Pokédex sorting order: by index or name.";
-
-"sortingorder.title" = "Sorting order";
-
-/* Sorting Order - Cases */
-
-"sortingorder.case.byIndex" = "By index";
-
-"sortingorder.case.byName" = "By name";
