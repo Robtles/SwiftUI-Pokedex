@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  SwiftUI-Pokedex
+
+  Created by Rob on 11/01/2024.
+  
+*/
+
+/* Settings */
+
+"settings.view.title" = "Settings";
+
+"settings.view.button.sorting.order" = "Sorting order";
+
+"settings.view.button.language" = "Language";
