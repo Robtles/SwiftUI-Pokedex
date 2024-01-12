@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  SwiftUI-Pokedex
+
+  Created by Rob on 12/01/2024.
+  
+*/
+
+/* Pokédex Navigation View */
+
+"pokedexnavigationview.title" = "Pokédex";
+
+"pokedexnavigationview.toolbarButton" = "Paramètres";
+
+/* Settings View */
+
+"settingsview.title" = "Paramètres";
