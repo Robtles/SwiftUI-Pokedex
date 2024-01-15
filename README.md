@@ -25,15 +25,18 @@ The app embeds some local packages, reusable througout the different targets:
 - *Provider*: defines the app APIs, each endpoint returning some Data.
 - *Mapper*: a package which allows transforming the Data coming from Provider to the app Model representations.
 - *API*: a package unifying the previous three packages, easing the data fetching as follows: *let list = try await API.getPokemonList()*.
+- *WatchAPI*: this package overrides the Pokémon list fetching which fails because of an error specific to the Apple Watch.
 - *Mock*: contained mock data for test and preview purposes.
 - *Navigation*: contains both the classic (`UINavigationController` like) and sheet view destinations and navigation handler methods.
 - *Defaults*: contains the user defaults - see UserDefaults section.
-- *UI*: this package contains the views with static data, not relying on any state (hence depending on the current app architecture - these views will be directly contained in the app targets). 
+- *UI*: this package contains the views with static data, not relying on any state (hence depending on the current app architecture - these views will be directly contained in the app targets).
+- *Error*: a package handling the possible errors in the app. 
 
 ### Remote dependencies
 
 - `Moya`: all the API requests will be simplified with Moya, which itself also embeds `Alamofire`.
 - `Kingfisher`: will be used for image downloading & cache.
+- `ComposableArchitecture`: used specific for the TCA targets.
 
 ## API
 

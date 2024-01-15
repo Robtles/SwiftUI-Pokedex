@@ -5,13 +5,33 @@
 //  Created by Rob on 12/01/2024.
 //
 
+import ComposableArchitecture
+import Defaults
 import SwiftUI
+import UI
 
+// MARK: - App
 @main
-struct SwiftUI_Pokedex_TCAApp: App {
+struct PokedexApp: App {
+    let store = Store(
+        initialState: MainFeature.State()
+    ) {
+        MainFeature()
+        #if DEBUG
+            ._printChanges()
+        #endif
+    }
+
+    // MARK: View Properties
     var body: some Scene {
         WindowGroup {
-            HStack {}
+            MainView(store: store)
+                .environment(Defaults.shared)
         }
+    }
+
+    // MARK: Init Methods
+    init() {
+        Style.apply()
     }
 }
