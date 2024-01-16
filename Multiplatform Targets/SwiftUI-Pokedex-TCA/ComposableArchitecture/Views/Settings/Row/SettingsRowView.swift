@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Defaults
+import Mock
 import Model
 import SwiftUI
 import UI
@@ -39,5 +40,46 @@ struct SettingsRowView<T>: View where T: DefaultsEnum {
         #else
             SettingsRowView_Default(selectedValue: $selectedValue)
         #endif
+    }
+}
+
+struct SettingsRowViewPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            #if os(tvOS)
+            SettingsRowView(
+                selectedValue: .constant(Language.english),
+                store: Store(
+                    initialState: PokedexNavigationFeature.State(
+                        pokemonNames: firstLocalizedPokemons
+                    )
+                ) {
+                    PokedexNavigationFeature()
+                }
+            )
+            .preview(in: Platform.tvOS, displayMode: .light)
+            .padding()
+            SettingsRowView(
+                selectedValue: .constant(Language.english),
+                store: Store(
+                    initialState: PokedexNavigationFeature.State(
+                        pokemonNames: firstLocalizedPokemons
+                    )
+                ) {
+                    PokedexNavigationFeature()
+                }
+            )
+            .preview(in: Platform.tvOS, displayMode: .dark)
+            .padding()
+            #else
+            ForEach([Platform.iOS, .iPadOS, .macOS], id: \.self) { platform in
+                SettingsRowView(selectedValue: .constant(Language.english))
+                    .preview(in: Platform.iOS, displayMode: .light)
+                SettingsRowView(selectedValue: .constant(Language.english))
+                    .preview(in: Platform.iOS, displayMode: .dark)
+            }
+            .padding()
+            #endif
+        }
     }
 }

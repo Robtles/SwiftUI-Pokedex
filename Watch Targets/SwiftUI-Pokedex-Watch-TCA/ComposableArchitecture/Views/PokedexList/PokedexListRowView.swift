@@ -80,3 +80,16 @@ struct PokedexListRowView: View {
         }
     }
 }
+
+#Preview {
+    PokedexListRowView(
+        store: Store(
+            initialState: PokedexListRowFeature.State(
+                rowContent: (25, pikachuLocalizedNames)
+            )
+        ) {
+            PokedexListRowFeature()
+        }
+    )
+    .environment(Defaults.shared)
+}

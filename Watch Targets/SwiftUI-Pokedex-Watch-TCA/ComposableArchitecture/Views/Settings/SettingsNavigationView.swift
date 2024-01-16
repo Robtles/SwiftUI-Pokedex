@@ -40,3 +40,14 @@ struct SettingsNavigationView: View {
         }
     }
 }
+
+#Preview {
+    SettingsNavigationView(
+        store: Store(
+            initialState: SettingsNavigationFeature.State()
+        ) {
+            SettingsNavigationFeature()
+        }
+    )
+    .environment(Defaults.shared)
+}

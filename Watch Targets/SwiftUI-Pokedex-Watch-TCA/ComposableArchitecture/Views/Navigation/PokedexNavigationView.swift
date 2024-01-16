@@ -54,3 +54,8 @@ struct PokedexNavigationView: View {
         }
     }
 }
+
+#Preview {
+    PokedexNavigationView(pokemons: firstLocalizedPokemons)
+        .environment(Defaults.shared)
+}

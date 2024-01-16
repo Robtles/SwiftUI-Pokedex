@@ -167,3 +167,18 @@ public struct PokemonListView: View {
     }
     #endif
 }
+
+struct PokemonListViewPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ForEach(Platform.allCases, id: \.self) {
+                PokemonListView(pokemons: firstLocalizedPokemons)
+                    .environment(AppModel())
+                    .preview(in: $0, displayMode: .light)
+                PokemonListView(pokemons: firstLocalizedPokemons)
+                    .environment(AppModel())
+                    .preview(in: $0, displayMode: .dark)
+            }
+        }
+    }
+}

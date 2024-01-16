@@ -53,3 +53,10 @@ struct SettingsSelectionView<T>: View where T: DefaultsEnum {
         }
     }
 }
+
+#Preview {
+    SettingsSelectionView(
+        initialValue: Language.english
+    )
+    .environment(Defaults.shared)
+}

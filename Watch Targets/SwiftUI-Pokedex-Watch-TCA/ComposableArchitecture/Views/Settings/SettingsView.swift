@@ -35,3 +35,13 @@ struct SettingsView: View {
         }
     }
 }
+
+#Preview {
+    SettingsView(
+        navigationStore: Store(
+            initialState: SettingsNavigationFeature.State()
+        ) {
+            SettingsNavigationFeature()
+        }
+    )
+}

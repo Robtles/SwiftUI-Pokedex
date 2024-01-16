@@ -62,4 +62,18 @@ struct SettingsRowView_Default<T>: View where T: DefaultsEnum {
         )
     }
 }
+
+struct SettingsRowView_DefaultPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ForEach([Platform.iOS, .iPadOS, .macOS], id: \.self) { platform in
+                SettingsRowView(selectedValue: .constant(Language.english))
+                    .preview(in: Platform.iOS, displayMode: .light)
+                SettingsRowView(selectedValue: .constant(Language.english))
+                    .preview(in: Platform.iOS, displayMode: .dark)
+            }
+            .padding()
+        }
+    }
+}
 #endif

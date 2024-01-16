@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Defaults
+import Mock
 import Model
 import SwiftUI
 import UI
@@ -76,5 +77,37 @@ struct PokedexNavigationView: View {
     // MARK: Init Methods
     init(store: StoreOf<PokedexNavigationFeature>) {
         self.store = store
+    }
+}
+
+struct PokedexNavigationViewPreview: PreviewProvider {
+    @State private static var appModel = AppModel()
+    
+    static var previews: some View {
+        Group {
+            ForEach(Platform.allCases, id: \.self) { platform in
+                PokedexNavigationView(
+                    store: Store(
+                        initialState: PokedexNavigationFeature.State(
+                            pokemonNames: firstLocalizedPokemons
+                        )
+                    ) {
+                        PokedexNavigationFeature()
+                    }
+                )
+                .preview(in: platform, displayMode: .light)
+                PokedexNavigationView(
+                    store: Store(
+                        initialState: PokedexNavigationFeature.State(
+                            pokemonNames: firstLocalizedPokemons
+                        )
+                    ) {
+                        PokedexNavigationFeature()
+                    }
+                )
+                .preview(in: platform, displayMode: .dark)
+            }
+        }
+        .environment(appModel)
     }
 }

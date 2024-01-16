@@ -65,3 +65,8 @@ struct PokedexListView: View {
         }
     }
 }
+
+#Preview {
+    PokedexListView(pokemons: firstLocalizedPokemons)
+        .environment(Defaults.shared)
+}

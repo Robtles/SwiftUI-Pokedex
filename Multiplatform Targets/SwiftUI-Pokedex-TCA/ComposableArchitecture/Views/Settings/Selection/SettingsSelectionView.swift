@@ -8,6 +8,7 @@
 #if os(tvOS)
 import ComposableArchitecture
 import Defaults
+import Mock
 import Model
 import SwiftUI
 import UI
@@ -75,6 +76,39 @@ struct SettingsSelectionView<T>: View where T: DefaultsEnum {
             defaults.displayMode = displayMode
         default:
             return
+        }
+    }
+}
+
+struct SettingsSelectionViewPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NavigationStack {
+                SettingsSelectionView(
+                    initialValue: DisplayMode.light,
+                    store: Store(
+                        initialState: PokedexNavigationFeature.State(
+                            pokemonNames: firstLocalizedPokemons
+                        )
+                    ) {
+                        PokedexNavigationFeature()
+                    }
+                )
+                .preview(in: Platform.tvOS, displayMode: .light)
+            }
+            NavigationStack {
+                SettingsSelectionView(
+                    initialValue: DisplayMode.dark,
+                    store: Store(
+                        initialState: PokedexNavigationFeature.State(
+                            pokemonNames: firstLocalizedPokemons
+                        )
+                    ) {
+                        PokedexNavigationFeature()
+                    }
+                )
+                .preview(in: Platform.tvOS, displayMode: .dark)
+            }
         }
     }
 }

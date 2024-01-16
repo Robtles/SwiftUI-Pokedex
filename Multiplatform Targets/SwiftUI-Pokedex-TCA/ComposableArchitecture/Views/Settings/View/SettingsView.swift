@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Defaults
+import Mock
 import SwiftUI
 import UI
 
@@ -59,5 +60,51 @@ struct SettingsView: View {
                 colorScheme: colorScheme
             )
         )
+    }
+}
+
+struct SettingsViewPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            #if os(tvOS)
+            ForEach(Platform.allCases, id: \.self) { platform in
+                NavigationStack {
+                    SettingsView(
+                        store: Store(
+                            initialState: PokedexNavigationFeature.State(
+                                pokemonNames: firstLocalizedPokemons
+                            )
+                        ) {
+                            PokedexNavigationFeature()
+                        }
+                    )
+                    .preview(in: platform, displayMode: .light)
+                }
+                NavigationStack {
+                    SettingsView(
+                        store: Store(
+                            initialState: PokedexNavigationFeature.State(
+                                pokemonNames: firstLocalizedPokemons
+                            )
+                        ) {
+                            PokedexNavigationFeature()
+                        }
+                    )
+                    .preview(in: platform, displayMode: .dark)
+                }
+            }
+            #else
+            ForEach(Platform.allCases, id: \.self) { platform in
+                NavigationStack {
+                    SettingsView()
+                        .preview(in: platform, displayMode: .light)
+                }
+                NavigationStack {
+                    SettingsView()
+                        .preview(in: platform, displayMode: .dark)
+                }
+            }
+            #endif
+        }
     }
 }

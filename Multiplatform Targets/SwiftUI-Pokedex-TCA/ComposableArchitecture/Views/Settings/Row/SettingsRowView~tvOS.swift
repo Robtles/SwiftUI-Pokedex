@@ -8,6 +8,7 @@
 #if os(tvOS)
 import ComposableArchitecture
 import Defaults
+import Mock
 import Model
 import SwiftUI
 import UI
@@ -69,6 +70,35 @@ struct SettingsRowView_tvOS<T>: View where T: DefaultsEnum {
                     colorScheme: colorScheme
                 )
             )
+        }
+    }
+}
+
+struct SettingsRowView_tvOSPreview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SettingsRowView(
+                selectedValue: .constant(Language.english), 
+                store: Store(
+                    initialState: PokedexNavigationFeature.State(
+                        pokemonNames: firstLocalizedPokemons
+                    )
+                ) {
+                    PokedexNavigationFeature()
+                }
+            )
+            .preview(in: Platform.tvOS, displayMode: .light)
+            SettingsRowView(
+                selectedValue: .constant(Language.english),
+                store: Store(
+                    initialState: PokedexNavigationFeature.State(
+                        pokemonNames: firstLocalizedPokemons
+                    )
+                ) {
+                    PokedexNavigationFeature()
+                }
+            )
+            .preview(in: Platform.tvOS, displayMode: .dark)
         }
     }
 }

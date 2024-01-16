@@ -6,6 +6,8 @@
 //
 
 import ComposableArchitecture
+import Defaults
+import Mock
 import SwiftUI
 import UI
 
@@ -23,4 +25,18 @@ struct PokemonView: View {
             )
         }
     }
+}
+
+#Preview {
+    PokemonView(
+        store: Store(
+            initialState: PokemonFeature.State(
+                names: pikachuLocalizedNames,
+                pokemon: pikachuPokemon
+            )
+        ) {
+            PokemonFeature()
+        }
+    )
+    .environment(Defaults.shared)
 }

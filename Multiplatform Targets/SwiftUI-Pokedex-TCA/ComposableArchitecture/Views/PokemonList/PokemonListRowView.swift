@@ -74,3 +74,24 @@ public struct PokemonListRowView: View {
         )
     }
 }
+
+struct PokemonListRowViewPreview: PreviewProvider {
+    private static let testPokemon: (id: Int, content: LocalizedContentDictionary) = (25, pikachuLocalizedNames)
+    
+    static var previews: some View {
+        Group {
+            ForEach(Platform.allCases, id: \.self) {
+                PokemonListRowView(
+                    id: testPokemon.id,
+                    localizedNames: testPokemon.content
+                )
+                .preview(in: $0, displayMode: .light)
+                PokemonListRowView(
+                    id: testPokemon.id,
+                    localizedNames: testPokemon.content
+                )
+                .preview(in: $0, displayMode: .dark)
+            }
+        }
+    }
+}
