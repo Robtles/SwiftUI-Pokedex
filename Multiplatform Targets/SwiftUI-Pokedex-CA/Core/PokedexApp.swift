@@ -12,7 +12,6 @@ import Mock
 import Model
 import Navigation
 import SwiftUI
-import SwiftData
 import UI
 
 // MARK: - App

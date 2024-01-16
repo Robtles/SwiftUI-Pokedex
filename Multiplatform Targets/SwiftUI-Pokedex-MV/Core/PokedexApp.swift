@@ -12,7 +12,6 @@ import Mock
 import Model
 import Navigation
 import SwiftUI
-import SwiftData
 import UI
 
 // MARK: - App
@@ -20,20 +19,6 @@ import UI
 struct PokedexApp: App {
     // MARK: State Properties
     @State private var appModel = AppModel()
-    
-    // MARK: TEMP
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
 
     // MARK: View Properties
     var body: some Scene {
@@ -44,7 +29,6 @@ struct PokedexApp: App {
                 .environment(Navigation.shared)
                 .environment(appModel)
         }
-//        .modelContainer(sharedModelContainer)
     }
 
     // MARK: Init Methods

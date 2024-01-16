@@ -12,7 +12,6 @@ import Mock
 import Model
 import Navigation
 import SwiftUI
-import SwiftData
 import UI
 
 // MARK: - App
@@ -30,7 +29,6 @@ struct PokedexApp: App {
                 .environment(Navigation.shared)
                 .environment(appModel)
         }
-//        .modelContainer(sharedModelContainer)
     }
 
     // MARK: Init Methods
