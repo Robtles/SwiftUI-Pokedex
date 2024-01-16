@@ -24,16 +24,3 @@ struct PokemonListLoadingView: View {
         .ignoresSafeArea()
     }
 }
-
-struct PokemonListLoadingViewPreview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ForEach(Platform.allCases, id: \.self) { platform in
-                PokemonListLoadingView()
-                    .preview(in: platform, displayMode: .light)
-                PokemonListLoadingView()
-                    .preview(in: platform, displayMode: .dark)
-            }
-        }
-    }
-}
