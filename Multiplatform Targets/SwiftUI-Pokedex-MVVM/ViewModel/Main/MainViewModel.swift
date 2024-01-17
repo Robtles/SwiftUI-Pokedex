@@ -23,7 +23,7 @@ import SwiftUI
     private var appModel: AppModel?
     
     // MARK: Methods
-    func loadData() async throws {
+    func loadData() async throws -> LocalizedIndexedContentDictionary {
         let dataContent = try await withThrowingTaskGroup(of: DataContent.self) { _ in
             let pokemons = try await API.shared.getAllPokemons()
             let versions = try await API.shared.getAllVersions()
@@ -35,6 +35,7 @@ import SwiftUI
         appModel?.versions = dataContent.versions
         pokemons = dataContent.pokemons
         loading = false
+        return dataContent.pokemons
     }
     
     func setup(_ appModel: AppModel) {

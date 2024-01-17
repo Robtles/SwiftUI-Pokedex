@@ -8,6 +8,7 @@
 import API
 import Error
 import Model
+import Persistence
 import SwiftUI
 import UI
 import WatchAPI
@@ -24,19 +25,23 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        ZStack {
-            if viewModel.loading {
-                LoadingView()
-                    .task {
-                        do {
-                            try await viewModel.loadData()
-                        } catch {}
-                    }
-            } else {
-                PokedexNavigationView(
-                    pokemons: viewModel.pokemons
-                )
-            }
+        PersistenceContentView { persistenceContent in
+            PokedexNavigationView(
+                pokemons: persistenceContent.pokemonNames
+            )
+        } loadingView: { modelContext in
+            LoadingView()
+                .task {
+                    do {
+                        let pokemons = try await viewModel.loadData()
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: pokemons
+                            )
+                        )
+                    } catch {}
+                }
+
         }
         .onAppear {
             viewModel.setup(appModel)

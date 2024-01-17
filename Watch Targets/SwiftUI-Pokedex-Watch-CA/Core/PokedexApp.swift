@@ -7,6 +7,7 @@
 
 import Defaults
 import Model
+import Persistence
 import SwiftUI
 
 // MARK: - App
@@ -21,6 +22,7 @@ struct PokedexApp: App {
             MainView(repository: APIRepository.shared)
                 .environment(Defaults.shared)
                 .environment(appModel)
+                .addPersistentStores()
         }
     }
 }

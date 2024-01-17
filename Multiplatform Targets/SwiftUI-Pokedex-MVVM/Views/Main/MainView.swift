@@ -10,6 +10,7 @@ import Defaults
 import Error
 import Model
 import Navigation
+import Persistence
 import SwiftUI
 import UI
 
@@ -31,20 +32,25 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        ZStack {
-            if viewModel.loading {
-                LoadingView()
-                    .ignoresSafeArea()
-                    .task {
-                        do {
-                            try await viewModel.loadData()
-                        } catch {
-                            errorManager.display(error.localizedDescription)
-                        }
+        PersistenceContentView { persistenceContent in
+            PokedexNavigationView(
+                with: persistenceContent.pokemonNames
+            )
+        } loadingView: { modelContext in
+            LoadingView()
+                .ignoresSafeArea()
+                .task {
+                    do {
+                        let pokemons = try await viewModel.loadData()
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: pokemons
+                            )
+                        )
+                    } catch {
+                        errorManager.display(error.localizedDescription)
                     }
-            } else {
-                PokedexNavigationView(with: viewModel.pokemons)
-            }
+                }
         }
         .modifier(
             ErrorPopupModifier(

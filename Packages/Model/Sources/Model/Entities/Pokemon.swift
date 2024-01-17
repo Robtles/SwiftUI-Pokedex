@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Pokemon
 /// The representation of a Pokémon
-public struct Pokemon {
+public struct Pokemon: Codable {
     // MARK: Static & Constants
     /// The constants related to the Pokemon model
     public enum Constants {

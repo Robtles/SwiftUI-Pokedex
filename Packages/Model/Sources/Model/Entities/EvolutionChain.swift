@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Evolution Chain
 /// A Pokémon evolution chain
-public struct EvolutionChain {
+public struct EvolutionChain: Codable {
     // MARK: Properties
     /// The evolution chain unique id
     public let id: ID<IdentifiableType.EvolutionChain>

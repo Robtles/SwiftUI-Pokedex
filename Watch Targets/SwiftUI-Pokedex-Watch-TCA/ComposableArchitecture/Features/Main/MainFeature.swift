@@ -9,6 +9,8 @@ import API
 import ComposableArchitecture
 import Foundation
 import Model
+import Persistence
+import SwiftData
 import WatchAPI
 
 // MARK: - Main Reducer
@@ -28,7 +30,7 @@ struct MainFeature {
     
     enum Action {
         case dataFetched(DataContent)
-        case fetchData
+        case fetchData(ModelContext)
     }
     
     var body: some ReducerOf<Self> {
@@ -39,11 +41,16 @@ struct MainFeature {
                 state.pokemonNames = dataContent.pokemons
                 state.versions = dataContent.versions
                 return .none
-            case .fetchData:
+            case .fetchData(let modelContext):
                 return .run { send in
                     do {
                         let dataContent = try await fetchData()
                         await send(.dataFetched(dataContent))
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: dataContent.pokemons
+                            )
+                        )
                     } catch {}
                 }
             }
@@ -69,3 +76,6 @@ extension Pokemon: Equatable {
         return lhs.id.id == rhs.id.id
     }
 }
+
+// TODO: find a way to improve this
+extension ModelContext: @unchecked Sendable {}

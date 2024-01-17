@@ -10,6 +10,7 @@ import Defaults
 import Error
 import Model
 import Navigation
+import Persistence
 import SwiftUI
 import UI
 
@@ -37,23 +38,26 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        ZStack {
-            if loading {
-                LoadingView()
-                    .ignoresSafeArea()
-                    .task {
-                        do {
-                            try await loadData()
-                        } catch {
-                            errorManager.display(error.localizedDescription)
-                        }
+        PersistenceContentView { persistenceContent in
+            PokedexNavigationView(
+                with: persistenceContent.pokemonNames,
+                repository: repository
+            )
+        } loadingView: { modelContext in
+            LoadingView()
+                .ignoresSafeArea()
+                .task {
+                    do {
+                        let pokemons = try await loadData()
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: pokemons
+                            )
+                        )
+                    } catch {
+                        errorManager.display(error.localizedDescription)
                     }
-            } else {
-                PokedexNavigationView(
-                    with: pokemons,
-                    repository: repository
-                )
-            }
+                }
         }
         .modifier(
             ErrorPopupModifier(
@@ -69,10 +73,11 @@ struct MainView: View {
     
     // MARK: Methods
     /// Loads the required data: game versions and Pokémon list
-    private func loadData() async throws {
+    private func loadData() async throws -> LocalizedIndexedContentDictionary {
         let dataContent = try await repository.fetchPokemonList()
         appModel.versions = dataContent.versions
         pokemons = dataContent.pokemons
         loading = false
+        return dataContent.pokemons
     }
 }

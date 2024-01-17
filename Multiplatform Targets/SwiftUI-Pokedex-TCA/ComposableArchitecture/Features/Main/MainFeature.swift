@@ -8,6 +8,8 @@
 import API
 import ComposableArchitecture
 import Model
+import Persistence
+import SwiftData
 
 // MARK: - Main Feature Reducer
 @Reducer
@@ -29,7 +31,7 @@ struct MainFeature {
     enum Action {
         case dataFetched(DataContent)
         case error(ErrorFeature.Action)
-        case fetchData
+        case fetchData(ModelContext)
     }
     
     var body: some ReducerOf<Self> {
@@ -43,11 +45,16 @@ struct MainFeature {
                 state.pokemonNames = dataContent.pokemons
                 state.versions = dataContent.versions
                 return .none
-            case .fetchData:
+            case .fetchData(let modelContext):
                 return .run { send in
                     do {
                         let dataContent = try await fetchData()
                         await send(.dataFetched(dataContent))
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: dataContent.pokemons
+                            )
+                        )
                     } catch {
                         await send(.error(.displayErrorMessage(error.localizedDescription)))
                     }
@@ -77,3 +84,6 @@ extension Pokemon: Equatable {
         return lhs.id.id == rhs.id.id
     }
 }
+
+// TODO: find a way to improve this
+extension ModelContext: @unchecked Sendable {}

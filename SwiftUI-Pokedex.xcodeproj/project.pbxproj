@@ -10,6 +10,14 @@
 		D405C5592B4738D5007BA702 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = D405C5582B4738D5007BA702 /* UI */; };
 		D405C55A2B4738D5007BA702 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = D405C5582B4738D5007BA702 /* UI */; };
 		D405C5692B473A2E007BA702 /* UI in Frameworks */ = {isa = PBXBuildFile; productRef = D405C5682B473A2E007BA702 /* UI */; };
+		D4151B5D2B5726C700B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B5C2B5726C700B76D58 /* Persistence */; };
+		D4151B5F2B57310800B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B5E2B57310800B76D58 /* Persistence */; };
+		D4151B612B57310E00B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B602B57310E00B76D58 /* Persistence */; };
+		D4151B632B57311400B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B622B57311400B76D58 /* Persistence */; };
+		D4151B652B573FA200B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B642B573FA200B76D58 /* Persistence */; };
+		D4151B672B573FA700B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B662B573FA700B76D58 /* Persistence */; };
+		D4151B692B573FAC00B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B682B573FAC00B76D58 /* Persistence */; };
+		D4151B6B2B573FB000B76D58 /* Persistence in Frameworks */ = {isa = PBXBuildFile; productRef = D4151B6A2B573FB000B76D58 /* Persistence */; };
 		D468ED212B50365F001F1ED7 /* API in Frameworks */ = {isa = PBXBuildFile; productRef = D468ED202B50365F001F1ED7 /* API */; };
 		D468ED232B50365F001F1ED7 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = D468ED222B50365F001F1ED7 /* Defaults */; };
 		D468ED252B50365F001F1ED7 /* Error in Frameworks */ = {isa = PBXBuildFile; productRef = D468ED242B50365F001F1ED7 /* Error */; };
@@ -221,6 +229,7 @@
 		D405C5582B4738D5007BA702 /* UI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UI; sourceTree = "<group>"; };
 		D453A8EA2B101A0B00614CEE /* Mock */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Mock; sourceTree = "<group>"; };
 		D460F80F2B44BBD20073F9E4 /* Pokédex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokédex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46156FE2B57232600045E67 /* Persistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Persistence; sourceTree = "<group>"; };
 		D468ECE32B502DF6001F1ED7 /* SwiftUI-Pokedex-CA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-CA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D468ED3D2B50562A001F1ED7 /* CA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49913922B5189BB00DE5514 /* SwiftUI-Pokedex-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Pokedex-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +415,7 @@
 			files = (
 				D4C7B1F22B4545CA0034121A /* Model in Frameworks */,
 				D4C7B1EE2B4545CA0034121A /* Error in Frameworks */,
+				D4151B652B573FA200B76D58 /* Persistence in Frameworks */,
 				D405C5692B473A2E007BA702 /* UI in Frameworks */,
 				D4C7B1EC2B4545CA0034121A /* Defaults in Frameworks */,
 				D4C7B1F02B4545CA0034121A /* Mock in Frameworks */,
@@ -417,6 +427,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4151B612B57310E00B76D58 /* Persistence in Frameworks */,
 				D468ED2B2B50365F001F1ED7 /* Navigation in Frameworks */,
 				D468ED292B50365F001F1ED7 /* Model in Frameworks */,
 				D468ED252B50365F001F1ED7 /* Error in Frameworks */,
@@ -433,6 +444,7 @@
 			files = (
 				D4EF9B432B5058DB0048055E /* WatchAPI in Frameworks */,
 				D4EF9B3D2B5058DB0048055E /* Model in Frameworks */,
+				D4151B692B573FAC00B76D58 /* Persistence in Frameworks */,
 				D4EF9B392B5058DB0048055E /* Error in Frameworks */,
 				D4EF9B412B5058DB0048055E /* UI in Frameworks */,
 				D4EF9B372B5058DB0048055E /* Defaults in Frameworks */,
@@ -446,6 +458,7 @@
 			files = (
 				D4DE3B482B518AC700B5788C /* Model in Frameworks */,
 				D4DE3B4C2B518AC700B5788C /* UI in Frameworks */,
+				D4151B632B57311400B76D58 /* Persistence in Frameworks */,
 				D4DE3B422B518AC700B5788C /* Defaults in Frameworks */,
 				D4DE3B462B518AC700B5788C /* Mock in Frameworks */,
 				D4F7CC932B51924D000C54D4 /* ComposableArchitecture in Frameworks */,
@@ -457,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4151B6B2B573FB000B76D58 /* Persistence in Frameworks */,
 				D4DE3B612B518BBF00B5788C /* Model in Frameworks */,
 				D4DE3B5D2B518BBF00B5788C /* Error in Frameworks */,
 				D4F7CC952B519257000C54D4 /* ComposableArchitecture in Frameworks */,
@@ -471,6 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4151B5D2B5726C700B76D58 /* Persistence in Frameworks */,
 				D4BD15C52B26634D00A11750 /* Error in Frameworks */,
 				D49A6FDA2B1518200071A716 /* Mock in Frameworks */,
 				D49A6FD82B1517BB0071A716 /* UI in Frameworks */,
@@ -485,6 +500,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4151B5F2B57310800B76D58 /* Persistence in Frameworks */,
 				D4ED181C2B4844FC0097CF45 /* Navigation in Frameworks */,
 				D4ED181A2B4844F50097CF45 /* Model in Frameworks */,
 				D4ED18162B4844F10097CF45 /* Error in Frameworks */,
@@ -501,6 +517,7 @@
 			files = (
 				D4ED18282B48452C0097CF45 /* Model in Frameworks */,
 				D4ED18242B4845220097CF45 /* Mock in Frameworks */,
+				D4151B672B573FA700B76D58 /* Persistence in Frameworks */,
 				D4ED18202B4845220097CF45 /* Defaults in Frameworks */,
 				D4ED182A2B48452C0097CF45 /* UI in Frameworks */,
 				D4ED18222B4845220097CF45 /* Error in Frameworks */,
@@ -829,6 +846,7 @@
 				D453A8EA2B101A0B00614CEE /* Mock */,
 				D4F1E4C02B0F9F4500A7FA53 /* Model */,
 				D4F1E4BE2B0F9F4500A7FA53 /* Navigation */,
+				D46156FE2B57232600045E67 /* Persistence */,
 				D405C5582B4738D5007BA702 /* UI */,
 			);
 			path = Packages;
@@ -1751,6 +1769,7 @@
 				D4C7B1F12B4545CA0034121A /* Model */,
 				D4EBBC722B459D540045BD54 /* WatchAPI */,
 				D405C5682B473A2E007BA702 /* UI */,
+				D4151B642B573FA200B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-Watch-MV Watch App";
 			productReference = D460F80F2B44BBD20073F9E4 /* Pokédex.app */;
@@ -1777,6 +1796,7 @@
 				D468ED282B50365F001F1ED7 /* Model */,
 				D468ED2A2B50365F001F1ED7 /* Navigation */,
 				D468ED2C2B50365F001F1ED7 /* UI */,
+				D4151B602B57310E00B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-CA";
 			productReference = D468ECE32B502DF6001F1ED7 /* SwiftUI-Pokedex-CA.app */;
@@ -1802,6 +1822,7 @@
 				D4EF9B3C2B5058DB0048055E /* Model */,
 				D4EF9B402B5058DB0048055E /* UI */,
 				D4EF9B422B5058DB0048055E /* WatchAPI */,
+				D4151B682B573FAC00B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-Watch-CA Watch App";
 			productReference = D468ED3D2B50562A001F1ED7 /* CA.app */;
@@ -1827,6 +1848,7 @@
 				D4DE3B472B518AC700B5788C /* Model */,
 				D4DE3B4B2B518AC700B5788C /* UI */,
 				D4F7CC922B51924D000C54D4 /* ComposableArchitecture */,
+				D4151B622B57311400B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-TCA";
 			productReference = D49913922B5189BB00DE5514 /* SwiftUI-Pokedex-TCA.app */;
@@ -1853,6 +1875,7 @@
 				D4DE3B622B518BBF00B5788C /* UI */,
 				D4DE3B642B518BBF00B5788C /* WatchAPI */,
 				D4F7CC942B519257000C54D4 /* ComposableArchitecture */,
+				D4151B6A2B573FB000B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-Watch-TCA Watch App";
 			productReference = D49913A92B5189DA00DE5514 /* TCA.app */;
@@ -1879,6 +1902,7 @@
 				D49A6FD72B1517BB0071A716 /* UI */,
 				D49A6FD92B1518200071A716 /* Mock */,
 				D4BD15C42B26634D00A11750 /* Error */,
+				D4151B5C2B5726C700B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex";
 			productReference = D4D00A672AEA612300409A8D /* SwiftUI-Pokedex-MV.app */;
@@ -1905,6 +1929,7 @@
 				D4ED18192B4844F50097CF45 /* Model */,
 				D4ED181B2B4844FC0097CF45 /* Navigation */,
 				D4ED181D2B4844FC0097CF45 /* UI */,
+				D4151B5E2B57310800B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-MVVM";
 			productReference = D4ED17E62B48445C0097CF45 /* SwiftUI-Pokedex-MVVM.app */;
@@ -1930,6 +1955,7 @@
 				D4ED18272B48452C0097CF45 /* Model */,
 				D4ED18292B48452C0097CF45 /* UI */,
 				D4ED182B2B48452C0097CF45 /* WatchAPI */,
+				D4151B662B573FA700B76D58 /* Persistence */,
 			);
 			productName = "SwiftUI-Pokedex-Watch-MVVM Watch App";
 			productReference = D4ED17FC2B4844940097CF45 /* MVVM.app */;
@@ -3157,6 +3183,38 @@
 		D405C5682B473A2E007BA702 /* UI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UI;
+		};
+		D4151B5C2B5726C700B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B5E2B57310800B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B602B57310E00B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B622B57311400B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B642B573FA200B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B662B573FA700B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B682B573FAC00B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
+		};
+		D4151B6A2B573FB000B76D58 /* Persistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Persistence;
 		};
 		D468ED202B50365F001F1ED7 /* API */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Phantom Typed ID
 /// Allows adding an identifier to a type, but preventing comparison between different types
-public struct ID<PhantomType>: ExpressibleByIntegerLiteral, Equatable {
+public struct ID<PhantomType>: ExpressibleByIntegerLiteral, Equatable, Codable {
     // MARK: Properties
     /// The underlying integer ID
     public let id: Int

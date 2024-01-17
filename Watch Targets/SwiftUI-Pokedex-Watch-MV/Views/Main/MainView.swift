@@ -8,6 +8,7 @@
 import API
 import Error
 import Model
+import Persistence
 import SwiftUI
 import UI
 import WatchAPI
@@ -26,25 +27,28 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        ZStack {
-            if loading {
-                LoadingView()
-                    .task {
-                        do {
-                            try await loadData()
-                        } catch {}
-                    }
-            } else {
-                PokedexNavigationView(
-                    pokemons: pokemons
-                )
-            }
+        PersistenceContentView { persistenceContent in
+            PokedexNavigationView(
+                pokemons: persistenceContent.pokemonNames
+            )
+        } loadingView: { modelContext in
+            LoadingView()
+                .task {
+                    do {
+                        let pokemons = try await loadData()
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: pokemons
+                            )
+                        )
+                    } catch {}
+                }
         }
     }
     
     // MARK: Methods
     /// Loads the required data: game versions and Pokémon list
-    private func loadData() async throws {
+    private func loadData() async throws -> LocalizedIndexedContentDictionary {
         let dataContent = try await withThrowingTaskGroup(of: DataContent.self) { _ in
             let pokemons = try await WatchAPI.shared.getAllPokemons()
             let versions = try await WatchAPI.shared.getAllVersions()
@@ -55,7 +59,8 @@ struct MainView: View {
         }
         appModel.versions = dataContent.versions
         pokemons = dataContent.pokemons
-        loading = false        
+        loading = false
+        return dataContent.pokemons
     }
 }
 

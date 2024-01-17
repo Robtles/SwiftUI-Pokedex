@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Evolution Details
 /// Details about an evolution
-public struct EvolutionDetails {
+public struct EvolutionDetails: Codable {
     // MARK: Static    
     public static let empty = EvolutionDetails(
         heldItem: nil,

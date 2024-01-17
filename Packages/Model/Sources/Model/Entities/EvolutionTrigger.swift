@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Evolution Trigger
 /// The different possible ways for a Pokémon to evolve
-public enum EvolutionTrigger: Equatable {
+public enum EvolutionTrigger: Equatable, Codable {
     // MARK: Cases
     /// When being given a specific item
     case item(ID<IdentifiableType.Item>)
@@ -22,7 +22,7 @@ public enum EvolutionTrigger: Equatable {
 
 // MARK: - Evolution Trigger by Pokemon Level
 /// The possible ways for a Pokémon to evolve when reaching a specific level
-public enum EvolutionTriggerPokemonLevel: Equatable {
+public enum EvolutionTriggerPokemonLevel: Equatable, Codable {
     // MARK: Cases
     /// When the Pokémon reaches a specific affection level
     case minAffection(Int)

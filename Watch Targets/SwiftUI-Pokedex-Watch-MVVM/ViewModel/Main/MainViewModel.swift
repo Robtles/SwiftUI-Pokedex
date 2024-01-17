@@ -24,7 +24,7 @@ import WatchAPI
     private var appModel: AppModel?
     
     // MARK: Methods
-    func loadData() async throws {
+    func loadData() async throws -> LocalizedIndexedContentDictionary {
         let dataContent = try await withThrowingTaskGroup(of: DataContent.self) { _ in
             let pokemons = try await WatchAPI.shared.getAllPokemons()
             let versions = try await WatchAPI.shared.getAllVersions()
@@ -36,6 +36,7 @@ import WatchAPI
         appModel?.versions = dataContent.versions
         pokemons = dataContent.pokemons
         loading = false
+        return dataContent.pokemons
     }
     
     func setup(_ appModel: AppModel) {

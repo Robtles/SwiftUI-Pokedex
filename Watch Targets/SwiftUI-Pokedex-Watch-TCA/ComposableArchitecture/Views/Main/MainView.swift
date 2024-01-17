@@ -9,6 +9,7 @@ import API
 import ComposableArchitecture
 import Error
 import Model
+import Persistence
 import SwiftUI
 import UI
 import WatchAPI
@@ -21,17 +22,15 @@ struct MainView: View {
     // MARK: View Properties
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                if viewStore.loading {
-                    LoadingView()
-                        .task {
-                            viewStore.send(.fetchData)
-                        }
-                } else {
-                    PokedexNavigationView(
-                        pokemons: viewStore.pokemonNames
-                    )
-                }
+            PersistenceContentView { persistenceContent in
+                PokedexNavigationView(
+                    pokemons: persistenceContent.pokemonNames
+                )
+            } loadingView: { modelContext in
+                LoadingView()
+                    .task {
+                        viewStore.send(.fetchData(modelContext))
+                    }
             }
         }
     }

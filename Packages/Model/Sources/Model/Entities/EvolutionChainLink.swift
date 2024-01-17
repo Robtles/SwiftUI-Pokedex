@@ -8,7 +8,7 @@ import Foundation
 
 // MARK: - Evolution Chain Link
 /// A Pokémon evolution chain link
-public struct EvolutionChainLink {
+public struct EvolutionChainLink: Codable {
     // MARK: Properties
     /// The details for this evolution chain
     public let details: EvolutionDetails?

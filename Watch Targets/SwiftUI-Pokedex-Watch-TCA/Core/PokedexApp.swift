@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Defaults
 import Model
+import Persistence
 import SwiftUI
 
 // MARK: - App
@@ -25,6 +26,7 @@ struct PokedexApp: App {
         WindowGroup {
             MainView(store: store)
                 .environment(Defaults.shared)
+                .addPersistentStores()
         }
     }
 }

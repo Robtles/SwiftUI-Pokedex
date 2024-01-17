@@ -10,6 +10,8 @@ import Defaults
 import Error
 import Model
 import Navigation
+import Persistence
+import SwiftData
 import SwiftUI
 import UI
 
@@ -34,20 +36,25 @@ struct MainView: View {
     
     // MARK: View Properties
     var body: some View {
-        ZStack {
-            if loading {
-                LoadingView()
-                    .ignoresSafeArea()
-                    .task {
-                        do {
-                            try await loadData()
-                        } catch {
-                            errorManager.display(error.localizedDescription)
-                        }
+        PersistenceContentView { persistenceContent in
+            PokedexNavigationView(
+                with: persistenceContent.pokemonNames
+            )
+        } loadingView: { modelContext in
+            LoadingView()
+                .ignoresSafeArea()
+                .task {
+                    do {
+                        let pokemons = try await loadData()
+                        modelContext.insert(
+                            PersistenceContent(
+                                pokemonNames: pokemons
+                            )
+                        )
+                    } catch {
+                        errorManager.display(error.localizedDescription)
                     }
-            } else {
-                PokedexNavigationView(with: pokemons)
-            }
+                }
         }
         .modifier(
             ErrorPopupModifier(
@@ -58,7 +65,7 @@ struct MainView: View {
     
     // MARK: Methods
     /// Loads the required data: game versions and Pokémon list
-    private func loadData() async throws {
+    private func loadData() async throws -> LocalizedIndexedContentDictionary {
         let dataContent = try await withThrowingTaskGroup(of: DataContent.self) { _ in
             let pokemons = try await API.shared.getAllPokemons()
             let versions = try await API.shared.getAllVersions()
@@ -70,5 +77,6 @@ struct MainView: View {
         appModel.versions = dataContent.versions
         pokemons = dataContent.pokemons
         loading = false
+        return dataContent.pokemons
     }
 }

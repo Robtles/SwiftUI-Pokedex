@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import Defaults
 import Model
+import Persistence
 import SwiftUI
 import UI
 
@@ -26,12 +27,23 @@ struct MainView: View {
     // MARK: View Properties
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
+            PersistenceContentView { persistenceContent in
+                PokedexNavigationView(
+                    store: Store(
+                        initialState: PokedexNavigationFeature.State(
+                            pokemonNames: persistenceContent.pokemonNames
+                        )
+                    ) {
+                        PokedexNavigationFeature()
+                    }
+                )
+                .onAppear { print("1") }
+            } loadingView: { modelContext in
                 if viewStore.loading {
                     LoadingView()
                         .ignoresSafeArea()
                         .task {
-                            viewStore.send(.fetchData)
+                            viewStore.send(.fetchData(modelContext))
                         }
                 } else {
                     PokedexNavigationView(

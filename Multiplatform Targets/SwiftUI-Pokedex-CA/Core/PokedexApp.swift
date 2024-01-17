@@ -11,6 +11,7 @@ import Error
 import Mock
 import Model
 import Navigation
+import Persistence
 import SwiftUI
 import UI
 
@@ -28,6 +29,7 @@ struct PokedexApp: App {
                 .environment(Defaults.shared)
                 .environment(Navigation.shared)
                 .environment(appModel)
+                .addPersistentStores()
         }
     }
 
