@@ -11,6 +11,8 @@ import Error
 import Foundation
 import Model
 import Navigation
+import Persistence
+import SwiftData
 import SwiftUI
 
 // MARK: - Pokédex List View Model
@@ -49,11 +51,15 @@ import SwiftUI
     }
     
     // MARK: Methods
-    func displayPokemon(id: Int) {
+    func displayPokemon(
+        id: Int,
+        in modelContext: ModelContext,
+        content: [PersistenceContent]
+    ) {
         Task {
             do {
                 loading = true
-                let pokemon = try await API.shared.getPokemonInformation(id: id)
+                let pokemon = try await get(pokemonWithId: id, from: modelContext, content: content)
                 loading = false
                 appModel?.pokemons[id] = pokemon
                 Navigation.shared.showPokemon(
@@ -63,6 +69,23 @@ import SwiftUI
             } catch {
                 errorManager?.display(error.localizedDescription)
             }
+        }
+    }
+    
+    private func get(
+        pokemonWithId id: Int,
+        from modelContext: ModelContext,
+        content: [PersistenceContent]
+    ) async throws -> Pokemon {
+        if let pokemon = content.first?.pokemons[id] {
+            return pokemon
+        } else {
+            let pokemon = try await API.shared.getPokemonInformation(id: id)
+            if let content = content.first {
+                content.pokemons[pokemon.id.id] = pokemon
+                modelContext.insert(content)
+            }
+            return pokemon
         }
     }
     
@@ -76,3 +99,5 @@ import SwiftUI
         self.errorManager = errorManager
     }
 }
+
+extension ModelContext: @unchecked Sendable {}

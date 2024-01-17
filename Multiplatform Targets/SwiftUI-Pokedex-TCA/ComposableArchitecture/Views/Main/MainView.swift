@@ -37,7 +37,6 @@ struct MainView: View {
                         PokedexNavigationFeature()
                     }
                 )
-                .onAppear { print("1") }
             } loadingView: { modelContext in
                 if viewStore.loading {
                     LoadingView()

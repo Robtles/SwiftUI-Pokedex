@@ -11,6 +11,8 @@ import Defaults
 import Kingfisher
 import Mock
 import Model
+import Persistence
+import SwiftData
 import UI
 import SwiftUI
 
@@ -18,6 +20,10 @@ import SwiftUI
 struct PokedexListRowView: View {
     // MARK: Environment Properties
     @Environment(Defaults.self) private var defaults
+    @Environment(\.modelContext) private var modelContext
+    
+    // MARK: Query Properties
+    @Query private var content: [PersistenceContent]
     
     // MARK: State Properties
     let store: StoreOf<PokedexListRowFeature>
@@ -35,7 +41,9 @@ struct PokedexListRowView: View {
             Button {
                 viewStore.send(
                     .displayPokemon(
-                        id: viewStore.rowContent.key
+                        id: viewStore.rowContent.key,
+                        modelContext: modelContext,
+                        content: content
                     )
                 )
             } label: {

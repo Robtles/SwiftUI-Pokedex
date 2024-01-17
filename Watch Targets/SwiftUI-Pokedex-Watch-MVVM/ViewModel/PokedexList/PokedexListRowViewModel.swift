@@ -7,6 +7,8 @@
 
 import API
 import Model
+import Persistence
+import SwiftData
 import SwiftUI
 
 // MARK: - Pokédex List Row View Model
@@ -21,10 +23,30 @@ import SwiftUI
     }
     
     // MARK: Methods
-    func showPokemon() {
+    private func get(
+        pokemonWithId id: Int,
+        content: [PersistenceContent],
+        from modelContext: ModelContext
+    ) async throws -> Pokemon {
+        if let pokemon = content.first?.pokemons[id] {
+            return pokemon
+        } else {
+            let pokemon = try await API.shared.getPokemonInformation(id: id)
+            if let content = content.first {
+                content.pokemons[pokemon.id.id] = pokemon
+                modelContext.insert(content)
+            }
+            return pokemon
+        }
+    }
+    
+    func showPokemon(
+        content: [PersistenceContent],
+        from modelContext: ModelContext
+    ) {
         Task {
             do {
-                let pokemon = try await API.shared.getPokemonInformation(id: rowContent.key)
+                let pokemon = try await get(pokemonWithId: rowContent.key, content: content, from: modelContext)
                 currentSheetDestination = .pokemonView(
                     nameInformation: rowContent.value,
                     pokemon: pokemon
@@ -33,3 +55,5 @@ import SwiftUI
         }
     }
 }
+
+extension ModelContext: @unchecked Sendable {}

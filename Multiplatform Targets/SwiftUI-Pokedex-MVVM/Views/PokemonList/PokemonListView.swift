@@ -10,6 +10,8 @@ import Error
 import Mock
 import Model
 import Navigation
+import Persistence
+import SwiftData
 import SwiftUI
 import UI
 
@@ -27,7 +29,11 @@ public struct PokemonListView: View {
     @Environment(AppModel.self) fileprivate var appModel
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
+    @Environment(\.modelContext) private var modelContext
     @Environment(ErrorManager.self) private var errorManager
+            
+    // MARK: Query Properties
+    @Query private var content: [PersistenceContent]
     
     // MARK: View Properties
     public var body: some View {
@@ -89,7 +95,11 @@ public struct PokemonListView: View {
             localizedNames: pokemon.value
         )
         .onTapGesture {
-            viewModel.displayPokemon(id: pokemon.key)
+            viewModel.displayPokemon(
+                id: pokemon.key, 
+                in: modelContext,
+                content: content
+            )
         }
         #if !os(watchOS)
         .listRowSeparatorTint(

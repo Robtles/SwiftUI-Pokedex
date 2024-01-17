@@ -9,6 +9,8 @@ import ComposableArchitecture
 import Defaults
 import Mock
 import Model
+import Persistence
+import SwiftData
 import SwiftUI
 import UI
 
@@ -29,6 +31,10 @@ public struct PokemonListView: View {
     // MARK: Environment Properties
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
+    @Environment(\.modelContext) private var modelContext
+    
+    // MARK: Query Properties
+    @Query private var content: [PersistenceContent]
     
     // MARK: Computed Properties
     private func sortedPokemons(from pokemons: LocalizedIndexedContentDictionary) -> [PokemonListViewContent] {
@@ -120,7 +126,13 @@ public struct PokemonListView: View {
             localizedNames: pokemon.value
         )
         .onTapGesture {
-            store.send(.displayPokemon(id: pokemon.key))
+            store.send(
+                .displayPokemon(
+                    id: pokemon.key,
+                    modelContext: modelContext,
+                    content: content
+                )
+            )
         }
         #if !os(watchOS)
         .listRowSeparatorTint(

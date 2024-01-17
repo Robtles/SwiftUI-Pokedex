@@ -10,6 +10,8 @@ import Error
 import Mock
 import Model
 import Navigation
+import Persistence
+import SwiftData
 import SwiftUI
 import UI
 
@@ -33,6 +35,10 @@ public struct PokemonListView: View {
     @Environment(\.colorScheme) fileprivate var colorScheme
     @Environment(Defaults.self) private var defaults
     @Environment(ErrorManager.self) private var errorManager
+    @Environment(\.modelContext) private var modelContext
+    
+    // MARK: Query Properties
+    @Query private var content: [PersistenceContent]
     
     // MARK: Computed Properties
     private var sortedPokemons: [PokemonListViewContent] {
@@ -111,12 +117,12 @@ public struct PokemonListView: View {
         #endif
         #endif
     }
-    
+        
     private func displayPokemon(id: Int) {
         Task {
             do {
                 loading = true
-                let pokemon = try await API.shared.getPokemonInformation(id: id)
+                let pokemon = try await get(pokemonWithId: id)
                 loading = false
                 appModel.pokemons[id] = pokemon
                 Navigation.shared.showPokemon(
@@ -126,6 +132,19 @@ public struct PokemonListView: View {
             } catch {
                 errorManager.display(error.localizedDescription)
             }
+        }
+    }
+    
+    private func get(pokemonWithId id: Int) async throws -> Pokemon {
+        if let pokemon = content.first?.pokemons[id] {
+            return pokemon
+        } else {
+            let pokemon = try await API.shared.getPokemonInformation(id: id)
+            if let content = content.first {
+                content.pokemons[pokemon.id.id] = pokemon
+                modelContext.insert(content)
+            }
+            return pokemon
         }
     }
     

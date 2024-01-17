@@ -8,6 +8,8 @@
 import API
 import ComposableArchitecture
 import Model
+import Persistence
+import SwiftData
 
 // MARK: - Pokémon List Reducer
 @Reducer
@@ -26,9 +28,10 @@ struct PokemonListFeature {
     
     enum Action {
         case destination(PresentationAction<Destination.Action>)
-        case displayPokemon(id: Int)
+        case displayPokemon(id: Int, modelContext: ModelContext, content: [PersistenceContent])
         case error(ErrorFeature.Action)
         case pokemonLoaded(Pokemon)
+        case saveLocally(Pokemon, modelContext: ModelContext, content: [PersistenceContent])
     }
     
     var body: some ReducerOf<Self> {
@@ -39,11 +42,16 @@ struct PokemonListFeature {
             switch action {
             case .destination, .error:
                 return .none
-            case .displayPokemon(let id):
+            case .displayPokemon(let id, let modelContext, let content):
                 state.loading = true
                 return .run { send in
                     do {
-                        let pokemon = try await API.shared.getPokemonInformation(id: id)
+                        let pokemon = try await get(
+                            pokemonWithId: id, 
+                            from: modelContext, 
+                            and: content,
+                            send: send
+                        )
                         await send(.pokemonLoaded(pokemon))
                     } catch {
                         await send(.error(.displayErrorMessage(error.localizedDescription)))
@@ -58,10 +66,33 @@ struct PokemonListFeature {
                     )
                 )
                 return .none
+            case .saveLocally(let pokemon, let modelContext, let content):
+                if let content = content.first {
+                    content.pokemons[pokemon.id.id] = pokemon
+                    modelContext.insert(content)
+                }
+                return .none
             }
         }
         .ifLet(\.$destination, action: \.destination) {
             Destination()
+        }
+    }
+    
+    private func get(
+        pokemonWithId id: Int,
+        from modelContext: ModelContext,
+        and content: [PersistenceContent],
+        send: Send<PokemonListFeature.Action>
+    ) async throws -> Pokemon {
+        if let pokemon = content.first?.pokemons[id] {
+            return pokemon
+        } else {
+            let pokemon = try await API.shared.getPokemonInformation(id: id)
+            await send(
+                .saveLocally(pokemon, modelContext: modelContext, content: content)
+            )
+            return pokemon
         }
     }
 }

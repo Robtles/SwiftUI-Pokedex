@@ -9,13 +9,19 @@ import Defaults
 import Kingfisher
 import Mock
 import Model
+import Persistence
 import UI
+import SwiftData
 import SwiftUI
 
 // MARK: - Pokemon List Row View
 struct PokedexListRowView: View {
     // MARK: Environment Properties
     @Environment(Defaults.self) private var defaults
+    @Environment(\.modelContext) private var modelContext
+    
+    // MARK: Query Properties
+    @Query private var content: [PersistenceContent]
 
     // MARK: Type Properties
     enum Constants {
@@ -30,7 +36,10 @@ struct PokedexListRowView: View {
     // MARK: View Properties
     var body: some View {
         Button {
-            viewModel.showPokemon()
+            viewModel.showPokemon(
+                content: content,
+                from: modelContext
+            )
         } label: {
             HStack(spacing: 0.0) {
                 ClippedImageView(
